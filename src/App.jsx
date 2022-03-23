@@ -10,6 +10,9 @@ import * as authService from './services/authService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+
+  console.log(user)
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -41,7 +44,7 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
