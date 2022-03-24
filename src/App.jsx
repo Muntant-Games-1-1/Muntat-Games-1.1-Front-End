@@ -32,7 +32,10 @@ const App = () => {
 
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
-      .then()
+      .then(lobby => {
+        navigate('/')
+      })
+      .catch(navigate('/'))
   }
 
   return (
