@@ -16,8 +16,6 @@ import AddAGame from './pages/AddAGame/AddAGame'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
 
-  console.log(user)
-
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -33,7 +31,6 @@ const App = () => {
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
       .then(lobby => {
-        console.log(lobby)
         navigate('/')
       })
       .catch(navigate('/'))
