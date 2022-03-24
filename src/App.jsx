@@ -30,8 +30,9 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  function handleCreateLobby() {
-
+  function handleCreateLobby(newLobby) {
+    lobbyService.createLobby(newLobby)
+      .then()
   }
 
   return (
