@@ -7,9 +7,14 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import MakeALobby from './pages/MakeALobby/MakeALobby'
+import AddAGame from './pages/AddAGame/AddAGame'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+
+  console.log(user)
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -41,7 +46,15 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/create-lobby"
+          element={user ? < MakeALobby /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/add-game"
+          element={user ? < AddAGame /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
