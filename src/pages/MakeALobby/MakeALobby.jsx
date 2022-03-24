@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-function MakeALobby(props) {
+function MakeALobby({ handleCreateLobby }) {
 
   const [validForm, setValidForm] = useState(false)
 
@@ -20,6 +20,7 @@ function MakeALobby(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    handleCreateLobby(formData)
   }
 
   // Side-Effects
