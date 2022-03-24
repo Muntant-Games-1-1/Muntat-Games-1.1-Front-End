@@ -20,7 +20,7 @@ function MakeALobby({ handleCreateLobby }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    handleCreateLobby()
+    handleCreateLobby(formData)
   }
 
   // Side-Effects

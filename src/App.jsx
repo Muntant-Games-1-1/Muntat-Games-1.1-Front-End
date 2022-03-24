@@ -33,6 +33,7 @@ const App = () => {
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
       .then(lobby => {
+        console.log(lobby)
         navigate('/')
       })
       .catch(navigate('/'))
