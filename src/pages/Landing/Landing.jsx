@@ -6,7 +6,10 @@ const Landing = ({ user, lobby ,handleDeleteLobby}) => {
       <h1>hello, {user ? user.name : 'friend'}</h1>
       {lobby && lobby.map((lobbies)=>(
         <div key={lobbies._id}>
-          <LobbyList  lobby={lobbies} handleDeleteLobbies={handleDeleteLobby}/>
+          <LobbyList  
+          user={user}
+          lobby={lobbies}
+          handleDeleteLobbies={handleDeleteLobby}/>
         </div>
         
       ))}

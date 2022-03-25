@@ -15,11 +15,9 @@ import EditALobby from './pages/EditALobby/EditALobby'
 
 
 const App = () => {
-  const [user, setUser] = useState((null))
+  const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
   
-  lobbyService.getAllLobby()
-
   useEffect(()=>{
     if(user){
       lobbyService.getAllLobby()
