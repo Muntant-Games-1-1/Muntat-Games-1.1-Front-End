@@ -48,13 +48,10 @@ const App = () => {
       .catch(navigate('/'))
   }
 
-<<<<<<< HEAD
-=======
   function handleEditLobby() {
     console.log('Connected!')
   }
 
->>>>>>> develop
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -79,13 +76,10 @@ const App = () => {
         <Route
           path="/create-lobby"
           element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} /> : <Navigate to="/login" />}
-<<<<<<< HEAD
-=======
         />
         <Route
           path="/edit-lobby"
           element={user ? < EditALobby handleEditLobby={handleEditLobby} /> : <Navigate to="/login" />}
->>>>>>> develop
         />
         <Route
           path="/add-game"
