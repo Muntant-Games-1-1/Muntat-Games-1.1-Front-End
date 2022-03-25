@@ -1,6 +1,19 @@
-import React from 'react';
+import {useRef, useState, useEffect} from 'react';
 
 function EditALobby(props) {
+
+function handleSubmit(){
+
+}
+
+function handleChange(){
+
+}
+
+const [formData, setFormData] = useState(null)
+
+const formElement = useRef()
+
   return (
     <div className='lobby-form'>
       <h1>Edit A Lobby</h1>
