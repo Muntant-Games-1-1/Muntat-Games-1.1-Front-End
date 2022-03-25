@@ -4,6 +4,7 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
+      <div className="nav">
         <nav>
           <ul>
             <li>Welcome, {user.name}</li>
@@ -12,6 +13,7 @@ const NavBar = ({ user, handleLogout }) => {
             <li><Link to="/changePassword">Change Password</Link></li>
           </ul>
         </nav>
+      </div>
       :
         <nav>
           <ul>
