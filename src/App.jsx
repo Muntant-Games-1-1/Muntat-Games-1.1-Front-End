@@ -58,7 +58,9 @@ console.log(categories)
     console.log('Connected!')
   }
 
-  function handleCreateGame() {
+  function handleCreateGame(game) {
+    gameService.addGame(game)
+    navigate('/')
   }
   return (
     <>
