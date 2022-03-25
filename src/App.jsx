@@ -58,7 +58,7 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} lobby={lobby}/>} handleDeleteLobby={handleDeleteLobby}/>
+        <Route path="/" element={<Landing user={user} lobby={lobby} handleDeleteLobby={handleDeleteLobby} /> } />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}
