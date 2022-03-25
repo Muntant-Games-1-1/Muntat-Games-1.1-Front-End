@@ -16,6 +16,7 @@ export async function getAllLobby() {
   return fetch(BASE_URL)
   .then(res => res.json())
 }
+
 export async function deleteOneLobby(id) {
   return fetch(`${BASE_URL}/${id}`,{
     method: 'DELETE',
@@ -25,5 +26,6 @@ export async function deleteOneLobby(id) {
   })
   .then(res => res.json())
 }
+
 
 

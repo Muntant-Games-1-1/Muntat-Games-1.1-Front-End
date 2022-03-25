@@ -10,7 +10,12 @@ import * as authService from './services/authService'
 import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
+
 import EditALobby from './pages/EditALobby/EditALobby'
+
+import LobbyList from './pages/LobbyList/LobbyList'
+import EditALobby from './pages/EditALobby/EditALobby'
+
 
 
 
@@ -18,12 +23,22 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
   
+
   useEffect(()=>{
     if(user){
       lobbyService.getAllLobby()
       .then(allLobby => setLobby(allLobby))
     }
 }, [user])
+
+  lobbyService.getAllLobby()
+
+  useEffect(()=>{
+    lobbyService.getAllLobby()
+    .then(allLobby => setLobby(allLobby))
+  }, [])
+
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -44,12 +59,11 @@ const App = () => {
       .catch(navigate('/'))
   }
 
+
   const handleDeleteLobby = id => {
     lobbyService.deleteOneLobby(id)
     .then(deleteOneLobby => setLobby(lobby.filter(lobby => lobby._id !== deleteOneLobby._id)))
   }
-
-
   function handleEditLobby() {
     console.log('Connected!')
   }
@@ -58,7 +72,11 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
+
         <Route path="/" element={<Landing user={user} lobby={lobby} handleDeleteLobby={handleDeleteLobby} /> } />
+
+        <Route path="/" element={<Landing user={user} lobby={lobby}/>} />
+
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}

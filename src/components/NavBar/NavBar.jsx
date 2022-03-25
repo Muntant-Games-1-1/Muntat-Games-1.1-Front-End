@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -8,6 +9,7 @@ const NavBar = ({ user, handleLogout }) => {
       {user ?
         <nav>
           <a href="/create-lobby">add</a>
+        <nav className={styles.navbar}>
 
           <ul>
             <li>Welcome, {user.name}</li>
@@ -17,8 +19,8 @@ const NavBar = ({ user, handleLogout }) => {
           </ul>
         </nav>
       :
-        <nav>
-          <ul>
+        <nav className={styles.navbar}>
+          <ul className='navbar'>
             <li><Link to="/login">Log In</Link></li>
             <li><Link to="/signup">Sign Up</Link></li>
           </ul>
