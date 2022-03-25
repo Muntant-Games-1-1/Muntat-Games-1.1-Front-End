@@ -9,7 +9,8 @@ function AddAGame({handleCreateGame, categories}) {
     name: '',
     maxPlayers: '',
     description: '',
-    category: ''
+    // This is The Id For The First Item In The Dropdown. In Case They Create a Game Without Making Any Changes To Game Category, The Value Wont Be Empty
+    category: '623dbaa1c5a00f1dc67ec759'
   })
   // Element References 
   const formElement = useRef()
@@ -61,7 +62,7 @@ function AddAGame({handleCreateGame, categories}) {
         {/* Selection For Game Category */}
 
       {/* Game Description Input */}
-        <label htmlFor="description">Player Limit</label>
+        <label htmlFor="description">Description</label>
         <textarea
           name="description"
           id="description"
@@ -78,7 +79,6 @@ function AddAGame({handleCreateGame, categories}) {
           id="category"
           onChange={handleChange}
           >
-            <option value="">--Selection--</option>
             {categories && categories.map(category => (
               <option key={category._id} value={category._id}>{category.name}</option>
             ))}
