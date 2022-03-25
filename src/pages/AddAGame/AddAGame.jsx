@@ -8,7 +8,8 @@ function AddAGame({handleCreateGame, categories}) {
   const [formData, setFormData] = useState({
     name: '',
     maxPlayers: '',
-    description: ''
+    description: '',
+    category: ''
   })
   // Element References 
   const formElement = useRef()
@@ -67,18 +68,19 @@ function AddAGame({handleCreateGame, categories}) {
           cols="30"
           rows="10"
           onChange={handleChange}
+          value={formData.description}
           required
           >
-          {formData.description}
         </textarea>
         <label htmlFor="category">Player Limit</label>
         <select
          name="category"
           id="category"
+          onChange={handleChange}
           >
             <option value="">--Selection--</option>
             {categories && categories.map(category => (
-              <option value={category._id}>category.name</option>
+              <option key={category._id} value={category._id}>{category.name}</option>
             ))}
         </select>
         <button
