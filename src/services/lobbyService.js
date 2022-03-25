@@ -7,4 +7,10 @@ export async function createLobby(lobbyDetails) {
     body: JSON.stringify(lobbyDetails)
   })
   return details.json()
+};
+export async function getAllLobby() {
+  return fetch(BASE_URL)
+  .then(res => res.json())
 }
+}
+
