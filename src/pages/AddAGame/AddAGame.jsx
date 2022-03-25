@@ -20,7 +20,8 @@ function AddAGame({handleCreateGame}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    handleCreateGame()
+    console.log(formData)
+    handleCreateGame(formData)
   }
 
   // Side-Effects
@@ -30,7 +31,7 @@ function AddAGame({handleCreateGame}) {
 
   return (
     <>
-      <h1>Create A Lobby</h1>
+      <h1>Add A Game</h1>
       <form
         onSubmit={handleSubmit}
         ref={formElement}
@@ -55,6 +56,9 @@ function AddAGame({handleCreateGame}) {
           value={formData.maxPlayers}
           onChange={handleChange}
         />
+
+        {/* Selection For Game Category */}
+
       {/* Game Description Input */}
         <label htmlFor="description">Player Limit</label>
         <textarea
