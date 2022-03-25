@@ -72,9 +72,9 @@ function AddAGame({handleCreateGame, categories}) {
           required
           >
         </textarea>
-        <label htmlFor="category">Player Limit</label>
+        <label htmlFor="category">Categories</label>
         <select
-         name="category"
+         name="categories"
           id="category"
           onChange={handleChange}
           >
