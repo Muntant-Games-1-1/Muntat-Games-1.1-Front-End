@@ -12,19 +12,27 @@ import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
 import LobbyList from './pages/LobbyList/LobbyList'
 import EditALobby from './pages/EditALobby/EditALobby'
-import gameServices from './services/gameService'
+import * as gameService from './services/gameService'
 
 
 const App = () => {
+  // State Constants
   const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
-  
+  const [categories, setCategories] = useState([])
   lobbyService.getAllLobby()
 
+// Side Effects
   useEffect(()=>{
   lobbyService.getAllLobby()
-  .then(allLobby => setLobby(allLobby))
+    .then(allLobby => setLobby(allLobby))
 }, [])
+
+useEffect(() =>{
+  gameService.getCategories()
+    .then(categories => setCategories(categories))
+}, [])
+console.log(categories)
 
   const navigate = useNavigate()
 
@@ -85,7 +93,7 @@ const App = () => {
         />
         <Route
           path="/add-game"
-          element={user ? < AddAGame handleCreateGame={handleCreateGame}/> : <Navigate to="/login" />}
+          element={user ? < AddAGame handleCreateGame={handleCreateGame} categories={categories}/> : <Navigate to="/login" />}
         />
       </Routes>
     </>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-function AddAGame({handleCreateGame}) {
+function AddAGame({handleCreateGame, categories}) {
 
   // State Variables
   const [validForm, setValidForm] = useState(false)
@@ -71,6 +71,16 @@ function AddAGame({handleCreateGame}) {
           >
           {formData.description}
         </textarea>
+        <label htmlFor="category">Player Limit</label>
+        <select
+         name="category"
+          id="category"
+          >
+            <option value="">--Selection--</option>
+            {categories && categories.map(category => (
+              <option value={category._id}>category.name</option>
+            ))}
+        </select>
         <button
           type='submit'
           disabled={!validForm}>
