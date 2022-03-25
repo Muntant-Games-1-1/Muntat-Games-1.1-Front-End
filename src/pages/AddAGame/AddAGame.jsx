@@ -2,17 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 
 function AddAGame({handleCreateGame}) {
 
+  // State Variables
   const [validForm, setValidForm] = useState(false)
 
-  const formElement = useRef()
-  // ! Make Sure To Set The Drop Down Menu Inputs Initial State To The First Selection
   const [formData, setFormData] = useState({
     name: '',
     maxPlayers: '',
     description: ''
   })
+  // Element References 
+  const formElement = useRef()
 
-  // Action Handlers
+  // Event Handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -30,7 +31,11 @@ function AddAGame({handleCreateGame}) {
   return (
     <>
       <h1>Create A Lobby</h1>
-      <form onSubmit={handleSubmit} ref={formElement}>
+      <form
+        onSubmit={handleSubmit}
+        ref={formElement}
+      >
+        {/* Game Name Input */}
         <label htmlFor="gameName">Game Name</label>
         <input
           required
@@ -40,7 +45,7 @@ function AddAGame({handleCreateGame}) {
           value={formData.name}
           onChange={handleChange}
         />
-        {/* ===================== */}
+       {/* Player Limit Input */}
         <label htmlFor="maxPlayers">Player Limit</label>
         <input
           required
@@ -50,11 +55,20 @@ function AddAGame({handleCreateGame}) {
           value={formData.maxPlayers}
           onChange={handleChange}
         />
-
-        {/* ======================== */}
-        <label htmlFor="lobbyLimit">Player Limit</label>
-        
-        <button type='submit' disabled={!validForm}>Create</button>
+      {/* Game Description Input */}
+        <label htmlFor="description">Player Limit</label>
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10">
+          {formData.description}
+        </textarea>
+        <button
+          type='submit'
+          disabled={!validForm}>
+            Create
+        </button>
       </form>
     </>
   );
