@@ -40,22 +40,20 @@ function AddAGame({handleCreateGame}) {
           value={formData.name}
           onChange={handleChange}
         />
-        <label htmlFor="chooseGame">Choose A Game</label>
-        <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData.chooseGame}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
-        </select>
-        <label htmlFor="lobbyLimit">Player Limit</label>
+        {/* ===================== */}
+        <label htmlFor="maxPlayers">Player Limit</label>
         <input
-          type="text"
-          id='lobbyLimit'
-          name='lobbyLimit'
-          onChange={handleChange} />
-        <label htmlFor="playerRank">Minimum Rank</label>
-        <select id='playerRank' name='playerRank' onChange={handleChange}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
-        </select>
+          required
+          type="number"
+          id='maxPlayers'
+          name='name'
+          value={formData.maxPlayers}
+          onChange={handleChange}
+        />
+
+        {/* ======================== */}
+        <label htmlFor="lobbyLimit">Player Limit</label>
+        
         <button type='submit' disabled={!validForm}>Create</button>
       </form>
     </>
