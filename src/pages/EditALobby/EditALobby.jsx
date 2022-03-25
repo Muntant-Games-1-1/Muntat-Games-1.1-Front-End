@@ -1,9 +1,9 @@
 import {useRef, useState, useEffect} from 'react';
-
+// ! Change All The Input Values To Have The Pre-Edit Data
 function EditALobby(props) {
 
-function handleSubmit(){
-
+function handleSubmit(e){
+e.preventDefault()
 }
 
 function handleChange(){
@@ -17,7 +17,7 @@ const formElement = useRef()
   return (
     <div className='lobby-form'>
       <h1>Edit A Lobby</h1>
-      <form onSubmit={handleSubmit} ref={formElement}>
+      <form onSubmit={handleSubmit} ref={formElement} autoComplete={false}>
         <label htmlFor="lobbyName">Lobby Name</label>
         <input
           required
@@ -42,7 +42,7 @@ const formElement = useRef()
           <option value="sample">sample</option>
           <option value="sample">sample</option>
         </select>
-        <button type='submit' disabled={!validForm}>Create</button>
+        <button type='submit' disabled={!validForm}>Update</button>
       </form>
     </div>
   );
