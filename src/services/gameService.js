@@ -11,7 +11,7 @@ export async function getCategories(){
 }
 
 export async function addGame(gameDetails){
-  const game = await fetch(`${BASE_URL}`, {
+  const game = await fetch(`${BASE_URL}/api/games`, {
     method: 'POST', 
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,

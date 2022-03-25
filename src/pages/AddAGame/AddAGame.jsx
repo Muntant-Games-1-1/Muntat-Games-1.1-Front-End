@@ -10,7 +10,7 @@ function AddAGame({handleCreateGame, categories}) {
     maxPlayers: '',
     description: '',
     // This is The Id For The First Item In The Dropdown. In Case They Create a Game Without Making Any Changes To Game Category, The Value Wont Be Empty
-    category: '623dbaa1c5a00f1dc67ec759'
+    categories: '623dbaa1c5a00f1dc67ec759'
   })
   // Element References 
   const formElement = useRef()
@@ -22,7 +22,6 @@ function AddAGame({handleCreateGame, categories}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(formData)
     handleCreateGame(formData)
   }
 
