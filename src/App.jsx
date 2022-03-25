@@ -20,10 +20,12 @@ const App = () => {
   const [lobby, setLobby] = useState([])
   
   lobbyService.getAllLobby()
+
   useEffect(()=>{
   lobbyService.getAllLobby()
   .then(allLobby => setLobby(allLobby))
 }, [])
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -52,7 +54,7 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} lobby={lobby}/>} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

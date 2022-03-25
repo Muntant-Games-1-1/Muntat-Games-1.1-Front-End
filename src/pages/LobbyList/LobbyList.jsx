@@ -1,9 +1,10 @@
 import React  from "react";
-import Landing from "../Landing/Landing";
-const LobbyList = ()=>{
+
+const LobbyList = ({lobby})=>{
   return(
     <>
-    <h1>hey</h1>
+    <h1> {lobby.name}</h1>
+    <h1> {lobby._id}</h1>
     </>
   )
 }
