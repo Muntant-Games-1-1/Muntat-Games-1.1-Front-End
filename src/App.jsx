@@ -61,7 +61,6 @@ console.log(categories)
   function handleCreateGame() {
     console.log('Connected!')
   }
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
