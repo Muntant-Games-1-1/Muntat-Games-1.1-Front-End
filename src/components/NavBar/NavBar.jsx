@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
+    
     <>
+    
       {user ?
         <nav>
+          <a href="/create-lobby">add</a>
+
           <ul>
             <li>Welcome, {user.name}</li>
             <li><Link to="/profiles">Profiles</Link></li>
