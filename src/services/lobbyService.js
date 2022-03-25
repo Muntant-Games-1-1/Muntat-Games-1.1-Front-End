@@ -12,5 +12,5 @@ export async function getAllLobby() {
   return fetch(BASE_URL)
   .then(res => res.json())
 }
-}
+
 
