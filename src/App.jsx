@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -7,13 +7,24 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
+import LobbyList from './pages/LobbyList/LobbyList'
+import EditALobby from './pages/EditALobby/EditALobby'
+
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [lobby, setLobby] = useState([])
+  
+  lobbyService.getAllLobby()
 
-  console.log(user)
+  useEffect(()=>{
+  lobbyService.getAllLobby()
+  .then(allLobby => setLobby(allLobby))
+}, [])
 
   const navigate = useNavigate()
 
@@ -27,11 +38,23 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  function handleCreateLobby(newLobby) {
+    lobbyService.createLobby(newLobby)
+      .then(lobby => {
+        navigate('/')
+      })
+      .catch(navigate('/'))
+  }
+
+  function handleEditLobby() {
+    console.log('Connected!')
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} lobby={lobby}/>} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -50,7 +73,11 @@ const App = () => {
         />
         <Route
           path="/create-lobby"
-          element={user ? < MakeALobby /> : <Navigate to="/login" />}
+          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/edit-lobby"
+          element={user ? < EditALobby handleEditLobby={handleEditLobby} /> : <Navigate to="/login" />}
         />
         <Route
           path="/add-game"
@@ -60,5 +87,6 @@ const App = () => {
     </>
   )
 }
+
 
 export default App

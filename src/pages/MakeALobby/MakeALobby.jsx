@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-function MakeALobby(props) {
+function MakeALobby({ handleCreateLobby }) {
 
   const [validForm, setValidForm] = useState(false)
 
@@ -8,9 +8,9 @@ function MakeALobby(props) {
   // ! Make Sure To Set The Drop Down Menu Inputs Initial State To The First Selection
   const [formData, setFormData] = useState({
     lobbyName: '',
-    chooseGame: '',
-    lobbyLimit: '',
-    playerRank: ''
+    // chooseGame: '',
+    // lobbyLimit: '',
+    // playerRank: ''
   })
 
   // Action Handlers
@@ -20,6 +20,7 @@ function MakeALobby(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    handleCreateLobby(formData)
   }
 
   // Side-Effects
@@ -33,9 +34,10 @@ function MakeALobby(props) {
       <form onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="lobbyName">Lobby Name</label>
         <input
+          required
           type="text"
           id='lobbyName'
-          name='lobbyName'
+          name='name'
           onChange={handleChange}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
