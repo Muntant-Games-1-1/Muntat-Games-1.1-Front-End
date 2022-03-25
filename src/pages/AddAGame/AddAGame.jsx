@@ -51,7 +51,7 @@ function AddAGame({handleCreateGame}) {
           required
           type="number"
           id='maxPlayers'
-          name='name'
+          name='maxPlayers'
           value={formData.maxPlayers}
           onChange={handleChange}
         />
@@ -61,7 +61,9 @@ function AddAGame({handleCreateGame}) {
           name="description"
           id="description"
           cols="30"
-          rows="10">
+          rows="10"
+          onChange={handleChange}
+          >
           {formData.description}
         </textarea>
         <button
