@@ -1,16 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
-function AddAGame(props) {
+function AddAGame({handleCreateGame}) {
 
   const [validForm, setValidForm] = useState(false)
 
   const formElement = useRef()
   // ! Make Sure To Set The Drop Down Menu Inputs Initial State To The First Selection
   const [formData, setFormData] = useState({
-    lobbyName: '',
-    // chooseGame: '',
-    // lobbyLimit: '',
-    // playerRank: ''
+    name: '',
+    maxPlayers: '',
+    description: ''
   })
 
   // Action Handlers
@@ -20,7 +19,7 @@ function AddAGame(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    handleCreateLobby(formData)
+    // handleCreateLobby(formData)
   }
 
   // Side-Effects
@@ -32,12 +31,13 @@ function AddAGame(props) {
     <>
       <h1>Create A Lobby</h1>
       <form onSubmit={handleSubmit} ref={formElement}>
-        <label htmlFor="lobbyName">Lobby Name</label>
+        <label htmlFor="gameName">Game Name</label>
         <input
           required
           type="text"
-          id='lobbyName'
+          id='gameName'
           name='name'
+          value={formData.name}
           onChange={handleChange}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
