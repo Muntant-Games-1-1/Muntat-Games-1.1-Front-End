@@ -22,7 +22,7 @@ const App = () => {
   lobbyService.getAllLobby()
   .then(allLobby => setLobby(allLobby))
 }, [])
-console.log('hello',lobby);
+
   
   
 
