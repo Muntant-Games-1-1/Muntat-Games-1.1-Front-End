@@ -4,7 +4,9 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}http://localhost:30
 export async function createLobby(lobbyDetails) {
   const details = await fetch(BASE_URL, {
     method: "POST",
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json',
+    'Authorization': `Bearer ${tokenService.getToken()}`
+  },
     body: JSON.stringify(lobbyDetails)
   })
   return details.json()

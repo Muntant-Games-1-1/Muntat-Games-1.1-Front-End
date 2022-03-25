@@ -15,15 +15,17 @@ import EditALobby from './pages/EditALobby/EditALobby'
 
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
+  const [user, setUser] = useState((null))
   const [lobby, setLobby] = useState([])
   
   lobbyService.getAllLobby()
 
   useEffect(()=>{
-  lobbyService.getAllLobby()
-  .then(allLobby => setLobby(allLobby))
-}, [])
+    if(user){
+      lobbyService.getAllLobby()
+      .then(allLobby => setLobby(allLobby))
+    }
+}, [user])
   const navigate = useNavigate()
 
   const handleLogout = () => {
