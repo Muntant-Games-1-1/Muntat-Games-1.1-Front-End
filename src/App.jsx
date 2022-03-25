@@ -10,8 +10,7 @@ import * as authService from './services/authService'
 import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
-import LobbyList from './pages/LobbyList/LobbyList' 
-
+import EditALobby from './pages/EditALobby/EditALobby'
 
 
 
@@ -20,11 +19,11 @@ const App = () => {
   const [lobby, setLobby] = useState([])
   
   lobbyService.getAllLobby()
+
   useEffect(()=>{
   lobbyService.getAllLobby()
   .then(allLobby => setLobby(allLobby))
 }, [])
-console.log(lobby);
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -40,20 +39,29 @@ console.log(lobby);
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
       .then(lobby => {
-
         navigate('/')
       })
       .catch(navigate('/'))
+  }
+
+  const handleDeleteLobby = id => {
+    lobbyService.deleteOneLobby(id)
+    .then(deleteOneLobby => setLobby(lobby.filter(lobby => lobby._id !== deleteOneLobby._id)))
+  }
+
+
+  function handleEditLobby() {
+    console.log('Connected!')
   }
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} lobby={lobby}/>} handleDeleteLobby={handleDeleteLobby}/>
         <Route
           path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}
         />
         <Route
           path="/login"
@@ -70,6 +78,10 @@ console.log(lobby);
         <Route
           path="/create-lobby"
           element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/edit-lobby"
+          element={user ? < EditALobby handleEditLobby={handleEditLobby} /> : <Navigate to="/login" />}
         />
         <Route
           path="/add-game"

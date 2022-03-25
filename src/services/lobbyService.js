@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:3001/api/lobbies'
+import * as tokenService from './tokenService'
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}http://localhost:3001/api/lobbies`
 
 export async function createLobby(lobbyDetails) {
   const details = await fetch(BASE_URL, {
@@ -10,7 +11,20 @@ export async function createLobby(lobbyDetails) {
 };
 
 export async function getAllLobby() {
-  return fetch(BASE_URL)
+  return fetch(BASE_URL.at,{
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  .then(res => res.json())
+}
+export async function deleteOneLobby(id) {
+  return fetch(`${BASE_URL}/${id}`,{
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
   .then(res => res.json())
 }
 

@@ -1,9 +1,12 @@
 import React  from "react";
-import Landing from "../Landing/Landing";
-const LobbyList = ()=>{
+
+const LobbyList = ({lobby, handleDeleteLobbies})=>{
   return(
     <>
-    <h1>hey</h1>
+    <h1> {lobby.name}</h1>
+    <button onClick={()=> handleDeleteLobbies(lobby._id)}>
+            Delete
+          </button>
     </>
   )
 }
