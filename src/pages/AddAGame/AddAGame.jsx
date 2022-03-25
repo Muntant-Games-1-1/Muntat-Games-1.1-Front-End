@@ -63,13 +63,14 @@ function AddAGame({handleCreateGame}) {
           cols="30"
           rows="10"
           onChange={handleChange}
+          required
           >
           {formData.description}
         </textarea>
         <button
           type='submit'
           disabled={!validForm}>
-            Create
+            Add Game
         </button>
       </form>
     </>
