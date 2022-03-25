@@ -8,10 +8,9 @@ export async function createLobby(lobbyDetails) {
   })
   return details.json()
 };
-
-
 export async function getAllLobby() {
   return fetch(BASE_URL)
   .then(res => res.json())
+}
 }
 

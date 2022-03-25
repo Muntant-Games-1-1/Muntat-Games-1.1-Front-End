@@ -13,6 +13,8 @@ import AddAGame from './pages/AddAGame/AddAGame'
 import LobbyList from './pages/LobbyList/LobbyList'
 
 
+
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
@@ -22,7 +24,6 @@ const App = () => {
   lobbyService.getAllLobby()
   .then(allLobby => setLobby(allLobby))
 }, [])
-
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -38,7 +39,7 @@ const App = () => {
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
       .then(lobby => {
-        console.log(lobby)
+
         navigate('/')
       })
       .catch(navigate('/'))
