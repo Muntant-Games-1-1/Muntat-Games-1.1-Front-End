@@ -11,6 +11,8 @@ import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
 import LobbyList from './pages/LobbyList/LobbyList'
+import EditALobby from './pages/EditALobby/EditALobby'
+
 
 
 const App = () => {
@@ -23,7 +25,7 @@ const App = () => {
   lobbyService.getAllLobby()
   .then(allLobby => setLobby(allLobby))
 }, [])
-console.log('hello',lobby);
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -39,10 +41,13 @@ console.log('hello',lobby);
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
       .then(lobby => {
-        console.log(lobby)
         navigate('/')
       })
       .catch(navigate('/'))
+  }
+
+  function handleEditLobby() {
+    console.log('Connected!')
   }
 
   return (
@@ -69,6 +74,10 @@ console.log('hello',lobby);
         <Route
           path="/create-lobby"
           element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/edit-lobby"
+          element={user ? < EditALobby handleEditLobby={handleEditLobby} /> : <Navigate to="/login" />}
         />
         <Route
           path="/add-game"
