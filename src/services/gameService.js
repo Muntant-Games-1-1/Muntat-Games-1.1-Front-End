@@ -7,10 +7,14 @@ export async function getCategories(){
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-
-export async function addGame(){
-  const game = await fetch(`${BASE_URL}`)
+  return categories.json()
 }
 
-  return categories.json()
+export async function addGame(){
+  const game = await fetch(`${BASE_URL}`, {
+    method: 'POST', 
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
 }
