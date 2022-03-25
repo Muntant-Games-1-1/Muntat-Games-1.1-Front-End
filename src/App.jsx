@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -10,13 +10,21 @@ import * as authService from './services/authService'
 import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
-
+import LobbyList from './pages/LobbyList/LobbyList'
 
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
-
-  console.log(user)
+  const [lobby, setLobby] = useState([])
+  
+  lobbyService.getAllLobby()
+  useEffect(()=>{
+  lobbyService.getAllLobby()
+  .then(allLobby => setLobby(allLobby))
+}, [])
+console.log('hello',lobby);
+  
+  
 
   const navigate = useNavigate()
 
