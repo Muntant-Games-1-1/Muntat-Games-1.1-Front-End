@@ -9,7 +9,7 @@ function handleSubmit(){
 function handleChange(){
 
 }
-
+const [validForm, setValidForm] =useState(true)
 const [formData, setFormData] = useState(null)
 
 const formElement = useRef()
@@ -27,7 +27,7 @@ const formElement = useRef()
           onChange={handleChange}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
-        <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData.chooseGame}>
+        <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData?.chooseGame}>
           <option value="sample">sample</option>
           <option value="sample">sample</option>
         </select>
