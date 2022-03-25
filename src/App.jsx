@@ -12,7 +12,7 @@ import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
 import LobbyList from './pages/LobbyList/LobbyList'
 import EditALobby from './pages/EditALobby/EditALobby'
-
+import gameServices from './services/gameService'
 
 
 const App = () => {
