@@ -20,7 +20,7 @@ function AddAGame({handleCreateGame}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // handleCreateLobby(formData)
+    handleCreateGame()
   }
 
   // Side-Effects

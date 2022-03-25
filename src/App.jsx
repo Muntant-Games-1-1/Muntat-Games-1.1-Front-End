@@ -50,6 +50,10 @@ const App = () => {
     console.log('Connected!')
   }
 
+  function handleCreateGame() {
+    console.log('Connected!')
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -81,7 +85,7 @@ const App = () => {
         />
         <Route
           path="/add-game"
-          element={user ? < AddAGame /> : <Navigate to="/login" />}
+          element={user ? < AddAGame handleCreateGame={handleCreateGame}/> : <Navigate to="/login" />}
         />
       </Routes>
     </>
