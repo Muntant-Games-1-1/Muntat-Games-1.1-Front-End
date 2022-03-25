@@ -23,9 +23,6 @@ const App = () => {
   .then(allLobby => setLobby(allLobby))
 }, [])
 
-  
-  
-
   const navigate = useNavigate()
 
   const handleLogout = () => {
