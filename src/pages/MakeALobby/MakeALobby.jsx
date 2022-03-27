@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
 function MakeALobby({ handleCreateLobby, games }) {
-console.log(games)
   const [validForm, setValidForm] = useState(false)
 
   const formElement = useRef()
