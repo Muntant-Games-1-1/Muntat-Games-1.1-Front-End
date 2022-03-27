@@ -11,13 +11,34 @@ import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
 import EditALobby from './pages/EditALobby/EditALobby'
+import * as gameService from './services/gameService'
 import LobbyList from './pages/LobbyList/LobbyList'
-import LobbyDetail from './pages/LobbyDetail/LobbyDetail'
-
 
 const App = () => {
+  // State Constants
   const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
+  const [categories, setCategories] = useState([])
+  const [games, setGames] = useState([])
+  const navigate = useNavigate()
+  lobbyService.getAllLobby()
+
+// Side Effects
+useEffect(() =>{
+  gameService.getAllGames()
+  .then(allGames => setGames(allGames))
+}, [])
+
+  useEffect(()=>{
+  lobbyService.getAllLobby()
+    .then(allLobby => setLobby(allLobby))
+}, [])
+
+useEffect(() =>{
+  gameService.getCategories()
+    .then(categories => setCategories(categories))
+}, [])
+
   
   useEffect(()=>{
     if(user){
@@ -25,7 +46,6 @@ const App = () => {
       .then(allLobby => setLobby(allLobby))
     }
 }, [user])
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     authService.logout()
@@ -39,7 +59,8 @@ const App = () => {
 
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
-      .then(lobby => {
+      .then(createdLobby => {
+        setLobby([...lobby, createdLobby])
         navigate('/')
       })
       .catch(navigate('/'))
@@ -50,10 +71,21 @@ const App = () => {
     .then(deleteOneLobby => setLobby(lobby.filter(lobby => lobby._id !== deleteOneLobby._id)))
   }
 
-  function handleEditLobby() {
-    console.log('Connected!')
+  function handleEditLobby(lobbyInfo) {
+    lobbyService.updateLobby(lobbyInfo)
+    .then(updatedLobby => {
+      const newLobbies = lobby.map(l =>{
+      return  l._id === updatedLobby._id ? updatedLobby : l
+      })
+      setLobby(newLobbies)
+    })
+    navigate('/')
   }
 
+  function handleCreateGame(game) {
+    gameService.addGame(game)
+    navigate('/')
+  }
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -77,15 +109,15 @@ const App = () => {
         />
         <Route
           path="/create-lobby"
-          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} /> : <Navigate to="/login" />}
+          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} games={games.games}/> : <Navigate to="/login" />}
         />
         <Route
           path="/edit-lobby"
-          element={user ? < EditALobby handleEditLobby={handleEditLobby} /> : <Navigate to="/login" />}
+          element={user ? < EditALobby handleEditLobby={handleEditLobby} games={games.games}/> : <Navigate to="/login" />}
         />
         <Route
           path="/add-game"
-          element={user ? < AddAGame /> : <Navigate to="/login" />}
+          element={user ? < AddAGame handleCreateGame={handleCreateGame} categories={categories}/> : <Navigate to="/login" />}
         />
 
         <Route
