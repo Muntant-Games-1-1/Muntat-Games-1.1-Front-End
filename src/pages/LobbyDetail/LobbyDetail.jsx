@@ -19,9 +19,9 @@ function LobbyDetail({}){
     <div className="rightside"> 
     <div>
       <h1>lobbyname</h1>
-      <h1>lobbyy owner</h1>
-      <h1>lobbyhead count</h1>
-      <h1>remainf spot</h1>
+      <h2>lobbyy owner</h2>
+      <h2>lobbyhead count</h2>
+      <h2>remainf spot</h2>
     </div>
     </div>
     </div>

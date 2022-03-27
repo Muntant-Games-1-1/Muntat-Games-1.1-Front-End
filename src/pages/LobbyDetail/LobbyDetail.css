@@ -8,11 +8,15 @@ h1{
 }
 .main{
   display: flex;
-  gap: 41.3rem;
+  gap: 7.3rem;
 }
 .rightside{
   background-color: red;
+  
 }
 .leftSide{
   background-color: green
+}
+.rightside, .leftSide{
+  width:40rem;
 }
