@@ -7,15 +7,14 @@ const NavBar = ({ user, handleLogout }) => {
     <>
     
       {user ?
-        <nav>
-          <a href="/create-lobby">add</a>
         <nav className={styles.navbar}>
-
           <ul>
             <li>Welcome, {user.name}</li>
             <li><Link to="/profiles">Profiles</Link></li>
             <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
             <li><Link to="/changePassword">Change Password</Link></li>
+            <li><Link to="/create-lobby">create a Lobby</Link></li>
+            
           </ul>
         </nav>
       :
