@@ -12,12 +12,17 @@ h1{
   gap: 7.3rem;
 }
 .rightside{
-  background-color: red;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 1px grey solid;
   
 }
 .leftSide{
-  background-color: green
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 1px grey solid;
 }
+
 .rightside, .leftSide{
   width:40rem;
 }
@@ -26,3 +31,4 @@ h1{
   padding-left: 6rem;
   padding-right: 6rem;
 }
+
