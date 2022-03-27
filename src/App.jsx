@@ -24,7 +24,8 @@ const App = () => {
 
 // Side Effects
 useEffect(() =>{
-  
+  gameService.getAllGames()
+  .then(allGames => setGames(allGames))
 }, [])
 
   useEffect(()=>{
@@ -101,7 +102,7 @@ useEffect(() =>{
         />
         <Route
           path="/create-lobby"
-          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} /> : <Navigate to="/login" />}
+          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} games={games}/> : <Navigate to="/login" />}
         />
         <Route
           path="/edit-lobby"
