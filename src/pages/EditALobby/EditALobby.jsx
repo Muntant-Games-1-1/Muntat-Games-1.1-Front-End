@@ -50,11 +50,6 @@ useEffect(() =>{
           onChange={handleChange} 
           value={formData.lobbyLimit}
           />
-        <label htmlFor="playerRank">Minimum Rank</label>
-        <select id='playerRank' name='playerRank' onChange={handleChange}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
-        </select>
         <button type='submit' disabled={!validForm}>Update</button>
       </form>
     </div>
