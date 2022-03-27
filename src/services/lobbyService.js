@@ -28,3 +28,6 @@ export async function deleteOneLobby(id) {
 
 
 
+export async function updateLobby() {
+  
+} 

@@ -11,6 +11,7 @@ function EditALobby({games, handleEditLobby}) {
   // Event Handlers
 function handleSubmit(e){
 e.preventDefault()
+handleEditLobby(formData)
 }
 
 function handleChange(e){

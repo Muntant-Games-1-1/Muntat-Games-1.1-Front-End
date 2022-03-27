@@ -71,8 +71,8 @@ useEffect(() =>{
     .then(deleteOneLobby => setLobby(lobby.filter(lobby => lobby._id !== deleteOneLobby._id)))
   }
 
-  function handleEditLobby() {
-    console.log('Connected!')
+  function handleEditLobby(lobbyInfo) {
+    console.log(lobbyInfo)
   }
 
   function handleCreateGame(game) {
