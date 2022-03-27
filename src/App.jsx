@@ -102,7 +102,7 @@ useEffect(() =>{
         />
         <Route
           path="/create-lobby"
-          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} games={games}/> : <Navigate to="/login" />}
+          element={user ? < MakeALobby handleCreateLobby={handleCreateLobby} games={games.games}/> : <Navigate to="/login" />}
         />
         <Route
           path="/edit-lobby"

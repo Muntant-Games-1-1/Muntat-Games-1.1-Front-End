@@ -1,17 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
-function MakeALobby({ handleCreateLobby }) {
-
+function MakeALobby({ handleCreateLobby, games }) {
+console.log(games)
   const [validForm, setValidForm] = useState(false)
 
   const formElement = useRef()
   // ! Make Sure To Set The Drop Down Menu Inputs Initial State To The First Selection
-  const [formData, setFormData] = useState({
-    lobbyName: '',
-    // chooseGame: '',
-    // lobbyLimit: '',
-    // playerRank: ''
-  })
+  const [formData, setFormData] = useState({game: games[0]._id})
 
   // Action Handlers
   function handleChange(e) {
@@ -42,8 +37,9 @@ function MakeALobby({ handleCreateLobby }) {
         />
         <label htmlFor="chooseGame">Choose A Game</label>
         <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
+          {games?.map(game =>(
+              <option value={game._id}>{game.name}</option>
+           ))}
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
         <input
