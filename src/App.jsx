@@ -54,7 +54,8 @@ console.log(categories)
 
   function handleCreateLobby(newLobby) {
     lobbyService.createLobby(newLobby)
-      .then(lobby => {
+      .then(createdLobby => {
+        setLobby([...lobby, createdLobby])
         navigate('/')
       })
       .catch(navigate('/'))
