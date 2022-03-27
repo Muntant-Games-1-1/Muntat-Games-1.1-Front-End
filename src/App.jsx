@@ -31,7 +31,6 @@ useEffect(() =>{
   gameService.getCategories()
     .then(categories => setCategories(categories))
 }, [])
-console.log(categories)
 
   
   useEffect(()=>{
