@@ -26,4 +26,3 @@ export async function deleteOneLobby(id) {
   .then(res => res.json())
 }
 
-
