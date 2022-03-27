@@ -4,15 +4,14 @@ import {useLocation} from 'react-router-dom'
 // ! Change All The Input Values To Have The Pre-Edit Data
 function EditALobby({games, handleEditLobby}) {
   const location = useLocation()
+  console.log(location.state)
   const previousGame =  games?.filter(gs =>{
     return gs._id.toString() === location?.state?.game.toString()
   })
-  console.log("All Games:" ,games)
   const [validForm, setValidForm] =useState(true)
   const formElement = useRef()
-  const [formData, setFormData] = useState({...location.state, game: previousGame[0]._id})
-  console.log('Current Game' ,location?.state?.game)
-console.log('Previous Game :', previousGame)
+  const [formData, setFormData] = useState(location.state)
+
 function handleSubmit(e){
 e.preventDefault()
 }
@@ -38,9 +37,10 @@ useEffect(() =>{
           value={formData.name}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
-        <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData?.chooseGame}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
+        <select id='chooseGame' onChange={handleChange} name='game' value={formData?.chooseGame}>
+          {games && games.map((game, i) =>{
+            return <option value={i}>hello</option>
+          })}
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
         <input
