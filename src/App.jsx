@@ -106,7 +106,7 @@ useEffect(() =>{
         />
         <Route
           path="/edit-lobby"
-          element={user ? < EditALobby handleEditLobby={handleEditLobby} /> : <Navigate to="/login" />}
+          element={user ? < EditALobby handleEditLobby={handleEditLobby} games={games.games}/> : <Navigate to="/login" />}
         />
         <Route
           path="/add-game"
