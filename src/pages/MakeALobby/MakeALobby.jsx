@@ -51,11 +51,6 @@ function MakeALobby({ handleCreateLobby }) {
           id='lobbyLimit'
           name='lobbyLimit'
           onChange={handleChange} />
-        <label htmlFor="playerRank">Minimum Rank</label>
-        <select id='playerRank' name='playerRank' onChange={handleChange}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
-        </select>
         <button type='submit' disabled={!validForm}>Create</button>
       </form>
     </>
