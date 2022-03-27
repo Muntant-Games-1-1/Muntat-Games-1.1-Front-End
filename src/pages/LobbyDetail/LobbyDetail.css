@@ -5,6 +5,7 @@ h1{
 .lobby-detail{
   padding-left: 9rem;
   padding-right: 9rem;
+  padding-top: 2rem;
 }
 .main{
   display: flex;
@@ -19,4 +20,9 @@ h1{
 }
 .rightside, .leftSide{
   width:40rem;
+}
+
+.rightside-item, .leftSide-items{
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
