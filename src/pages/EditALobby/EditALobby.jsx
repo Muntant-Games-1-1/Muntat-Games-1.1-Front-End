@@ -38,8 +38,11 @@ useEffect(() =>{
         />
         <label htmlFor="chooseGame">Choose A Game</label>
         <select id='chooseGame' onChange={handleChange} name='game' value={formData.chooseGame}>
-          {games && games.map((game, i) =>{
-            return <option value={i}>{game.name}</option>
+          {games && games.map((game, i) => {
+              if(game._id.toString() === location.state.game.toString()){
+                return <option key={game._id} selected value={game._id}>{game.name}</option>
+              } 
+              return <option key={game._id} value={game._id}>{game.name}</option>
           })}
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
