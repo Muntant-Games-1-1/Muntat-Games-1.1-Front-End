@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-function AddAGame({handleCreateGame}) {
+function AddAGame({handleCreateGame, categories}) {
 
   // State Variables
   const [validForm, setValidForm] = useState(false)
@@ -8,7 +8,9 @@ function AddAGame({handleCreateGame}) {
   const [formData, setFormData] = useState({
     name: '',
     maxPlayers: '',
-    description: ''
+    description: '',
+    // This is The Id For The First Item In The Dropdown. In Case They Create a Game Without Making Any Changes To Game Category, The Value Wont Be Empty
+    categories: '623dbaa1c5a00f1dc67ec759'
   })
   // Element References 
   const formElement = useRef()
@@ -20,7 +22,7 @@ function AddAGame({handleCreateGame}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // handleCreateLobby(formData)
+    handleCreateGame(formData)
   }
 
   // Side-Effects
@@ -30,7 +32,7 @@ function AddAGame({handleCreateGame}) {
 
   return (
     <>
-      <h1>Create A Lobby</h1>
+      <h1>Add A Game</h1>
       <form
         onSubmit={handleSubmit}
         ref={formElement}
@@ -55,21 +57,35 @@ function AddAGame({handleCreateGame}) {
           value={formData.maxPlayers}
           onChange={handleChange}
         />
+
+        {/* Selection For Game Category */}
+
       {/* Game Description Input */}
-        <label htmlFor="description">Player Limit</label>
+        <label htmlFor="description">Description</label>
         <textarea
           name="description"
           id="description"
           cols="30"
           rows="10"
           onChange={handleChange}
+          value={formData.description}
+          required
           >
-          {formData.description}
         </textarea>
+        <label htmlFor="category">Categories</label>
+        <select
+         name="categories"
+          id="category"
+          onChange={handleChange}
+          >
+            {categories && categories.map(category => (
+              <option key={category._id} value={category._id}>{category.name}</option>
+            ))}
+        </select>
         <button
           type='submit'
           disabled={!validForm}>
-            Create
+            Add Game
         </button>
       </form>
     </>
