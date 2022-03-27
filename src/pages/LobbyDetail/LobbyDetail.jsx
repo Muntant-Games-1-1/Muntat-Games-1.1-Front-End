@@ -1,8 +1,7 @@
 import react from 'react'
+import './LobbyDetail.css'
 
 function LobbyDetail({}){
-  
-  
   return (
     <>
     <div className="main">
@@ -24,9 +23,16 @@ function LobbyDetail({}){
       <h1>lobbyhead count</h1>
       <h1>remainf spot</h1>
     </div>
+    <h1>non live message</h1>
+    <form action="" method="POST" >
+      <h1>.....</h1>
+      <h1>Name</h1>
+      <input type="text" />
+      <button>send</button>
+    </form>
+    
     </>
   )
-    
-    
-  
 }
+
+export default LobbyDetail

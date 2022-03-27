@@ -12,6 +12,7 @@ import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
 import EditALobby from './pages/EditALobby/EditALobby'
 import LobbyList from './pages/LobbyList/LobbyList'
+import LobbyDetail from './pages/LobbyDetail/LobbyDetail'
 
 
 const App = () => {
@@ -85,6 +86,11 @@ const App = () => {
         <Route
           path="/add-game"
           element={user ? < AddAGame /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/lobby-datail"
+          element={user ? <LobbyDetail /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
