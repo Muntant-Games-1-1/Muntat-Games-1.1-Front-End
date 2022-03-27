@@ -10,7 +10,10 @@ import * as authService from './services/authService'
 import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
+import LobbyList from './pages/LobbyList/LobbyList'
 import EditALobby from './pages/EditALobby/EditALobby'
+
+
 
 
 
@@ -59,6 +62,7 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} lobby={lobby} handleDeleteLobby={handleDeleteLobby} /> } />
+        <Route path="/" element={<Landing user={user} lobby={lobby}/>} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}

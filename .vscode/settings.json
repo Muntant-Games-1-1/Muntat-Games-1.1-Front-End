@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "peacock.color": "blue",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#3333ff",
@@ -19,4 +20,7 @@
     "titleBar.inactiveBackground": "#0000ff99",
     "titleBar.inactiveForeground": "#e7e7e799"
   }
+=======
+  "peacock.color": "blue"
+>>>>>>> 387ddaabc8efcf7dfd1fb47105c91aa5e997d566
 }
