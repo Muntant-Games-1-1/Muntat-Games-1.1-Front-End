@@ -2,9 +2,13 @@
 h1{
   background-color: yellow;
 }
+.lobby-detail{
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
 .main{
   display: flex;
-  gap: 40rem;
+  gap: 41.3rem;
 }
 .rightside{
   background-color: red;

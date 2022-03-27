@@ -4,6 +4,7 @@ import './LobbyDetail.css'
 function LobbyDetail({}){
   return (
     <>
+    <div className="lobby-detail">
     <div className="main">
       <div className="leftSide"> 
     <div className="gameName">  
@@ -31,7 +32,7 @@ function LobbyDetail({}){
       <input type="text" />
       <button type="button" className="btn btn-outline-success">Success</button>
     </form>
-    
+    </div>
     </>
   )
 }
