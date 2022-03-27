@@ -41,7 +41,7 @@ function MakeALobby({ handleCreateLobby }) {
           onChange={handleChange}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
-        <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData.chooseGame}>
+        <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
           <option value="sample">sample</option>
           <option value="sample">sample</option>
         </select>

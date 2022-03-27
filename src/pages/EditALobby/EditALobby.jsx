@@ -1,24 +1,29 @@
 
 import {useRef, useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom'
 // ! Change All The Input Values To Have The Pre-Edit Data
 function EditALobby(props) {
+  const location = useLocation()
+  const [validForm, setValidForm] =useState(true)
+  const formElement = useRef()
+  const [formData, setFormData] = useState(location.state)
 
 function handleSubmit(e){
 e.preventDefault()
 }
 
-function handleChange(){
-
+function handleChange(e){
+  setFormData({...formData, [e.target.name] : e.target.value})
 }
-const [validForm, setValidForm] =useState(true)
-const [formData, setFormData] = useState(null)
 
-const formElement = useRef()
-
+useEffect(() =>{
+  formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+}, [formData])
+console.log('Form Data Here:', formData)
   return (
     <div className='lobby-form'>
       <h1>Edit A Lobby</h1>
-      <form onSubmit={handleSubmit} ref={formElement} autoComplete={false}>
+      <form onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="lobbyName">Lobby Name</label>
         <input
           required
@@ -26,6 +31,7 @@ const formElement = useRef()
           id='lobbyName'
           name='name'
           onChange={handleChange}
+          value={formData.name}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
         <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData?.chooseGame}>
@@ -37,7 +43,9 @@ const formElement = useRef()
           type="text"
           id='lobbyLimit'
           name='lobbyLimit'
-          onChange={handleChange} />
+          onChange={handleChange} 
+          value={formData.lobbyLimit}
+          />
         <label htmlFor="playerRank">Minimum Rank</label>
         <select id='playerRank' name='playerRank' onChange={handleChange}>
           <option value="sample">sample</option>
