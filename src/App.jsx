@@ -19,9 +19,14 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
   const [categories, setCategories] = useState([])
+  const [games, setGames] = useState([])
   lobbyService.getAllLobby()
 
 // Side Effects
+useEffect(() =>{
+  
+}, [])
+
   useEffect(()=>{
   lobbyService.getAllLobby()
     .then(allLobby => setLobby(allLobby))
