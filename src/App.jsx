@@ -21,6 +21,14 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [lobby, setLobby] = useState([])
   
+
+  useEffect(()=>{
+    if(user){
+      lobbyService.getAllLobby()
+      .then(allLobby => setLobby(allLobby))
+    }
+}, [user])
+
   lobbyService.getAllLobby()
 
   useEffect(()=>{
@@ -48,6 +56,11 @@ const App = () => {
       .catch(navigate('/'))
   }
 
+
+  const handleDeleteLobby = id => {
+    lobbyService.deleteOneLobby(id)
+    .then(deleteOneLobby => setLobby(lobby.filter(lobby => lobby._id !== deleteOneLobby._id)))
+  }
   function handleEditLobby() {
     console.log('Connected!')
   }
@@ -56,10 +69,14 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
+
+        <Route path="/" element={<Landing user={user} lobby={lobby} handleDeleteLobby={handleDeleteLobby} /> } />
+
         <Route path="/" element={<Landing user={user} lobby={lobby}/>} />
+
         <Route
           path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}
         />
         <Route
           path="/login"

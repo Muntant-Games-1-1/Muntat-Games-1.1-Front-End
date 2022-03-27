@@ -3,9 +3,14 @@ import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
+    
     <>
+    
       {user ?
+        <nav>
+          <a href="/create-lobby">add</a>
         <nav className={styles.navbar}>
+
           <ul>
             <li>Welcome, {user.name}</li>
             <li><Link to="/profiles">Profiles</Link></li>
