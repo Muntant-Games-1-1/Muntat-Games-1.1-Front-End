@@ -37,7 +37,7 @@ function MakeALobby({ handleCreateLobby, games }) {
         <label htmlFor="chooseGame">Choose A Game</label>
         <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
           {games?.map(game =>(
-              <option value={game._id}>{game.name}</option>
+              <option key={game._id} value={game._id}>{game.name}</option>
            ))}
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
