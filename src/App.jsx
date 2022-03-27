@@ -20,6 +20,7 @@ const App = () => {
   const [lobby, setLobby] = useState([])
   const [categories, setCategories] = useState([])
   const [games, setGames] = useState([])
+  const navigate = useNavigate()
   lobbyService.getAllLobby()
 
 // Side Effects
@@ -45,7 +46,6 @@ useEffect(() =>{
       .then(allLobby => setLobby(allLobby))
     }
 }, [user])
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     authService.logout()
@@ -73,7 +73,12 @@ useEffect(() =>{
 
   function handleEditLobby(lobbyInfo) {
     lobbyService.updateLobby(lobbyInfo)
-    .then(updatedLobby => setLobby([...lobby, updatedLobby]))
+    .then(updatedLobby => {
+      const newLobbies = lobby.map(l =>{
+       return  l._id === updatedLobby._id ? updatedLobby : l
+      })
+      setLobby(newLobbies)
+    })
     navigate('/')
   }
 

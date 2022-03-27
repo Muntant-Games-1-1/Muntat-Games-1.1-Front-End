@@ -7,7 +7,7 @@ function EditALobby({games, handleEditLobby}) {
   const [validForm, setValidForm] =useState(true)
   const formElement = useRef()
   const [formData, setFormData] = useState(location.state)
-
+console.log(location.state)
   // Event Handlers
 function handleSubmit(e){
 e.preventDefault()
