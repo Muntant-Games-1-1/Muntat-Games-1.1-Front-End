@@ -28,6 +28,14 @@ export async function deleteOneLobby(id) {
 
 
 
-export async function updateLobby() {
-  
+export async function updateLobby(lobbyDetails) {
+  const lobby = await fetch(`${BASE_URL}/${lobbyDetails._id}`, {
+    method: 'PUT', 
+    headers: { 
+    'content-type': 'application/json',
+    'Authorization': `Bearer ${tokenService.getToken()}`
+  },
+  body: JSON.stringify(lobbyDetails)
+  })
+  return lobby.json()
 } 

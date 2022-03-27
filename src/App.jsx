@@ -72,7 +72,9 @@ useEffect(() =>{
   }
 
   function handleEditLobby(lobbyInfo) {
-    console.log(lobbyInfo)
+    lobbyService.updateLobby(lobbyInfo)
+    .then(updatedLobby => setLobby([...lobby, updatedLobby]))
+    navigate('/')
   }
 
   function handleCreateGame(game) {
