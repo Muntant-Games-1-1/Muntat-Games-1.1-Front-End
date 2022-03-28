@@ -9,7 +9,7 @@ useEffect(() =>{
     <>
       <h1> {lobby?.owner?.name}</h1>
       <h1>{lobby?.name}</h1>
-      {/* {lobby.owner._id && lobby?.owner?._id === user?.profile? */}
+      {lobby.owner._id && lobby?.owner?._id === user?.profile?
         <div> 
           <button onClick={()=> handleDeleteLobbies(lobby._id)}>
             Delete
@@ -17,14 +17,14 @@ useEffect(() =>{
           <Link to="/edit-lobby" state={lobby}>
             Update Lobby
           </Link>
+        </div>
+         :
+        <>
         <Link to="/lobby-detail" state={lobby} >
           <button>Join</button>
         </Link>
-        </div>
-        {/* :
-        <>
         </>
-      } */}
+      } 
     </>
   )
 }

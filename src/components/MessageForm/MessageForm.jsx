@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function MessageForm({ createMessage, details }) {
-	console.log(details);
-
 	const location = useLocation();
 	const [validForm, setValidForm] = useState(true);
 	const formElement = useRef();
