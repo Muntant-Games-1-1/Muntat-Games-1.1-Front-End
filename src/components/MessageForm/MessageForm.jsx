@@ -7,15 +7,15 @@ export default function MessageForm(props) {
   const formElement = useRef();
   const [formData, setFormData] = useState(location.state);
 
-  function handleSubmit(e) {
-		e.preventDefault();
-		// handleEditLobby(formData);
-	}
+  // function handleSubmit(e) {
+	// 	e.preventDefault();
+	// 	handleCreateMessage(formData);
+	// }
 
 	function handleChange(e) {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	}
-	// Side Effects
+
 	useEffect(() => {
 		formElement.current.checkValidity()
 			? setValidForm(true)
@@ -24,7 +24,9 @@ export default function MessageForm(props) {
   
 	return (
 		<div>
-			<form onSubmit={handleSubmit} ref={formElement}>
+      <form
+        // onSubmit={handleSubmit}
+        ref={formElement}>
 				<label htmlFor="messageContent"></label>
 				<textarea
 					required

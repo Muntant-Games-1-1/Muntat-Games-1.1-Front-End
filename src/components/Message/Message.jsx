@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import MessageForm from "../../components/MessageForm/MessageForm.jsx"
 import styles from "./Message.module.css"
+import * as messageService from "../../services/messageService.js"
+
+// function handleCreateMessage(newMessage) {
+
+// }
 
 
 export default function Message(props) {
   return (
 		<div className={styles.msgContainer}>
-			<h1>Messages</h1>
+			<h1>Message Board</h1>
 			<div>
 				{props.message ? (
 					<p>
