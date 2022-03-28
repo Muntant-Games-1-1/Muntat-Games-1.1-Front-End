@@ -12,6 +12,10 @@
     list-style-type: none;
 }
 
+.link {
+    color: wheat
+}
+
 .navbar li:hover{
     background-color: #ddd;
     color: black;

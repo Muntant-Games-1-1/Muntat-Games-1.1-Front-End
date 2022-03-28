@@ -3,6 +3,7 @@ import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
+    
     <>
       {user ?
         <nav className={styles.navbar}>
@@ -11,6 +12,8 @@ const NavBar = ({ user, handleLogout }) => {
             <li><Link to="/profiles">Profiles</Link></li>
             <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
             <li><Link to="/changePassword">Change Password</Link></li>
+            <li><Link to="/create-lobby">create a Lobby</Link></li>
+            
           </ul>
         </nav>
       :
