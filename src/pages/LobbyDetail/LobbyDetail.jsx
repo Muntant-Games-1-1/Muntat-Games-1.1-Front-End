@@ -39,15 +39,6 @@ function LobbyDetail({}){
 					</div>
 				</div>
         <Message props={detail} />
-        {/* This is where message form will go <MessageForm /> */} 
-				<form action="" method="POST">
-					<h1>.....</h1>
-					<h1>Name</h1>
-					<input type="text" />
-					<button type="button" className="btn btn-outline-success">
-						Success
-					</button>
-				</form>
 			</div>
 		</>
 	);
