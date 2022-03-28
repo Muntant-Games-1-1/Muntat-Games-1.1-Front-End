@@ -42,7 +42,7 @@ function MakeALobby({ handleCreateLobby, games }) {
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
         <input
-          type="text"
+          type="number"
           id='lobbyLimit'
           name='lobbyLimit'
           onChange={handleChange} />
