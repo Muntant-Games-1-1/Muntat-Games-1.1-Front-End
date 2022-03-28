@@ -22,3 +22,14 @@ a {
     background-color: #ddd;
     color: black;
 }
+
+.user{
+    background-color: #333;
+    text-decoration: none;
+}
+
+.user li:hover{
+    background-color: black;
+    color: #ddd;
+}
+

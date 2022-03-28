@@ -15,7 +15,7 @@ const NavBar = ({ user, handleLogout }) => {
                 <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
               </Link>
             </li>
-            <li>Welcome, {user.name}</li>
+            <li className={styles.user}>Welcome, {user.name}</li>
             <li>
               <Link to="/profiles">Profiles</Link>
             </li>
