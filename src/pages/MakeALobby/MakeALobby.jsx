@@ -38,11 +38,11 @@ function MakeALobby({ handleCreateLobby, games }) {
         <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
           {games?.map(game =>(
               <option key={game._id} value={game._id}>{game.name}</option>
-           ))}
+          ))}
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
         <input
-          type="text"
+          type="number"
           id='lobbyLimit'
           name='lobbyLimit'
           onChange={handleChange} />

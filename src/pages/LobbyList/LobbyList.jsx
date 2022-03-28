@@ -1,5 +1,6 @@
 import React  from "react";
 import {Link } from 'react-router-dom'
+// import LobbyDetail from './pages/LobbyDetail/LobbyDetail'
 const LobbyList = ({lobby, handleDeleteLobbies, user})=>{
   return(
     <>
@@ -11,6 +12,11 @@ const LobbyList = ({lobby, handleDeleteLobbies, user})=>{
       < Link to="/edit-lobby" state={lobby}>
         Update Lobby
       </Link>
+      
+      <Link to="/lobby-detail" state={lobby} >
+      <button>Join</button>
+      </Link>
+
     </>
   )
 }
