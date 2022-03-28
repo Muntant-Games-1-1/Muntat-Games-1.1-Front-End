@@ -14,8 +14,8 @@ const NavBar = ({ user, handleLogout }) => {
                 <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
               </Link>
             </li>
-            <li>Welcome, {user.name}</li>
-            <div className='div-right'>
+            <li className={styles.active}>Welcome, {user.name}</li>
+            <div className={styles.divright}>
               <li>
                 <Link className={styles.link} to="/profiles">
                   Profiles

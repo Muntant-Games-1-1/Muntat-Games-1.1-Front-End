@@ -22,8 +22,8 @@
     color: black;
 }
 
-.div-right{
-    justify-content: space-evenly;
+.divright{
+    float: right;
 }
 
 
