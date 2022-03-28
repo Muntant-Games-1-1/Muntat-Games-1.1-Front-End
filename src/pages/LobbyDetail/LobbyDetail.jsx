@@ -40,7 +40,7 @@ function LobbyDetail({}) {
 						</div>
 					</div>
 				</div>
-				<Message props={detail} />
+				<Message details={detail} />
 			</div>
 		</>
 	);

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-export default function MessageForm({ createMessage }) {
+export default function MessageForm({ createMessage, details }) {
+	console.log(details);
+
 	const location = useLocation();
 	const [validForm, setValidForm] = useState(true);
 	const formElement = useRef();
@@ -9,7 +11,7 @@ export default function MessageForm({ createMessage }) {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		createMessage(formData);
+		createMessage(formData, details);
 	}
 
 	function handleChange(e) {
