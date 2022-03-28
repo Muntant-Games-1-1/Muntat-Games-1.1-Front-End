@@ -22,9 +22,8 @@
     color: black;
 }
 
-.welcome li:hover{
-    background-color: rgb(165, 47, 47);
+.div-right{
+    justify-content: space-evenly;
 }
-
 
 
