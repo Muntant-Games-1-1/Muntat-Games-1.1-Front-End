@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import MessageForm from "../../components/MessageForm/MessageForm.jsx"
-import styles from "./Message.module.css"
-import * as messageService from "../../services/messageService.js"
+import MessageForm from "../../components/MessageForm/MessageForm.jsx";
+import styles from "./Message.module.css";
+import * as messageService from "../../services/messageService.js";
 
-// function handleCreateMessage(newMessage) {
-
-// }
-
+function handleCreateMessage(formData) {
+	messageService.createMessage(formData);
+}
 
 export default function Message(props) {
-  return (
+	return (
 		<div className={styles.msgContainer}>
 			<h1>Message Board</h1>
 			<div>
@@ -21,8 +20,8 @@ export default function Message(props) {
 				) : (
 					<p>No messages yet</p>
 				)}
-      </div>
-      <MessageForm props={ props }/>
+			</div>
+			<MessageForm createMessage={handleCreateMessage} />
 		</div>
 	);
 }

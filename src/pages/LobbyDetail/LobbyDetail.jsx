@@ -34,7 +34,9 @@ function LobbyDetail({}) {
 							{detail.waitingPlayers?.map(player => (
 								<h2>Waiting Players: {player.name}</h2>
 							))}
-							<h2>remainf spot XXX</h2>
+							<h2>
+								Open spots: {detail.game.maxPlayers - detail.waitingPlayers.length}
+							</h2>
 						</div>
 					</div>
 				</div>
