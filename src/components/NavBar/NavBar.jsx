@@ -5,7 +5,6 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     
     <>
-    
       {user ?
         <nav className={styles.navbar}>
           <ul>

@@ -1,7 +1,11 @@
 import react from 'react'
 import './LobbyDetail.css'
-
+import {useLocation} from 'react-router-dom'
 function LobbyDetail({}){
+  let location = useLocation()
+
+  let detail = location.state
+  console.log('wow',detail);
   return (
     <>
       <div className="lobby-detail">
@@ -9,7 +13,7 @@ function LobbyDetail({}){
             <div className="leftSide"> 
             <div className="leftSide-items"> 
               <div className="gameName">  
-                <h1>game name</h1>
+                <h1>{detail.game.name}</h1>
               </div>
               <div>
                 <h1>description</h1>
@@ -22,7 +26,7 @@ function LobbyDetail({}){
                 <div className="lobbyname"> 
                   <h1>lobbyname</h1>
                 </div>
-                <h2>lobbyy owner: XXX</h2>
+                <h2>{detail.owner.name}</h2>
                 <h2>lobbyhead count:XXX</h2>
                 <h2>remainf spot XXX</h2>
               </div>

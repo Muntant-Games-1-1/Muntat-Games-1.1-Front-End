@@ -13,6 +13,7 @@ import AddAGame from './pages/AddAGame/AddAGame'
 import EditALobby from './pages/EditALobby/EditALobby'
 import * as gameService from './services/gameService'
 import LobbyList from './pages/LobbyList/LobbyList'
+import LobbyDetail from './pages/LobbyDetail/LobbyDetail'
 
 const App = () => {
   // State Constants
@@ -121,7 +122,7 @@ useEffect(() =>{
         />
 
         <Route
-          path="/lobby-datail"
+          path="/lobby-detail"
           element={user ? <LobbyDetail /> : <Navigate to="/login" />}
         />
       </Routes>
