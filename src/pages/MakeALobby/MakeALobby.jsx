@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 
 function MakeALobby({ handleCreateLobby, games }) {
   const [validForm, setValidForm] = useState(false)
-  const [gameInput, setGameInput] = useState('')
+  const [gameInput, setGameInput] = useState({game: ''})
   const formElement = useRef()
   // ! Make Sure To Set The Drop Down Menu Inputs Initial State To The First Selection
-  const [formData, setFormData] = useState({game: games[0]._id})
+  const [formData, setFormData] = useState({game: games?.[0]._id})
 
   // Action Handlers
   function handleChange(e) {
