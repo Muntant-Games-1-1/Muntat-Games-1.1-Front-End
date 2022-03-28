@@ -53,13 +53,13 @@ function MakeALobby({ handleCreateLobby, games }) {
           />
           <div
            className="dropDown"
-           style={{width: '20vw', minWidth: '300px', border: 'black 2px solid', textAlign: 'center'}}
+           style={{width: '20vw', minWidth: '300px', textAlign: 'center', maxHeight: '350px', overflow: 'auto'}}
            >
              {games?.map(game => {
                return(
-                <div className="searchResult" key={game._id}>
+                <button type='button' className="searchResult" key={game._id} style={{width: '100%'}}>
                 <p>{game.name}</p>
-                </div>
+                </button>
                 )
              })}
           </div>
