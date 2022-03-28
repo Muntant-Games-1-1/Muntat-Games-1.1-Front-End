@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import "./LobbyDetail.css";
 import { useLocation } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";

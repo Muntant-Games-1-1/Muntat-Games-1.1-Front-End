@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
 
 export default function MessageForm({ createMessage, details }) {
-	const location = useLocation();
+
 	const [validForm, setValidForm] = useState(true);
 	const formElement = useRef();
 	const [formData, setFormData] = useState({ content: "" });
@@ -12,8 +11,6 @@ export default function MessageForm({ createMessage, details }) {
 		e.target[0].value = "";
 		createMessage(formData, details);
 	}
-
-	console.log("rendering")
 
 	function handleChange(e) {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
