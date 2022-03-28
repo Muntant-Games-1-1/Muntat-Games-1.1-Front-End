@@ -25,10 +25,9 @@ export default function MessageForm(props) {
 	return (
 		<div>
 			<form onSubmit={handleSubmit} ref={formElement}>
-				<label htmlFor="messageContent">Enter Message Here</label>
+				<label htmlFor="messageContent"></label>
 				<textarea
 					required
-					type="text-area"
           id="messageContent"
           placeholder="Enter message here"
 					name="content"
