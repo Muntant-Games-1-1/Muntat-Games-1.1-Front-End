@@ -5,7 +5,6 @@ function LobbyDetail({}){
   let location = useLocation()
 
   let detail = location.state
-  console.log('wow',detail);
   return (
     <>
       <div className="lobby-detail">
