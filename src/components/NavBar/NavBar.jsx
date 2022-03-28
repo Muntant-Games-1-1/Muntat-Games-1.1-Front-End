@@ -11,24 +11,30 @@ const NavBar = ({ user, handleLogout }) => {
         <nav className={styles.navbar}>
           <ul>
             <li>
-              <Link to="/">
+              <Link className={styles.link} to="/">
                 <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
               </Link>
             </li>
-            <li className={styles.user}>Welcome, {user.name}</li>
+            <li className={styles.welcome}>Welcome, {user.name}</li>
             <li>
-              <Link to="/profiles">Profiles</Link>
+              <Link className={styles.link} to="/profiles">
+                Profiles
+              </Link>
             </li>
             <li>
-              <Link to="" onClick={handleLogout}>
+              <Link className={styles.link} to="" onClick={handleLogout}>
                 LOG OUT
               </Link>
             </li>
             <li>
-              <Link to="/changePassword">Change Password</Link>
+              <Link className={styles.link} to="/changePassword">
+                Change Password
+              </Link>
             </li>
             <li>
-              <Link to="/create-lobby">create a Lobby</Link>
+              <Link className={styles.link} to="/create-lobby">
+                create a Lobby
+              </Link>
             </li>
           </ul>
         </nav>
@@ -36,10 +42,14 @@ const NavBar = ({ user, handleLogout }) => {
         <nav className={styles.navbar}>
           <ul className="navbar">
             <li>
-              <Link to="/login">Log In</Link>
+              <Link className={styles.link} to="/login">
+                Log In
+              </Link>
             </li>
             <li>
-              <Link to="/signup">Sign Up</Link>
+              <Link className={styles.link} to="/signup">
+                Sign Up
+              </Link>
             </li>
           </ul>
         </nav>
