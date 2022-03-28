@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 function MakeALobby({ handleCreateLobby, games }) {
   const [validForm, setValidForm] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-
   const formElement = useRef()
   const [formData, setFormData] = useState({game: ''})
 
@@ -23,12 +22,17 @@ function MakeALobby({ handleCreateLobby, games }) {
   }, [formData])
 
   useEffect(() =>{
-    const searchedGames = games?.filter(game => {
-      return game.name.toLowerCase().includes(formData.game)
+    let searchedGames = games?.filter(game => {
+      console.log(game.name.toLowerCase().includes(formData.game))
+      if(game.name.toLowerCase().includes(formData.game)) return true
+      return false
     })
+    console.log(searchedGames)
+    setSearchResults(searchResults)
   }, [formData, games])
 
-console.log('FormData.Game: ', formData.game)
+// console.log('FormData.Game: ', formData.game)
+// console.log('SEARCH RESULTS:' ,searchResults)
 
   return (
     <>
