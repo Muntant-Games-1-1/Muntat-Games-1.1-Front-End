@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 
 function MakeALobby({ handleCreateLobby, games }) {
+
+// State , Constants, & Helper Functions
   const [validForm, setValidForm] = useState(false)
   const [searchResults, setSearchResults] = useState([])
   const formElement = useRef()
@@ -8,6 +10,14 @@ function MakeALobby({ handleCreateLobby, games }) {
   const allGameNames = games?.map(game => (
     game.name.toLowerCase()
   ))
+
+function getGameId (gameName) {
+  const correctGame = games.find(game => {
+   return game.name.toLowerCase()
+  })
+    
+}
+
   // Action Handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -15,12 +25,13 @@ function MakeALobby({ handleCreateLobby, games }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if(!allGameNames.includes(formData.game)) return alert('Please Choose A Valid Game')
+    // Make Sure User Enters A Valid Game Before Submiting
+    if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
     handleCreateLobby(formData)
   }
 
   function handleGameSelection(e) {
-    setFormData({...formData, game: e.target.textContent.toLowerCase() })
+    setFormData({...formData, game: e.target.textContent })
   }
 
   // Side-Effects
