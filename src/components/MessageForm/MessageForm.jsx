@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function MessageForm({ createMessage }) {
-  const location = useLocation()
-  const [validForm, setValidForm] = useState(true);
-  const formElement = useRef();
-  const [formData, setFormData] = useState(location.state);
+	const location = useLocation();
+	const [validForm, setValidForm] = useState(true);
+	const formElement = useRef();
+	const [formData, setFormData] = useState({ content: "" });
 
-  function handleSubmit(e) {
+	function handleSubmit(e) {
 		e.preventDefault();
 		createMessage(formData);
 	}
@@ -20,18 +20,16 @@ export default function MessageForm({ createMessage }) {
 		formElement.current.checkValidity()
 			? setValidForm(true)
 			: setValidForm(false);
-  }, [formData]);
-  
+	}, [formData]);
+
 	return (
 		<div>
-      <form
-        onSubmit={handleSubmit}
-        ref={formElement}>
+			<form onSubmit={handleSubmit} ref={formElement}>
 				<label htmlFor="messageContent"></label>
 				<textarea
 					required
-          id="messageContent"
-          placeholder="Enter message here"
+					id="messageContent"
+					placeholder="Enter message here"
 					name="content"
 					onChange={handleChange}
 				/>
