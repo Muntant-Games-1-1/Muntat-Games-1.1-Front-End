@@ -13,9 +13,9 @@ function MakeALobby({ handleCreateLobby, games }) {
 
 function getGameId (gameName) {
   const correctGame = games.find(game => {
-   return game.name.toLowerCase()
+   return game.name.toLowerCase() === gameName.toLowerCase()
   })
-    
+  return correctGame._id
 }
 
   // Action Handlers
@@ -27,7 +27,8 @@ function getGameId (gameName) {
     e.preventDefault()
     // Make Sure User Enters A Valid Game Before Submiting
     if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
-    handleCreateLobby(formData)
+    const newId = getGameId(formData.game)
+    handleCreateLobby({...formData, game: newId})
   }
 
   function handleGameSelection(e) {
