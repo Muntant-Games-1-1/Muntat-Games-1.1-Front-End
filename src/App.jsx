@@ -21,14 +21,9 @@ const App = () => {
 	const [lobby, setLobby] = useState([]);
 	const [categories, setCategories] = useState([]);
 	const [games, setGames] = useState([]);
-  const [messages, setMessages] = useState([]);
   
 	const navigate = useNavigate();
 	// Side Effects
-  useEffect(() => {
-    getAllMessages().then(allMessages => setMessages(allMessages));
-  }, [])
-
 	useEffect(() => {
 		gameService.getAllGames().then(allGames => setGames(allGames));
 	}, []);
@@ -170,7 +165,7 @@ const App = () => {
 					path="/lobby-detail"
 					element={
 						user ? (
-							<LobbyDetail messages={messages} setMessages={setMessages} />
+							<LobbyDetail />
 						) : (
 							<Navigate to="/login" />
 						)

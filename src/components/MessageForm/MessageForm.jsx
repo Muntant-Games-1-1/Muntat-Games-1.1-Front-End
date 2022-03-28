@@ -9,8 +9,11 @@ export default function MessageForm({ createMessage, details }) {
 
 	function handleSubmit(e) {
 		e.preventDefault();
+		e.target[0].value = "";
 		createMessage(formData, details);
 	}
+
+	console.log("rendering")
 
 	function handleChange(e) {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
