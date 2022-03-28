@@ -10,13 +10,9 @@ import * as authService from './services/authService'
 import * as lobbyService from './services/lobbyService'
 import MakeALobby from './pages/MakeALobby/MakeALobby'
 import AddAGame from './pages/AddAGame/AddAGame'
-<<<<<<< HEAD
-=======
 import EditALobby from './pages/EditALobby/EditALobby'
 import * as gameService from './services/gameService'
->>>>>>> 2ad9c3bbd7cae4bc5c7ba5024356113a6dee6394
-import LobbyList from './pages/LobbyList/LobbyList'
-
+import LobbyDetail from './pages/LobbyDetail/LobbyDetail'
 
 const App = () => {
   // State Constants
@@ -122,6 +118,11 @@ useEffect(() =>{
         <Route
           path="/add-game"
           element={user ? < AddAGame handleCreateGame={handleCreateGame} categories={categories}/> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/lobby-detail"
+          element={user ? <LobbyDetail /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
