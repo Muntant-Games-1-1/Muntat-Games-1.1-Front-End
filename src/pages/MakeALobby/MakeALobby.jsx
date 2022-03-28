@@ -39,6 +39,9 @@ function MakeALobby({ handleCreateLobby, games }) {
           onChange={handleChange}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
+        <div
+          className="search-container"
+          style={{display: 'flex', flexDirection: 'column'}}>
         < input
             id='chooseGame'
             type='search'
@@ -49,14 +52,14 @@ function MakeALobby({ handleCreateLobby, games }) {
             style={{width: '20vw', minWidth: '300px'}}
           />
           <div
-           className="dropdown"
-           style={{width: '20vw', minWidth: '300px'}}
+           className="dropDown"
+           style={{width: '20vw', minWidth: '300px', border: 'black 2px solid', textAlign: 'center'}}
            >
              <div className="searchResult">
-               <h3>here</h3>
-               <p>here</p>
+               <h3>Game Name</h3>
              </div>
           </div>
+             </div>
         {/* <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
           {games?.map(game =>(
               <option key={game._id} value={game._id}>{game.name}</option>
