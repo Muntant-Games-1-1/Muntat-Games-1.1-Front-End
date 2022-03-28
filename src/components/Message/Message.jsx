@@ -4,24 +4,26 @@ import styles from "./Message.module.css";
 import * as messageService from "../../services/messageService.js";
 
 
-function handleCreateMessage(formData, details) {
-	messageService.createMessage(formData, details)
-	.then(result => {
-		details.messages.push(result)
-	})
-}
 
-export default function Message({ details }) {
-	console.log(details)
+export default function Message({ details, messages, setMessages }) {
+
+	function handleCreateMessage(formData, details) {
+		messageService.createMessage(formData, details)
+			.then(result => {
+			console.log(result)
+			setMessages(result)
+		})
+	}
+
 	return (
 		<div className={styles.msgContainer}>
+			{console.log(messages)}
 			<h1>Message Board</h1>
 			<div>
-				{details?.messages.length ? (
+				{messages.length ? (
 					<>
 						<div>
-							{console.log(details.messages)}
-							{details.messages.map(message => {
+							{messages.map(message => {
 								return(
 								<p>
 									<span>{message.owner.name}</span>

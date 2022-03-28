@@ -3,7 +3,8 @@ import "./LobbyDetail.css";
 import { useLocation } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
 
-function LobbyDetail({}) {
+function LobbyDetail({ messages, setMessages }) {
+	console.log(setMessages)
 	let location = useLocation();
 	let detail = location.state;
 
@@ -35,12 +36,17 @@ function LobbyDetail({}) {
 								<h2>Waiting Players: {player.name}</h2>
 							))}
 							<h2>
-								Open spots: {detail.game.maxPlayers - detail.waitingPlayers.length}
+								Open spots:{" "}
+								{detail.game.maxPlayers - detail.waitingPlayers.length}
 							</h2>
 						</div>
 					</div>
 				</div>
-				<Message details={detail} />
+				<Message
+					details={detail}
+					messages={messages}
+					setMessages={setMessages}
+				/>
 			</div>
 		</>
 	);
