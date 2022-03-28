@@ -23,16 +23,12 @@ function MakeALobby({ handleCreateLobby, games }) {
 
   useEffect(() =>{
     let searchedGames = games?.filter(game => {
-      console.log(game.name.toLowerCase().includes(formData.game))
+      if(!formData.game) return false
       if(game.name.toLowerCase().includes(formData.game)) return true
       return false
     })
-    console.log(searchedGames)
-    setSearchResults(searchResults)
+    setSearchResults(searchedGames)
   }, [formData, games])
-
-// console.log('FormData.Game: ', formData.game)
-// console.log('SEARCH RESULTS:' ,searchResults)
 
   return (
     <>
@@ -63,7 +59,7 @@ function MakeALobby({ handleCreateLobby, games }) {
            className="dropDown"
            style={{width: '20vw', minWidth: '300px', textAlign: 'center', maxHeight: '350px', overflow: 'auto'}}
            >
-             {games?.map(game => {
+             {searchResults?.map(game => {
                return(
                 <button type='button' className="searchResult" key={game._id} style={{width: '100%'}}>
                 <p>{game.name}</p>
