@@ -1,7 +1,6 @@
 .navbar {
     background-color: #333;
     overflow: hidden;
-    
 }
 
 .navbar li{
@@ -23,9 +22,8 @@
     color: black;
 }
 
-.welcome{
+.welcome li:hover{
     background-color: rgb(165, 47, 47);
-    background: none;
 }
 
 

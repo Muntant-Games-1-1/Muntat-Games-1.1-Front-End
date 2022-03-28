@@ -22,18 +22,18 @@ const NavBar = ({ user, handleLogout }) => {
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="" onClick={handleLogout}>
-                LOG OUT
-              </Link>
-            </li>
-            <li>
               <Link className={styles.link} to="/changePassword">
                 Change Password
               </Link>
             </li>
             <li>
               <Link className={styles.link} to="/create-lobby">
-                create a Lobby
+                Create a Lobby
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.link} to="" onClick={handleLogout}>
+                LOG OUT
               </Link>
             </li>
           </ul>
