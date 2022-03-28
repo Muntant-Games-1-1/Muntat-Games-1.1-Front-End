@@ -30,9 +30,11 @@ function MakeALobby({ handleCreateLobby, games }) {
 
   useEffect(() =>{
     const searchedGames = games?.filter(game => {
-      
+      game.name.toLowerCase().includes(gameInput.game)
     })
   }, [])
+
+console.log('GAME INPUT', gameInput.game)
 
   return (
     <>
