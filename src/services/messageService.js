@@ -10,5 +10,6 @@ export async function createMessage(messageDetails, details) {
   },
     body: JSON.stringify(messageDetails)
   })
-  return message.json()
+  const json = await message.json()
+  return json
 };
