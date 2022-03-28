@@ -5,7 +5,9 @@ function MakeALobby({ handleCreateLobby, games }) {
   const [searchResults, setSearchResults] = useState([])
   const formElement = useRef()
   const [formData, setFormData] = useState({game: ''})
-
+  const allGameNames = games?.map(game => (
+    game.name.toLowerCase()
+  ))
   // Action Handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -13,7 +15,12 @@ function MakeALobby({ handleCreateLobby, games }) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    if(!allGameNames.includes(formData.game)) return alert('Please Choose A Valid Game')
     handleCreateLobby(formData)
+  }
+
+  function handleGameSelection(e) {
+    setFormData({...formData, game: e.target.textContent.toLowerCase() })
   }
 
   // Side-Effects
@@ -23,7 +30,10 @@ function MakeALobby({ handleCreateLobby, games }) {
 
   useEffect(() =>{
     let searchedGames = games?.filter(game => {
+      // if the search bar is empty, the games will not display
       if(!formData.game) return false
+      // if a user types out or selects a game from the dropdown
+      if(game.name.toLowerCase() === formData.game) return false
       if(game.name.toLowerCase().includes(formData.game)) return true
       return false
     })
@@ -61,7 +71,7 @@ function MakeALobby({ handleCreateLobby, games }) {
            >
              {searchResults?.map(game => {
                return(
-                <button type='button' className="searchResult" key={game._id} style={{width: '100%'}}>
+                <button type='button' className="searchResult" key={game._id} style={{width: '100%'}} onClick={handleGameSelection}>
                 <p>{game.name}</p>
                 </button>
                 )
