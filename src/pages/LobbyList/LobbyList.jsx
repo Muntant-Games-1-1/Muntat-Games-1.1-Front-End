@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {Link } from 'react-router-dom'
 // import LobbyDetail from './pages/LobbyDetail/LobbyDetail'
-const LobbyList = ({lobby, handleDeleteLobbies, user})=>{
+const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 useEffect(() =>{
-  
+  console.log(lobby)
 },[lobby])
   return (
 		<>
@@ -22,7 +22,7 @@ useEffect(() =>{
 			) : (
 				<>
 					<Link to="/lobby-detail" state={lobby}>
-						<button>Join</button>
+						<button onClick={() => handleJoin(lobby._id)}>Join</button>
 					</Link>
 				</>
 			)}

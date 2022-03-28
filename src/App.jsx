@@ -45,6 +45,10 @@ useEffect(() =>{
     }
 }, [user])
 
+const handleJoin = (lobby_id) => {
+
+}
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -89,7 +93,7 @@ useEffect(() =>{
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} lobby={lobby } handleDeleteLobby={handleDeleteLobby} /> } />
+        <Route path="/" element={<Landing user={user} lobby={lobby } handleDeleteLobby={handleDeleteLobby}  handleJoin={handleJoin}/> } />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}
@@ -100,7 +104,7 @@ useEffect(() =>{
         />
         <Route
           path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
+          element={user ? <Profiles  user={user} lobby={lobby} /> : <Navigate to="/login" />}
         />
         <Route
           path="/changePassword"
