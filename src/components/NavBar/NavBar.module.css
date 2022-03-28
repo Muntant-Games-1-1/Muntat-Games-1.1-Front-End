@@ -13,7 +13,7 @@
     list-style-type: none;
 }
 
-a {
+.link {
     color: whitesmoke;
     text-decoration: none;
 }
@@ -22,3 +22,11 @@ a {
     background-color: #ddd;
     color: black;
 }
+
+.welcome{
+    background-color: rgb(165, 47, 47);
+    background: none;
+}
+
+
+
