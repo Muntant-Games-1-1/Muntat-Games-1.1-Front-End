@@ -1,6 +1,7 @@
 .navbar {
     background-color: #333;
     overflow: hidden;
+    
 }
 
 .navbar li{
@@ -12,8 +13,9 @@
     list-style-type: none;
 }
 
-.link {
-    color: wheat
+a {
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 .navbar li:hover{
