@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import MessageForm from "../../components/MessageForm/MessageForm.jsx";
 import styles from "./Message.module.css";
-import * as messageService from "../../services/messageService.js";
+import messageService from "../../services/messageService.js";
 
 
 

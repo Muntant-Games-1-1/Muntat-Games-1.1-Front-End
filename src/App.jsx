@@ -13,7 +13,7 @@ import AddAGame from "./pages/AddAGame/AddAGame";
 import EditALobby from "./pages/EditALobby/EditALobby";
 import * as gameService from "./services/gameService";
 import LobbyDetail from "./pages/LobbyDetail/LobbyDetail";
-import messageService from "./services/messageService";
+import { getAllMessages } from "./services/messageService";
 
 const App = () => {
 	// State Constants
@@ -26,7 +26,7 @@ const App = () => {
 	const navigate = useNavigate();
 	// Side Effects
   useEffect(() => {
-    messageService.getAllMessages().then(allMessages => setMessages(allMessages));
+    getAllMessages().then(allMessages => setMessages(allMessages));
   }, [])
 
 	useEffect(() => {
