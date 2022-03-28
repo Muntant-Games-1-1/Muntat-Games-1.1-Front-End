@@ -46,7 +46,17 @@ function MakeALobby({ handleCreateLobby, games }) {
             name='game'
             onChange={handleChooseGame}
             required
+            style={{width: '20vw', minWidth: '300px'}}
           />
+          <div
+           className="dropdown"
+           style={{width: '20vw', minWidth: '300px'}}
+           >
+             <div className="searchResult">
+               <h3>here</h3>
+               <p>here</p>
+             </div>
+          </div>
         {/* <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
           {games?.map(game =>(
               <option key={game._id} value={game._id}>{game.name}</option>
