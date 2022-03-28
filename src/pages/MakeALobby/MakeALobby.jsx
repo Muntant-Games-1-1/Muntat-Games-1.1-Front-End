@@ -32,7 +32,7 @@ function MakeALobby({ handleCreateLobby, games }) {
     let searchedGames = games?.filter(game => {
       // if the search bar is empty, the games will not display
       if(!formData.game) return false
-      // if a user types out or selects a game from the dropdown
+      // if a user has the exact name of a valid game in the input, the dropdown wont show anything
       if(game.name.toLowerCase() === formData.game) return false
       if(game.name.toLowerCase().includes(formData.game)) return true
       return false
