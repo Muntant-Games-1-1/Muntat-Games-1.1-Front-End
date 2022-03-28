@@ -21,8 +21,6 @@ const App = () => {
   const [categories, setCategories] = useState([])
   const [games, setGames] = useState([])
   const navigate = useNavigate()
-  lobbyService.getAllLobby()
-
 // Side Effects
 useEffect(() =>{
   gameService.getAllGames()
@@ -61,6 +59,7 @@ useEffect(() =>{
     lobbyService.createLobby(newLobby)
       .then(createdLobby => {
         setLobby([...lobby, createdLobby])
+        console.log('state updated');
         navigate('/')
       })
       .catch(navigate('/'))
@@ -90,7 +89,7 @@ useEffect(() =>{
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} lobby={lobby} handleDeleteLobby={handleDeleteLobby} /> } />
+        <Route path="/" element={<Landing user={user} lobby={lobby } handleDeleteLobby={handleDeleteLobby} /> } />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin}  />}
