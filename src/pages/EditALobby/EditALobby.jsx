@@ -21,6 +21,8 @@ useEffect(() =>{
   formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
 }, [formData])
 
+console.log('LOCATION.STATE.GAME: ',location.state.game)
+
 // Jsx
   return (
     <div className='lobby-form'>
@@ -38,7 +40,8 @@ useEffect(() =>{
         <label htmlFor="chooseGame">Choose A Game</label>
         <select id='chooseGame' onChange={handleChange} name='game'>
           {games && games.map(game => {
-              if(game._id.toString() === location.state.game.toString()){
+            console.log("Game._id:", game._id)
+              if(game._id.toString() === location.state.game._id.toString()){
                 return <option key={game._id} selected value={game._id}>{game.name}</option>
               } 
               return <option key={game._id} value={game._id}>{game.name}</option>
