@@ -46,7 +46,7 @@ useEffect(() =>{
 }, [user])
 
 const handleJoin = (lobby_id) => {
-
+  lobbyService.joinLobby(lobby_id)
 }
 
   const handleLogout = () => {
