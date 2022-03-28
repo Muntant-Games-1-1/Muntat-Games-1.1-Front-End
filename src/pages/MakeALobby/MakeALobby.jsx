@@ -1,17 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
-function MakeALobby(props) {
-
+function MakeALobby({ handleCreateLobby, games }) {
   const [validForm, setValidForm] = useState(false)
 
   const formElement = useRef()
   // ! Make Sure To Set The Drop Down Menu Inputs Initial State To The First Selection
-  const [formData, setFormData] = useState({
-    lobbyName: '',
-    chooseGame: '',
-    lobbyLimit: '',
-    playerRank: ''
-  })
+  const [formData, setFormData] = useState({game: games[0]._id})
 
   // Action Handlers
   function handleChange(e) {
@@ -20,6 +14,7 @@ function MakeALobby(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    handleCreateLobby(formData)
   }
 
   // Side-Effects
@@ -33,27 +28,24 @@ function MakeALobby(props) {
       <form onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="lobbyName">Lobby Name</label>
         <input
+          required
           type="text"
           id='lobbyName'
-          name='lobbyName'
+          name='name'
           onChange={handleChange}
         />
         <label htmlFor="chooseGame">Choose A Game</label>
-        <select id='choose-game' onChange={handleChange} name='chooseGame' value={formData.chooseGame}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
+        <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
+          {games?.map(game =>(
+              <option key={game._id} value={game._id}>{game.name}</option>
+          ))}
         </select>
         <label htmlFor="lobbyLimit">Player Limit</label>
         <input
-          type="text"
+          type="number"
           id='lobbyLimit'
           name='lobbyLimit'
           onChange={handleChange} />
-        <label htmlFor="playerRank">Minimum Rank</label>
-        <select id='playerRank' name='playerRank' onChange={handleChange}>
-          <option value="sample">sample</option>
-          <option value="sample">sample</option>
-        </select>
         <button type='submit' disabled={!validForm}>Create</button>
       </form>
     </>
