@@ -27,4 +27,13 @@ async function getAllMessages(location) {
 	return result;
 }
 
-export { createMessage, getAllMessages };
+export async function deleteOneMessage(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${tokenService.getToken()}`,
+    },
+  }).then((res) => res.json());
+}
+
+export { createMessage, getAllMessages, deleteOneMessage as delete };
