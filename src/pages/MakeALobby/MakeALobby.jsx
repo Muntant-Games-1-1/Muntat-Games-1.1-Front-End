@@ -1,43 +1,49 @@
 import { useState, useEffect, useRef } from 'react';
 import GameSearch from '../../components/GameSearch/GameSearch.jsx'
+import * as GameService from '../../services/gameService'
 
-function MakeALobby({ handleCreateLobby, games }) {
-
-// State , Constants, & Helper Functions
+function MakeALobby({ handleCreateLobby}) {
+  
+  // State , Constants, & Helper Functions
+  const [games, setGames] = useState([])
   const [validForm, setValidForm] = useState(false)
   const [searchResults, setSearchResults] = useState([])
   const formElement = useRef()
   const [formData, setFormData] = useState({game: ''})
-  const allGameNames = games?.map(game => (
-    game.name.toLowerCase()
-  ))
+  const allGameNames = games?.map(game => game.name.toLowerCase()) ?? []
+  function getGameId (gameName) {
+    const correctGame = games.find(game => {
+    return game.name.toLowerCase() === gameName.toLowerCase()
+    })
+    return correctGame._id
+  }
 
-function getGameId (gameName) {
-  const correctGame = games.find(game => {
-   return game.name.toLowerCase() === gameName.toLowerCase()
-  })
-  return correctGame._id
+// Action Handlers
+function handleChange(e) {
+  setFormData({ ...formData, [e.target.name]: e.target.value })
 }
 
-  // Action Handlers
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+function handleSubmit(e) {
+  e.preventDefault()
+  // Make Sure User Enters A Valid Game Before Submitting
+  if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
+  // Exchanging The Game Name With Its Id & Then Submitting Data
+  const newId = getGameId(formData.game)
+  handleCreateLobby({...formData, game: newId})
+}
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    // Make Sure User Enters A Valid Game Before Submitting
-    if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
-    // Exchanging The Game Name With Its Id & Then Submitting Data
-    const newId = getGameId(formData.game)
-    handleCreateLobby({...formData, game: newId})
-  }
+function handleGameSelection(e) {
+  setFormData({...formData, game: e.target.textContent })
+}
 
-  function handleGameSelection(e) {
-    setFormData({...formData, game: e.target.textContent })
-  }
+// Side-Effects
+  useEffect(() =>{
+  GameService.getAllGames()
+  .then(games => {
+  setGames(games.games)
+  } )
+  }, [])
 
-  // Side-Effects
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
