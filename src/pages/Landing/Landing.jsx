@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
 
 const Landing = ({ user, lobby ,handleDeleteLobby, handleJoin}) => {
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
   return (
     <main className={styles.container}>
       <h1>hello, {user ? user.name : 'friend'}</h1>
@@ -17,7 +13,6 @@ const Landing = ({ user, lobby ,handleDeleteLobby, handleJoin}) => {
           user={user}
           lobby={lobbies}
           handleDeleteLobbies={handleDeleteLobby}
-          handleJoin={handleJoin}
           />
         </div>
       ))}
