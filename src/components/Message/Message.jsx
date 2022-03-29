@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import MessageForm from "../../components/MessageForm/MessageForm.jsx";
 import styles from "./Message.module.css";
 import * as messageService from "../../services/messageService.js";
 
 export default function Message({ details }) {
-
-	const location = useLocation()
+	const location = useLocation();
 	const [messages, setMessages] = useState([]);
 
 	function handleCreateMessage(formData, details) {
@@ -16,7 +15,9 @@ export default function Message({ details }) {
 	}
 
 	useEffect(() => {
-		messageService.getAllMessages().then(allMessages => setMessages(allMessages));
+		messageService
+			.getAllMessages(location)
+			.then(allMessages => setMessages(allMessages));
 	}, []);
 
 	return (
@@ -26,12 +27,14 @@ export default function Message({ details }) {
 				{messages && messages.length ? (
 					<>
 						<div>
-							{messages.filter(message => message.lobby === location.state._id).map(message => {
+							{messages.map(message => {
 								return (
 									<>
-										<p>{message.owner.name}: {message.content}</p>
+										<p>
+											{message.owner.name}: {message.content}
+										</p>
 									</>
-									);
+								);
 							})}
 						</div>
 					</>
