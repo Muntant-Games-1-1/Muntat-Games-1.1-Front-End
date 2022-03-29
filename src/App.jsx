@@ -178,7 +178,7 @@ const App = () => {
 					path="/lobby-detail"
 					element={
 						user ? (
-							<LobbyDetail />
+							<LobbyDetail  handleJoin={handleJoin}/>
 						) : (
 							<Navigate to="/login" />
 						)
