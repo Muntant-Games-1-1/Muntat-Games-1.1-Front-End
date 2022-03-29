@@ -1,7 +1,7 @@
 import * as tokenService from "./tokenService";
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/messages`;
 
-export async function createMessage(messageDetails, details) {
+async function createMessage(messageDetails, details) {
   messageDetails.lobby = details._id;
   const message = await fetch(BASE_URL, {
     method: "POST",
@@ -10,5 +10,20 @@ export async function createMessage(messageDetails, details) {
   },
     body: JSON.stringify(messageDetails)
   })
-  return message.json()
+  const json = await message.json()
+  return json
 };
+
+async function getAllMessages() {
+  const messages = await fetch(BASE_URL, {
+    method: "GET",
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  const json = await messages.json()
+  return json;
+};
+
+export { createMessage, getAllMessages} 
