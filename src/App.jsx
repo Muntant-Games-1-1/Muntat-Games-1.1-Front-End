@@ -64,7 +64,6 @@ const App = () => {
 			.createLobby(newLobby)
 			.then(createdLobby => {
 				setLobby([...lobby, createdLobby]);
-				console.log("state updated");
 				navigate("/");
 			})
 			.catch(navigate("/"));

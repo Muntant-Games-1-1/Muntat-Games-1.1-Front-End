@@ -50,7 +50,6 @@ function handleSubmit(e) {
   if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
   // Exchanging The Game Name With Its Id & Then Submitting Data
   const newId = getGameId(formData.game)
-  console.log(formData)
   handleEditLobby({...formData, game: newId})
 }
 

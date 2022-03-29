@@ -6,7 +6,6 @@ import Message from "../../components/Message/Message.jsx";
 function LobbyDetail() {
 	let location = useLocation();
 	let detail = location.state;
-console.log(detail)
 	return (
 		<>
 			<div className="lobby-detail">
