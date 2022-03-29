@@ -175,10 +175,10 @@ const App = () => {
 				/>
 
 				<Route
-					path="/lobby-detail"
+					path="/lobby-detail/:lobby_id"
 					element={
 						user ? (
-							<LobbyDetail  handleJoin={handleJoin} lobby={lobby}/>
+							<LobbyDetail  handleJoin={handleJoin} lobby={lobby} handleDeleteLobby={handleDeleteLobby}/>
 						) : (
 							<Navigate to="/login" />
 						)
