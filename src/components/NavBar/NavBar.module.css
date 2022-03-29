@@ -1,7 +1,6 @@
 .navbar {
     background-color: #333;
     overflow: hidden;
-    
 }
 
 .navbar li{
@@ -23,10 +22,8 @@
     color: black;
 }
 
-.welcome{
-    background-color: rgb(165, 47, 47);
-    background: none;
+.divright{
+    float: right;
 }
-
 
 
