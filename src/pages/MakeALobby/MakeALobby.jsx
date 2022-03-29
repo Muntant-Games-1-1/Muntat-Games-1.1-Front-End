@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import GameSearch from '../../components/GameSearch/GameSearch.jsx'
 
 function MakeALobby({ handleCreateLobby, games }) {
 
@@ -56,8 +57,11 @@ function getGameId (gameName) {
   return (
     <>
       <h1>Create A Lobby</h1>
-      <form onSubmit={handleSubmit} ref={formElement}>
-        <label htmlFor="lobbyName">Lobby Name</label>
+      <form
+        onSubmit={handleSubmit}
+        ref={formElement}
+      >
+        <h3>Lobby Name</h3>
         <input
           required
           type="text"
@@ -65,39 +69,23 @@ function getGameId (gameName) {
           name='name'
           onChange={handleChange}
         />
-        <label htmlFor="chooseGame">Choose A Game</label>
-        <div
-          className="search-container"
-          style={{display: 'flex', flexDirection: 'column'}}>
-        < input
-            id='chooseGame'
-            type='search'
-            value={formData.game}
-            name='game'
-            onChange={handleChange}
-            required
-            style={{width: '20vw', minWidth: '300px'}}
-          />
-          <div
-           className="dropDown"
-           style={{width: '20vw', minWidth: '300px', textAlign: 'center', maxHeight: '350px', overflow: 'auto'}}
-           >
-             {searchResults?.map(game => {
-               return(
-                <button type='button' className="searchResult" key={game._id} style={{width: '100%'}} onClick={handleGameSelection}>
-                <p>{game.name}</p>
-                </button>
-                )
-             })}
-          </div>
-             </div>
-        <label htmlFor="lobbyLimit">Player Limit</label>
+        < GameSearch
+            formData={formData}
+            handleChange={handleChange}
+            searchResults={searchResults}
+            handleGameSelection={handleGameSelection}
+        />
+        <h3>Player Limit</h3>
         <input
           type="number"
           id='lobbyLimit'
           name='lobbyLimit'
           onChange={handleChange} />
-        <button type='submit' disabled={!validForm}>Create</button>
+        <button
+          type='submit'
+          disabled={!validForm}>
+            Create
+        </button>
       </form>
     </>
   );
