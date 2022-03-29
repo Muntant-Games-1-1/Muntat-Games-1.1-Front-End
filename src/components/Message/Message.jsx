@@ -27,10 +27,10 @@ export default function Message({ details }) {
 				{messages && messages.length ? (
 					<>
 						<div>
-							{messages.map(message => {
+							{messages.map((message,i) => {
 								return (
 									<>
-										<p>
+										<p key={i}>
 											{message.owner.name}: {message.content}
 										</p>
 									</>
@@ -39,7 +39,7 @@ export default function Message({ details }) {
 						</div>
 					</>
 				) : (
-					<p>No messages yet</p>
+					<p> No messages yet</p>
 				)}
 			</div>
 			<MessageForm createMessage={handleCreateMessage} details={details} />
