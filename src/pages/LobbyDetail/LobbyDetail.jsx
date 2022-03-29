@@ -1,9 +1,9 @@
-import react from "react";
+import React from "react";
 import "./LobbyDetail.css";
 import { useLocation } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
 
-function LobbyDetail({}) {
+function LobbyDetail() {
 	let location = useLocation();
 	let detail = location.state;
 	
@@ -32,12 +32,15 @@ function LobbyDetail({}) {
 								<h2>Lobby Name: {detail.name}</h2>
 							</div>
 							<h2>{detail.owner.name}'s Lobby</h2>
-							{detail.waitingPlayers?.map(player => (
-								<h2>Waiting Players: {player.name}</h2>
-								
-							))}
 							<h2>
-								Open spots: {detail.game.maxPlayers - detail.waitingPlayers.length}
+								Waiting Players:
+								{detail.waitingPlayers?.map(player => (
+									<span> {player.name}, </span>
+								))}
+							</h2>
+							<h2>
+								Open spots:{" "}
+								{detail.game.maxPlayers - detail.waitingPlayers.length}
 							</h2>
 						</div>
 					</div>

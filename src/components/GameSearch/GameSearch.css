@@ -1,0 +1,21 @@
+input {
+  width: 20vw;
+  min-width: 300px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.dropDown {
+  width: 20vw;
+  min-width: 300px;
+  text-align: center;
+  max-height: 350px;
+  overflow: auto;
+}
+
+button.searchResult {
+  width: 100%;
+}
