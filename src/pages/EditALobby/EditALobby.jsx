@@ -7,7 +7,7 @@ function EditALobby({games, handleEditLobby}) {
   const [validForm, setValidForm] =useState(true)
   const [searchResults, setSearchResults] = useState([])
   const formElement = useRef()
-  const [formData, setFormData] = useState(location.state)
+  const [formData, setFormData] = useState({...location.state, game: location.state.game.name})
   const allGameNames = games?.map(game => (
     game.name.toLowerCase()
   ))
@@ -18,7 +18,7 @@ function EditALobby({games, handleEditLobby}) {
     return correctGame._id
   }
   // Event Handlers
-  
+
 function handleChange(e){
   setFormData({...formData, [e.target.name] : e.target.value})
 }
@@ -45,6 +45,7 @@ useEffect(() =>{
 
 
 function handleSubmit(e) {
+  console.log(formData)
   e.preventDefault()
   // Make Sure User Enters A Valid Game Before Submitting
   if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
