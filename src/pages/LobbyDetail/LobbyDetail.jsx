@@ -2,10 +2,12 @@ import React from "react";
 import "./LobbyDetail.css";
 import { useLocation } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
-
-function LobbyDetail() {
+import {Link } from 'react-router-dom'
+function LobbyDetail({handleJoin, lobby}) {
 	let location = useLocation();
 	let detail = location.state;
+	
+	console.log(detail.waitingPlayers);
 	return (
 		<>
 			<div className="lobby-detail">
@@ -32,8 +34,8 @@ function LobbyDetail() {
 							<h2>{detail.owner.name}'s Lobby</h2>
 							<h2>
 								Waiting Players:
-								{detail.waitingPlayers?.map(player => (
-									<span> {player.name}, </span>
+								{detail.waitingPlayers?.map((player,i) => (
+									<span key={i}> {player.name}, </span>
 								))}
 							</h2>
 							<h2>
@@ -41,6 +43,11 @@ function LobbyDetail() {
 								{detail.lobbyLimit - detail.waitingPlayers.length}
 							</h2>
 						</div>
+						<>
+						<Link to="/" >
+						<button onClick={() => handleJoin(lobby._id)}>leavelobby</button>
+					</Link>
+						</>
 					</div>
 				</div>
 				<Message details={detail} />
