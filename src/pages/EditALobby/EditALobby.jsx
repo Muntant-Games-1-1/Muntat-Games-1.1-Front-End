@@ -1,6 +1,6 @@
 import {useRef, useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom'
-
+import GameSearch from '../../components/GameSearch/GameSearch'
 function EditALobby({games, handleEditLobby}) {
   // All State & Constants
   const location = useLocation()
@@ -26,7 +26,7 @@ useEffect(() =>{
     <div className='lobby-form'>
       <h1>Edit A Lobby</h1>
       <form onSubmit={handleSubmit} ref={formElement}>
-        <label htmlFor="lobbyName">Lobby Name</label>
+        <h3>Lobby Name</h3>
         <input
           required
           type="text"
@@ -35,16 +35,18 @@ useEffect(() =>{
           onChange={handleChange}
           value={formData.name}
         />
-        <label htmlFor="chooseGame">Choose A Game</label>
-        <select id='chooseGame' onChange={handleChange} name='game'>
+        <h3>Choose A Game</h3>
+< GameSearch />
+
+        {/* <select id='chooseGame' onChange={handleChange} name='game'>
           {games && games?.map(game => {
               if(game._id.toString() === location?.state?.game?._id.toString()){
                 return <option key={game._id} selected value={game._id}>{game.name}</option>
               } 
               return <option key={game._id} value={game._id}>{game.name}</option>
           })}
-        </select>
-        <label htmlFor="lobbyLimit">Player Limit</label>
+        </select> */}
+        <h3>Player Limit</h3>
         <input
           type="number"
           id='lobbyLimit'
