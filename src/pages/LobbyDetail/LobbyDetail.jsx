@@ -1,46 +1,49 @@
-import react from 'react'
-import './LobbyDetail.css'
-import {useLocation} from 'react-router-dom'
-function LobbyDetail({}){
-  let location = useLocation()
+import react from "react";
+import "./LobbyDetail.css";
+import { useLocation } from "react-router-dom";
+import Message from "../../components/Message/Message.jsx";
 
-  let detail = location.state
-  return (
-    <>
-      <div className="lobby-detail">
-        <div className="main">
-            <div className="leftSide"> 
-            <div className="leftSide-items"> 
-              <div className="gameName">  
-                <h1>{detail.game.name}</h1>
-              </div>
-              <div>
-                <h1>description</h1>
-                <p> Lorem ipsum dolor sit amet,</p>
-              </div>
-              </div>
-            </div>
-            <div className="rightside"> 
-              <div className="rightside-item">
-                <div className="lobbyname"> 
-                  <h1>lobbyname</h1>
-                </div>
-                <h2>{detail.owner.name}</h2>
-                <h2>lobbyhead count:XXX</h2>
-                <h2>remainf spot XXX</h2>
-              </div>
-            </div>
-        </div>
-        <h1>non live message</h1> 
-        <form action="" method="POST" >
-          <h1>.....</h1>
-          <h1>Name</h1>
-          <input type="text" />
-          <button type="button" className="btn btn-outline-success">Success</button>
-        </form>
-      </div>
-    </>
-  )
+function LobbyDetail({}) {
+	let location = useLocation();
+	let detail = location.state;
+
+	return (
+		<>
+			<div className="lobby-detail">
+				<div className="main">
+					<div className="leftSide">
+						<div className="leftSide-items">
+							<div className="gameName">
+								<h1>Game: {detail.game.name}</h1>
+							</div>
+							<div>
+								{detail.game.description ? (
+									<p>{detail.game.description}</p>
+								) : (
+									<p> No description Available </p>
+								)}
+							</div>
+						</div>
+					</div>
+					<div className="rightside">
+						<div className="rightside-item">
+							<div className="lobbyname">
+								<h2>Lobby Name: {detail.name}</h2>
+							</div>
+							<h2>{detail.owner.name}'s Lobby</h2>
+							{detail.waitingPlayers?.map(player => (
+								<h2>Waiting Players: {player.name}</h2>
+							))}
+							<h2>
+								Open spots: {detail.game.maxPlayers - detail.waitingPlayers.length}
+							</h2>
+						</div>
+					</div>
+				</div>
+				<Message details={detail} />
+			</div>
+		</>
+	);
 }
 
-export default LobbyDetail
+export default LobbyDetail;

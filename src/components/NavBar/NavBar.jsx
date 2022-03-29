@@ -1,31 +1,61 @@
 import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+
 const NavBar = ({ user, handleLogout }) => {
   return (
-    
     <>
-      {user ?
+      {user ? (
         <nav className={styles.navbar}>
           <ul>
-            <li>Welcome, {user.name}</li>
-            <li><Link to="/profiles">Profiles</Link></li>
-            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-            <li><Link to="/changePassword">Change Password</Link></li>
-            <li><Link to="/create-lobby">create a Lobby</Link></li>
-            
+            <li>
+              <Link className={styles.link} to="/">
+                <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+              </Link>
+            </li>
+            <li className={styles.welcome}>Welcome, {user.name}</li>
+            <li>
+              <Link className={styles.link} to="/profiles">
+                Profiles
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.link} to="" onClick={handleLogout}>
+                LOG OUT
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.link} to="/changePassword">
+                Change Password
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.link} to="/create-lobby">
+                create a Lobby
+              </Link>
+            </li>
           </ul>
         </nav>
-      :
+      ) : (
         <nav className={styles.navbar}>
-          <ul className='navbar'>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
+          <ul className="navbar">
+            <li>
+              <Link className={styles.link} to="/login">
+                Log In
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.link} to="/signup">
+                Sign Up
+              </Link>
+            </li>
           </ul>
         </nav>
-      }
+      )}
     </>
-  )
+  );
 }
 
 export default NavBar
