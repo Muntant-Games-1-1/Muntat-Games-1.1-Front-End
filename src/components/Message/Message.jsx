@@ -14,6 +14,14 @@ export default function Message({ details }) {
 		});
 	}
 
+	const handleDeleteMessage = (id) => {
+    messageService
+      .deleteOneMessage(id)
+      .then((deleteOneMessage) =>
+        setMessages(messages.filter((message) => message._id !== deleteOneMessage._id))
+      );
+  };
+
 	useEffect(() => {
 		messageService
 			.getAllMessages(location)
@@ -29,12 +37,15 @@ export default function Message({ details }) {
 						<div>
 							{messages.map((message,i) => {
 								return (
-									<>
-										<p key={i}>
-											{message.owner.name}: {message.content}
-										</p>
-									</>
-								);
+                  <>
+                    <p key={i}>
+                      {message?.owner?.name}: {message.content}
+                    </p>
+                    <button onClick={() => handleDeleteMessage(message._id)}>
+                      Delete
+                    </button>
+                  </>
+                );
 							})}
 						</div>
 					</>
