@@ -2,28 +2,29 @@ import * as tokenService from "./tokenService";
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/messages`;
 
 async function createMessage(messageDetails, details) {
-  messageDetails.lobby = details._id;
-  const message = await fetch(BASE_URL, {
-    method: "POST",
-    headers: { 'content-type': 'application/json',
-    'Authorization': `Bearer ${tokenService.getToken()}`
-  },
-    body: JSON.stringify(messageDetails)
-  })
-  const json = await message.json()
-  return json
-};
+	messageDetails.lobby = details._id;
+	const message = await fetch(BASE_URL, {
+		method: "POST",
+		headers: {
+			"content-type": "application/json",
+			Authorization: `Bearer ${tokenService.getToken()}`,
+		},
+		body: JSON.stringify(messageDetails),
+	});
+	const result = await message.json();
+	return result;
+}
 
-async function getAllMessages() {
-  const messages = await fetch(BASE_URL, {
-    method: "GET",
-    headers: {
-      'content-type': 'application/json',
-      'Authorization': `Bearer ${tokenService.getToken()}`
-    }
-  })
-  const json = await messages.json()
-  return json;
-};
+async function getAllMessages(location) {
+  const messages = await fetch(`${ BASE_URL }/${location.state._id}`, {
+		method: "GET",
+		headers: {
+			"content-type": "application/json",
+			Authorization: `Bearer ${tokenService.getToken()}`,
+		},
+	});
+	const result = await messages.json();
+	return result;
+}
 
-export { createMessage, getAllMessages} 
+export { createMessage, getAllMessages };
