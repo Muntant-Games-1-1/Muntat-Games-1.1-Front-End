@@ -4,9 +4,13 @@
   justify-content: center;
   flex-direction: column;
   height: calc(100vh - 70px);
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/417/673/89/black-texture-background-wallpaper-preview.jpg");
 }
 
 .formBox {
-  height: 500px;
+  height: 400px;
+  padding: 30px 20px 0 20px;
   border: black 1px solid;
+  text-align: center;
+  background-color: white;
 }
