@@ -2,7 +2,8 @@ import styles from './Landing.module.css'
 import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
 
-const Landing = ({ user, lobby ,handleDeleteLobby}) => {
+const Landing = ({ user, lobby ,handleDeleteLobby, handleJoin}) => {
+
   return (
     <main className={styles.container}>
       <h1>hello, {user ? user.name : 'friend'}</h1>
@@ -11,7 +12,9 @@ const Landing = ({ user, lobby ,handleDeleteLobby}) => {
           <LobbyList 
           user={user}
           lobby={lobbies}
-          handleDeleteLobbies={handleDeleteLobby}/>
+          handleDeleteLobbies={handleDeleteLobby}
+          handleJoin={handleJoin}
+          />
         </div>
       ))}
     </main>
