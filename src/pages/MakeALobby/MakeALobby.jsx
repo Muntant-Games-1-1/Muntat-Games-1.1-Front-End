@@ -25,8 +25,9 @@ function getGameId (gameName) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // Make Sure User Enters A Valid Game Before Submiting
+    // Make Sure User Enters A Valid Game Before Submitting
     if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
+    // Exchanging The Game Name With Its Id & Then Submitting Data
     const newId = getGameId(formData.game)
     handleCreateLobby({...formData, game: newId})
   }
@@ -90,11 +91,6 @@ function getGameId (gameName) {
              })}
           </div>
              </div>
-        {/* <select id='choose-game' onChange={handleChange} name='game' value={formData.chooseGame}>
-          {games?.map(game =>(
-              <option key={game._id} value={game._id}>{game.name}</option>
-          ))}
-        </select> */}
         <label htmlFor="lobbyLimit">Player Limit</label>
         <input
           type="number"
