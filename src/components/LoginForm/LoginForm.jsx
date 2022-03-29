@@ -40,6 +40,7 @@ const LoginForm = props => {
           value={formData.email}
           name="email"
           onChange={handleChange}
+          style={{width: '200px'}}
           placeholder='Please Enter Your Email'
         />
       </div>
@@ -52,6 +53,7 @@ const LoginForm = props => {
           name="pw"
           onChange={handleChange}
           placeholder='Password'
+          style={{width: '170px'}}
         />
       </div>
       <div>

@@ -18,3 +18,8 @@
 input {
   padding-left: 10px;
 }
+
+#password,
+#email {
+  width: 100px;
+}
