@@ -15,10 +15,10 @@ export default function Message({ details }) {
 	}
 
 	const handleDeleteMessage = (id) => {
-    messageService
-      .deleteOneMessage(id)
-      .then((deleteOneMessage) =>
-        setMessages(messages.filter((message) => message._id !== deleteOneMessage._id))
+    	messageService
+			.deleteOneMessage(id)
+			.then((deleteOneMessage) =>
+				setMessages(messages.filter((message) => message._id !== deleteOneMessage._id))
       );
   };
 
