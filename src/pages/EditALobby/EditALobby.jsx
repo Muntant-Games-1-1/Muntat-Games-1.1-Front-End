@@ -75,15 +75,6 @@ function handleSubmit(e) {
             searchResults={searchResults}
             handleGameSelection={handleGameSelection}
         />
-
-        {/* <select id='chooseGame' onChange={handleChange} name='game'>
-          {games && games?.map(game => {
-              if(game._id.toString() === location?.state?.game?._id.toString()){
-                return <option key={game._id} selected value={game._id}>{game.name}</option>
-              } 
-              return <option key={game._id} value={game._id}>{game.name}</option>
-          })}
-        </select> */}
         <h3>Player Limit</h3>
         <input
           type="number"
