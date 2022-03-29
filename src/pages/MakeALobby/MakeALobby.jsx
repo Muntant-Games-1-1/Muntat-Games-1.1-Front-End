@@ -80,7 +80,9 @@ function getGameId (gameName) {
           type="number"
           id='lobbyLimit'
           name='lobbyLimit'
-          onChange={handleChange} />
+          onChange={handleChange}
+          required
+          />
         <button
           type='submit'
           disabled={!validForm}>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './GameSearch.module.css'
 function GameSearch({formData, handleChange, searchResults, handleGameSelection}) {
   return (
 <>
