@@ -6,7 +6,7 @@ import Message from "../../components/Message/Message.jsx";
 function LobbyDetail() {
 	let location = useLocation();
 	let detail = location.state;
-
+console.log(detail)
 	return (
 		<>
 			<div className="lobby-detail">
@@ -39,7 +39,7 @@ function LobbyDetail() {
 							</h2>
 							<h2>
 								Open spots:{" "}
-								{detail.game.maxPlayers - detail.waitingPlayers.length}
+								{detail.lobbyLimit - detail.waitingPlayers.length}
 							</h2>
 						</div>
 					</div>
