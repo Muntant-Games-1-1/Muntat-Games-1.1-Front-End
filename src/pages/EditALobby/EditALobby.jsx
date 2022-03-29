@@ -2,24 +2,56 @@ import {useRef, useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom'
 import GameSearch from '../../components/GameSearch/GameSearch'
 function EditALobby({games, handleEditLobby}) {
-  // All State & Constants
+  // All State , Constants, & Helper Functions
   const location = useLocation()
   const [validForm, setValidForm] =useState(true)
+  const [searchResults, setSearchResults] = useState([])
   const formElement = useRef()
   const [formData, setFormData] = useState(location.state)
+  const allGameNames = games?.map(game => (
+    game.name.toLowerCase()
+  ))
+  function getGameId (gameName) {
+    const correctGame = games.find(game => {
+     return game.name.toLowerCase() === gameName.toLowerCase()
+    })
+    return correctGame._id
+  }
   // Event Handlers
-function handleSubmit(e){
-e.preventDefault()
-handleEditLobby(formData)
-}
-
+  
 function handleChange(e){
   setFormData({...formData, [e.target.name] : e.target.value})
+}
+
+function handleGameSelection(e) {
+  setFormData({...formData, game: e.target.textContent })
 }
 // Side Effects
 useEffect(() =>{
   formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
 }, [formData])
+
+useEffect(() =>{
+  let searchedGames = games?.filter(game => {
+    // if the search bar is empty, the games will not display
+    if(!formData.game) return false
+    // if a user has the exact name of a valid game in the input, the dropdown wont show anything
+    if(game.name.toLowerCase() === formData.game) return false
+    if(game.name.toLowerCase().includes(formData.game)) return true
+    return false
+  })
+  setSearchResults(searchedGames)
+}, [formData, games])
+
+
+function handleSubmit(e) {
+  e.preventDefault()
+  // Make Sure User Enters A Valid Game Before Submitting
+  if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
+  // Exchanging The Game Name With Its Id & Then Submitting Data
+  const newId = getGameId(formData.game)
+  handleEditLobby({...formData, game: newId})
+}
 
 // Jsx
   return (
@@ -35,8 +67,14 @@ useEffect(() =>{
           onChange={handleChange}
           value={formData.name}
         />
-        <h3>Choose A Game</h3>
-< GameSearch />
+
+        < GameSearch
+            formData={formData} 
+            games={games}     
+            handleChange={handleChange}
+            searchResults={searchResults}
+            handleGameSelection={handleGameSelection}
+        />
 
         {/* <select id='chooseGame' onChange={handleChange} name='game'>
           {games && games?.map(game => {

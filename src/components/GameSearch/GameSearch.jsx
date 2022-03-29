@@ -1,6 +1,8 @@
 import React from 'react';
 import './GameSearch.css'
 function GameSearch({formData, handleChange, searchResults, handleGameSelection}) {
+
+  console.log(formData.game)
   return (
     <>
       <h3>Choose A Game</h3>
@@ -10,7 +12,8 @@ function GameSearch({formData, handleChange, searchResults, handleGameSelection}
         < input
             id='chooseGame'
             type='search'
-            value={formData.game}
+            // IF formData.game.name is not undefined, the that is the value, otherwise formData.game is the value
+            value={formData.game?.name ?? formData.game}
             name='game'
             onChange={handleChange}
             required
