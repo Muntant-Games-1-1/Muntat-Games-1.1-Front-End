@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,27 +14,29 @@ const NavBar = ({ user, handleLogout }) => {
                 <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
               </Link>
             </li>
-            <li className={styles.welcome}>Welcome, {user.name}</li>
-            <li>
-              <Link className={styles.link} to="/profiles">
-                Profiles
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="" onClick={handleLogout}>
-                LOG OUT
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="/changePassword">
-                Change Password
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="/create-lobby">
-                create a Lobby
-              </Link>
-            </li>
+            <li className={styles.active}>Welcome, {user.name}</li>
+            <div className={styles.divright}>
+              <li>
+                <Link className={styles.link} to="/profiles">
+                  Profiles
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} to="/changePassword">
+                  Change Password
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} to="/create-lobby">
+                  Create a Lobby
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} to="" onClick={handleLogout}>
+                  LOG OUT
+                </Link>
+              </li>
+            </div>
           </ul>
         </nav>
       ) : (
