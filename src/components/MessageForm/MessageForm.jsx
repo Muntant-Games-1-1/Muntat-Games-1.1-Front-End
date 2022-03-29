@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
 
 export default function MessageForm({ createMessage, details }) {
-	const location = useLocation();
+
 	const [validForm, setValidForm] = useState(true);
 	const formElement = useRef();
 	const [formData, setFormData] = useState({ content: "" });
 
 	function handleSubmit(e) {
 		e.preventDefault();
+		e.target[0].value = "";
 		createMessage(formData, details);
 	}
 
