@@ -45,7 +45,6 @@ useEffect(() =>{
 
 
 function handleSubmit(e) {
-  console.log(formData)
   e.preventDefault()
   // Make Sure User Enters A Valid Game Before Submitting
   if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')

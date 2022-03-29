@@ -1,8 +1,6 @@
 import React from 'react';
 import './GameSearch.css'
 function GameSearch({formData, handleChange, searchResults, handleGameSelection}) {
-
-  console.log(formData.game)
   return (
     <>
       <h3>Choose A Game</h3>
