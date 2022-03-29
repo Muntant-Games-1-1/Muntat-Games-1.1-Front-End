@@ -38,4 +38,15 @@ export async function updateLobby(lobbyDetails) {
   body: JSON.stringify(lobbyDetails)
   })
   return lobby.json()
-} 
+  } 
+
+  export async function joinLobby(lobby_id){
+    const joinLobby = await fetch(`${BASE_URL}/${lobby_id}/join`, {
+      method: 'PUT',
+      headers: { 
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }      
+    })
+    return joinLobby.json()
+  }

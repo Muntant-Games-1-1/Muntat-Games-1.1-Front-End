@@ -92,6 +92,11 @@ const App = () => {
 		gameService.addGame(game);
 		navigate("/");
 	}
+
+	const handleJoin = (lobby_id) => {
+		lobbyService.joinLobby(lobby_id)
+	}
+
 	return (
 		<>
 			<NavBar user={user} handleLogout={handleLogout} />
@@ -103,6 +108,7 @@ const App = () => {
 							user={user}
 							lobby={lobby}
 							handleDeleteLobby={handleDeleteLobby}
+							handleJoin={handleJoin}
 						/>
 					}
 				/>
