@@ -1,9 +1,11 @@
 import styles from './Landing.module.css'
+import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
 import './Landing.module.css'
+import * as lobbyService from "../../services/lobbyService";
+const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby }) => {
 
-const Landing = ({ user, lobby, handleDeleteLobby, handleJoin }) => {
   return (
     <>
     <div className={styles.header}>
@@ -18,6 +20,7 @@ const Landing = ({ user, lobby, handleDeleteLobby, handleJoin }) => {
           user={user}
           lobby={lobbies}
           handleDeleteLobbies={handleDeleteLobby}
+          handleGetAllLobby={handleGetAllLobby}
           />
         </div>
       ))}

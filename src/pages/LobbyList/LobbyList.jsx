@@ -25,7 +25,6 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 				<div className={styles.buttonContainer}>
 					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 						<button onClick={() => handleJoin(lobby?._id)}>Join</button>
-						{/* {console.log(join.lobby._id)} */}
 					</Link>
 				</div>
 			)}

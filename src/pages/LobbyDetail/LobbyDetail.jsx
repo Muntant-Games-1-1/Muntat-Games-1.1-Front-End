@@ -23,6 +23,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 						<div className="leftSide-items">
 							<div className="gameName">
 								<h1>Game: {lobbyInfo?.game?.name}</h1>
+								{console.log('jsx rendering',lobbyInfo)}
 							</div>
 							<div>
 								{lobbyInfo?.game?.description ? (
@@ -50,12 +51,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 								{lobbyInfo?.game?.maxPlayers - lobbyInfo?.waitingPlayers?.length}
 							</h2>
 						</div>
-						<>{}
-						<Link to="/"  state={lobby}>
-						<button onClick={() => handleDeleteLobby(lobby._id)}>Delete</button>
-					</Link>
-						<Link to="/" >
-							
+						<>						
+							<Link to="/" >
 						<button onClick={() => handleJoin(lobbyInfo?._id)}>leave lobby</button>
 					</Link>
 						</>
