@@ -5,8 +5,7 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 	
   return (
 		<div className={styles.container}>
-			<h1> {lobby?.owner?.name}</h1>
-			<h1>{lobby?.name}</h1>
+			<span><p>Lobby Name:</p><h3>{lobby?.name}</h3></span>
 			{lobby.owner._id && lobby?.owner?._id === user?.profile ? (
 				<div className={styles.buttonContainer}>
 					<div className={styles.editDeleteContainer}>
