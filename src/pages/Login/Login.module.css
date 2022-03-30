@@ -1,5 +1,19 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  height: calc(100vh - 70px);
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/417/673/89/black-texture-background-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.formBox {
+  height: fit-content;
+  padding: 50px 0;
+  width: 350px;
+  border: black 1px solid;
+  text-align: center;
+  background-color: white;
 }

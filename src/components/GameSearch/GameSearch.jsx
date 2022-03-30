@@ -10,7 +10,8 @@ function GameSearch({formData, handleChange, searchResults, handleGameSelection}
         < input
             id='chooseGame'
             type='search'
-            value={formData.game}
+            // IF formData.game.name is not undefined, the that is the value, otherwise formData.game is the value
+            value={formData.game?.name ?? formData.game}
             name='game'
             onChange={handleChange}
             required

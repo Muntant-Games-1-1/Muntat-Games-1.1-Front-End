@@ -40,7 +40,7 @@ function LobbyDetail({handleJoin, lobby}) {
 							</h2>
 							<h2>
 								Open spots:{" "}
-								{detail.game.maxPlayers - detail.waitingPlayers.length}
+								{detail.lobbyLimit - detail.waitingPlayers.length}
 							</h2>
 						</div>
 						<>
