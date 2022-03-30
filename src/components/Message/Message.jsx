@@ -6,7 +6,7 @@ import * as messageService from "../../services/messageService.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function Message({ details }) {
+export default function Message({ details, user }) {
 	const location = useLocation();
 	const [messages, setMessages] = useState([]);
 
@@ -41,11 +41,12 @@ export default function Message({ details }) {
 								return (
                   <>
 							<span key={i}>
-							{message?.owner?.name}: {message.content}
+								{message?.owner?.name}: {message.content}
 							</span>&emsp;
 							<a className={styles.trash}onClick={() => handleDeleteMessage(message._id)}>
-							<FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+								<FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
 							</a><br/>
+						
                   </>
                 );
 							})}
