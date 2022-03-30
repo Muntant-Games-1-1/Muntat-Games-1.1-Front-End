@@ -4,7 +4,6 @@ import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import "./LobbyDetail.css";
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 	const { lobby_id } = useParams()
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
@@ -12,20 +11,21 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 		lobbyService.getLobbyById(lobby_id)
 			.then(res => {
 				setLobbyInfo(res)
-				console.log('setting state',res);
 			})
 	}, [])
 
+	function handleExitLobby() {
+		
+	}
+
 	return (
 		<>
-	
 			<div className="lobby-detail">
 				<div className="main">
 					<div className="leftSide">
 						<div className="leftSide-items">
 							<div className="gameName">
 								<h1>Game: {lobbyInfo?.game?.name}</h1>
-								{console.log('jsx rendering',lobbyInfo)}
 							</div>
 							<div>
 								{lobbyInfo?.game?.description ? (
@@ -54,7 +54,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 							</h2>
 						</div>
 						<>
-
 						{/* { lobbyInfo?.owner?._id === lobbyInfo.owner._id ? (
 						<div> 
 						<Link to="/"  state={lobby}>
@@ -64,10 +63,11 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 							)	: (
 								<h1>1</h1>
 							)} */}
-							
-							<Link to="/" >
-						<button onClick={() => handleJoin(lobbyInfo?._id)}>leave lobby</button>
+						
+									<Link to="/" >
+						<button onClick={() => handleExitLobby()}>leave lobby</button>
 					</Link>
+						
 						</>
 					</div>
 				</div>

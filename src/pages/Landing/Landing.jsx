@@ -3,16 +3,8 @@ import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
 import * as lobbyService from "../../services/lobbyService";
-const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby }) => {
 
-  // const [ allLobby, setAllLobby ] = useState([])
-  
-  // useEffect(() => {
-  //   lobbyService.getAllLobby()
-  //   .then(res => {
-  //     setAllLobby(res)
-  //   })
-  // }, [])
+const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, setLobby }) => {
 
   return (
     <main className={styles.container}>
@@ -21,6 +13,7 @@ const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby
         <div key={lobbies._id}>
           <LobbyList 
           // allLobby={allLobby}
+          setLobby={setLobby}
           handleJoin={handleJoin}
           user={user}
           lobby={lobbies}

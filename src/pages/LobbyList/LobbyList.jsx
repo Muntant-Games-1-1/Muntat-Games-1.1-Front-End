@@ -1,8 +1,14 @@
-import React, {useState, useEffect} from "react";
-import {Link } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { Link } from 'react-router-dom'
 
-const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin,  })=>{
-
+const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby })=>{
+	let players = lobby.waitingPlayers.map(player => player._id)
+	// console.log('players', players)
+	
+	useEffect(() => {
+		players = lobby.waitingPlayers.map(player => player._id)
+		console.log('lobby state change', lobby);
+	})
   return (
 		<>
 			<h1> {lobby?.owner?.name}</h1>
@@ -17,11 +23,18 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin,  })=>{
 						<button>View</button>
 					</Link>
 				</div>
-			) : (
+				) : (
 				<>
-					<Link to={`/lobby-detail/${lobby?._id}`} state={lobby}>
-						<button onClick={() => handleJoin(lobby?._id)}>Join</button>
+				{ players?.includes(user?.profile?.toString()) ? (
+					
+						<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
+						<button>View</button>
 					</Link>
+					) : (
+					<Link to={`/lobby-detail/${lobby?._id}` } state = { lobby }>
+							<button onClick={ () => handleJoin(lobby?._id) }>Join</button>
+					</Link>
+				)}
 				</>
 			)}
 		</>
