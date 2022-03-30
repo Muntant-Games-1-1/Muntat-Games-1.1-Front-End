@@ -64,7 +64,6 @@ const App = () => {
 			.createLobby(newLobby)
 			.then(createdLobby => {
 				setLobby([...lobby, createdLobby]);
-				console.log("state updated");
 				navigate("/");
 			})
 			.catch(navigate("/"));
@@ -95,6 +94,7 @@ const App = () => {
 
 	const handleJoin = (lobby_id) => {
 		lobbyService.joinLobby(lobby_id)
+			.then(res => console.log('handle join', res))
 	}
 
 	return (

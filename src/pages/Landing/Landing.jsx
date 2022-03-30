@@ -12,7 +12,8 @@ const Landing = ({ user, lobby, handleDeleteLobby, handleJoin }) => {
           handleJoin={handleJoin}
           user={user}
           lobby={lobbies}
-          handleDeleteLobbies={handleDeleteLobby}/>
+          handleDeleteLobbies={handleDeleteLobby}
+          />
         </div>
       ))}
     </main>

@@ -5,23 +5,22 @@ import { joinLobby } from "../../services/lobbyService";
 import * as lobbyService from "../../services/lobbyService";
 import "./LobbyDetail.css";
 
-function LobbyDetail({handleJoin, lobby, handleDeleteLobby}) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby }) {
 	const { lobby_id } = useParams()
-	const[lobbyInfo, setLobbyInfo] =useState([])
-	console.log('waiting players',lobbyInfo._id);
-
-	useEffect(() =>{
-		console.log('log')
-		lobbyService.getLobbyById(lobby_id)
-		.then(res => setLobbyInfo(res))
-	},[])
+	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
 	useEffect(() => {
-	})
+		console.log('[useEffect] initial state',lobbyInfo)
+		lobbyService.getLobbyById(lobby_id)
+			.then(res => {
+				setLobbyInfo(res)
+				console.log('setting state',res);
+			})
+	}, [])
 
+	console.log('jsx rendering',lobbyInfo);
 	return (
 		<>
-		{console.log(lobbyInfo)}
 			<div className="lobby-detail">
 				<div className="main">
 					<div className="leftSide">
@@ -58,7 +57,6 @@ function LobbyDetail({handleJoin, lobby, handleDeleteLobby}) {
 						<>{}
 						<Link to="/"  state={lobby}>
 						<button onClick={() => handleDeleteLobby(lobby._id)}>Delete</button>
-						{/* {console.log('wow',)} */}
 					</Link>
 						<Link to="/" >
 							
