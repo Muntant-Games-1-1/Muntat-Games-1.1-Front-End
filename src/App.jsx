@@ -20,7 +20,7 @@ const App = () => {
 	const [lobby, setLobby] = useState([]);
 	const [categories, setCategories] = useState([]);
 	const [games, setGames] = useState([]);
-  
+
 	const navigate = useNavigate();
 	// Side Effects
 	useEffect(() => {
@@ -35,14 +35,15 @@ const App = () => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
 
-  function handleCreateLobby(newLobby) {
-    lobbyService.createLobby(newLobby)
-      .then(createdLobby => {
-        setLobby([...lobby, createdLobby])
-        navigate('/')
-      })
-      .catch(navigate('/'))
-  }
+	function handleCreateLobby(newLobby) {
+		lobbyService
+			.createLobby(newLobby)
+			.then(createdLobby => {
+				setLobby([...lobby, createdLobby]);
+				navigate("/");
+			})
+			.catch(navigate("/"));
+	}
 	useEffect(() => {
 		if (user) {
 			lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
@@ -58,16 +59,6 @@ const App = () => {
 	const handleSignupOrLogin = () => {
 		setUser(authService.getUser());
 	};
-
-	function handleCreateLobby(newLobby) {
-		lobbyService
-			.createLobby(newLobby)
-			.then(createdLobby => {
-				setLobby([...lobby, createdLobby]);
-				navigate("/");
-			})
-			.catch(navigate("/"));
-	}
 
 	const handleDeleteLobby = id => {
 		lobbyService
@@ -92,10 +83,11 @@ const App = () => {
 		navigate("/");
 	}
 
-	const handleJoin = (lobby_id) => {
-		lobbyService.joinLobby(lobby_id)
-			.then(res => console.log('handle join', res))
-	}
+	const handleJoin = lobby_id => {
+		lobbyService
+			.joinLobby(lobby_id)
+			.then(res => console.log("handle join", res));
+	};
 
 	return (
 		<>
@@ -178,7 +170,12 @@ const App = () => {
 					path="/lobby-detail/:lobby_id"
 					element={
 						user ? (
-							<LobbyDetail  handleJoin={handleJoin} lobby={lobby} handleDeleteLobby={handleDeleteLobby}/>
+							<LobbyDetail
+								user={user}
+								handleJoin={handleJoin}
+								lobby={lobby}
+								handleDeleteLobby={handleDeleteLobby}
+							/>
 						) : (
 							<Navigate to="/login" />
 						)

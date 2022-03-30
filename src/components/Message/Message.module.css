@@ -5,9 +5,21 @@
 .trash{
   color: #d3a38f;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .trash:hover{
   color:#e47317
 }
 
+.leftAlign {
+  margin-right: auto;
+  text-align: left;
+  color: purple;
+}
+
+.rightAlign {
+  margin-left: auto;
+  text-align: right;
+  color: green;
+}

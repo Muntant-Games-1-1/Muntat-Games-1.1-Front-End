@@ -5,7 +5,7 @@ import { joinLobby } from "../../services/lobbyService";
 import * as lobbyService from "../../services/lobbyService";
 import "./LobbyDetail.css";
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby }) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 	const { lobby_id } = useParams()
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
@@ -65,7 +65,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby }) {
 						</>
 					</div>
 				</div>
-				<Message details={lobbyInfo} />
+				<Message details={lobbyInfo} user={ user }/>
 			</div>
 		</>
 	);
