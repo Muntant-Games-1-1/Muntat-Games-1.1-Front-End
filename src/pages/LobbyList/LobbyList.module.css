@@ -12,15 +12,6 @@
   box-shadow: 0px 0px 10px grey;
 }
 
-a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgb(255, 255, 255);
-}
-
 .buttonContainer {
   display: flex;
   flex-direction: column;
@@ -36,6 +27,7 @@ a:hover {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 7px;
 }
 
 .editDeleteContainer > button {
@@ -47,11 +39,20 @@ button {
   border: none;
 }
 
-a > button {
+.buttonContainer button {
   color: black;
   background-color: white;
   border: #000000 solid 2px;
   transition: 0.2s ease-in-out;
+}
+
+.buttonContainer button a {
+  color: black;
+  text-decoration: none;
+}
+
+.buttonContainer button a:hover {
+  color: white;
 }
 .buttonContainer button:hover {
   color: white;
