@@ -7,7 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Message({ details, user }) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 	const location = useLocation();
 	const [messages, setMessages] = useState([]);
 
