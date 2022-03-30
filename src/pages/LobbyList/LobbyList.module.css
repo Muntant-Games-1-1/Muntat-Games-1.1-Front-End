@@ -6,6 +6,7 @@
   text-align: center;
   border-radius: 10px;
   transition: 0.15s ease-in-out;
+  border: 2px black solid;
 }
 
 .container:hover {
