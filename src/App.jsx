@@ -29,6 +29,7 @@ const App = () => {
 
 	useEffect(() => {
 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
+		console.log('ran');
 	}, []);
 
 	useEffect(() => {
@@ -60,6 +61,9 @@ const App = () => {
 		setUser(authService.getUser());
 	};
 
+	const handleGetAllLobby = () => {
+		lobbyService.getAllLobby().then(lobbies => setLobby(lobbies))
+	}
 	const handleDeleteLobby = id => {
 		lobbyService
 			.deleteOneLobby(id)
@@ -91,7 +95,7 @@ const App = () => {
 
 	return (
 		<>
-			<NavBar user={user} handleLogout={handleLogout} />
+			<NavBar user={user} handleLogout={handleLogout} handleGetAllLobby={handleGetAllLobby}/>
 			<Routes>
 				<Route
 					path="/"
@@ -101,6 +105,7 @@ const App = () => {
 							lobby={lobby}
 							handleDeleteLobby={handleDeleteLobby}
 							handleJoin={handleJoin}
+							handleGetAllLobby={handleGetAllLobby}
 						/>
 					}
 				/>

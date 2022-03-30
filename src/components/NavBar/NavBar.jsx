@@ -3,7 +3,7 @@ import styles from './NavBar.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import * as lobbyService from "../../services/lobbyService";
-const NavBar = ({ user, handleLogout }) => {
+const NavBar = ({ user, handleLogout, handleGetAllLobby}) => {
 
   return (
     <>
@@ -11,7 +11,7 @@ const NavBar = ({ user, handleLogout }) => {
         <nav className={styles.navbar}>
           <ul>
             <li>
-              <Link className={styles.link} to="/">
+              <Link className={styles.link} onClick={handleGetAllLobby} to="/">
                 <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
               </Link>
             </li>

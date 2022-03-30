@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {Link } from 'react-router-dom'
 
-const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin })=>{
-	
+const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin,  })=>{
+
   return (
 		<>
 			<h1> {lobby?.owner?.name}</h1>
