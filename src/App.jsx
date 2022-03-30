@@ -35,20 +35,13 @@ const App = () => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
 
-  function handleCreateLobby(newLobby) {
-    lobbyService.createLobby(newLobby)
-      .then(createdLobby => {
-        setLobby([...lobby, createdLobby])
-        navigate('/')
-      })
-      .catch(navigate('/'))
-  }
 	useEffect(() => {
 		if (user) {
 			lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
 		}
 	}, [user]);
 
+// Event Handlers
 	const handleLogout = () => {
 		authService.logout();
 		setUser(null);

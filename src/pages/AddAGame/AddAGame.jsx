@@ -18,6 +18,7 @@ function AddAGame({handleCreateGame, categories}) {
   // Event Handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    console.log(formData)
   }
 
   function handleSubmit(e) {
@@ -77,6 +78,7 @@ function AddAGame({handleCreateGame, categories}) {
          name="categories"
           id="category"
           onChange={handleChange}
+          multiple
           >
             {categories && categories.map(category => (
               <option key={category._id} value={category._id}>{category.name}</option>

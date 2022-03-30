@@ -11,6 +11,7 @@ function MakeALobby({ handleCreateLobby}) {
   const formElement = useRef()
   const [formData, setFormData] = useState({game: ''})
   const allGameNames = games?.map(game => game.name.toLowerCase()) ?? []
+  // Converts Game Name Into Its Id
   function getGameId (gameName) {
     const correctGame = games.find(game => {
     return game.name.toLowerCase() === gameName.toLowerCase()
