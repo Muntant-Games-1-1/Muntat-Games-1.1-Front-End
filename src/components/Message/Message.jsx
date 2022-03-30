@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Message({ details, user }) {
-	console.log("user ", user)
 
 	const location = useLocation();
 	const [messages, setMessages] = useState([]);
@@ -40,11 +39,10 @@ export default function Message({ details, user }) {
 						<div>
 							{messages.map((message) => {
 								return (
-									<>
-										{console.log(user.profile !== message.owner._id)}
+									<div key={message._id}>
 										{user.profile === message.owner._id ? (
 											<p className={styles.rightAlign}>
-												<span key={message._id}>{message.content}</span>
+												<span>{message.content}</span>
 												<a
 													className={styles.trash}
 													onClick={() =>
@@ -56,12 +54,12 @@ export default function Message({ details, user }) {
 											</p>
 										) : (
 											<p className={styles.leftAlign}>
-												<span key={message._id}>
-													<b>{message?.owner?.name}:</b> {message.content}
+												<span>
+													<b className={styles.underline}>{message?.owner?.name}:</b> {message.content}
 												</span>
 											</p>
 										)}
-									</>
+									</div>
 								);
 							})}
 						</div>

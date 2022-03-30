@@ -1,7 +1,6 @@
 import React, { useState, useEffect }from "react";
-import { useLocation, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
-import { joinLobby } from "../../services/lobbyService";
 import * as lobbyService from "../../services/lobbyService";
 import "./LobbyDetail.css";
 
@@ -65,7 +64,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 						</>
 					</div>
 				</div>
-				<Message details={lobbyInfo} user={ user }/>
+				<Message details={lobbyInfo} user={user}/>
 			</div>
 		</>
 	);

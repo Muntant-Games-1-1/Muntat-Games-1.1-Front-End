@@ -23,3 +23,7 @@
   text-align: right;
   color: green;
 }
+
+.underline {
+  text-decoration: underline;
+}
