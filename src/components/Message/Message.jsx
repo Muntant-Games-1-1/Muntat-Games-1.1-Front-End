@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import MessageForm from "../../components/MessageForm/MessageForm.jsx";
 import styles from "./Message.module.css";
 import * as messageService from "../../services/messageService.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Message({ details }) {
 	const location = useLocation();
@@ -38,12 +40,12 @@ export default function Message({ details }) {
 							{messages.map((message,i) => {
 								return (
                   <>
-                    <p key={i}>
-                      {message?.owner?.name}: {message.content}
-                    </p>
-                    <button onClick={() => handleDeleteMessage(message._id)}>
-                      Delete
-                    </button>
+							<span key={i}>
+							{message?.owner?.name}: {message.content}
+							</span>&emsp;
+							<a className={styles.trash}onClick={() => handleDeleteMessage(message._id)}>
+							<FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+							</a><br/>
                   </>
                 );
 							})}
