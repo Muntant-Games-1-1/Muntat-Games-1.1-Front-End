@@ -26,14 +26,16 @@ export default function MessageForm({ createMessage, details }) {
 		<div>
 			<form onSubmit={handleSubmit} ref={formElement}>
 				<label htmlFor="messageContent"></label>
-				<textarea
+				<input
 					required
+					type="text"
 					id="messageContent"
 					placeholder="Enter message here"
 					name="content"
+					maxLength="144"
 					onChange={handleChange}
 				/>
-				<button type="submit" disabled={!validForm} className="btn btn-success">
+				<button type="submit" disabled={!validForm}>
 					Add Message
 				</button>
 			</form>
