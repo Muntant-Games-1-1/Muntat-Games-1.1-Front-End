@@ -16,9 +16,9 @@ export default function Message({ details }) {
 		});
 	}
 
-	const handleDeleteMessage = (id) => {
+	const handleDeleteMessage = (id, lobbyId) => {
     	messageService
-			.deleteOneMessage(id)
+			.deleteOneMessage(id, lobbyId)
 			.then((deleteOneMessage) =>
 				setMessages(messages.filter((message) => message._id !== deleteOneMessage._id))
       );
@@ -43,7 +43,7 @@ export default function Message({ details }) {
 							<span key={i}>
 							{message?.owner?.name}: {message.content}
 							</span>&emsp;
-							<a className={styles.trash}onClick={() => handleDeleteMessage(message._id)}>
+							<a className={styles.trash} onClick={() => handleDeleteMessage(message._id, location.state._id)}>
 							<FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
 							</a><br/>
                   </>

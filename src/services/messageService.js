@@ -27,8 +27,8 @@ async function getAllMessages(location) {
 	return result;
 }
 
-export async function deleteOneMessage(id) {
-  return fetch(`${BASE_URL}/${id}`, {
+export async function deleteOneMessage(id, lobbyId) {
+  return fetch(`${BASE_URL}/${lobbyId}/message/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${tokenService.getToken()}`,
