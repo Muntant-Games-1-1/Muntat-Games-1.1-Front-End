@@ -56,10 +56,12 @@ const LoginForm = props => {
           style={{width: '170px'}}
         />
       </div>
-      <div>
-        <button className={styles.button}>Log In</button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.loginButton}>Log In</button>
         <Link to="/">
-          <button>Cancel</button>
+          <button
+          className={styles.cancelButton}
+          >Cancel</button>
         </Link>
       </div>
     </form>
