@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {Link } from 'react-router-dom'
-
+import styles from './LobbyList.module.css'
 const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 	
   return (
-		<>
+		<div className={styles.container}>
 			<h1> {lobby?.owner?.name}</h1>
 			<h1>{lobby?.name}</h1>
 			{lobby.owner._id && lobby?.owner?._id === user?.profile ? (
@@ -25,7 +25,7 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 					</Link>
 				</>
 			)}
-		</>
+		</div>
 	);
 }
 

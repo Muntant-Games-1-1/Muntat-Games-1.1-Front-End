@@ -2,7 +2,7 @@ import React, { useState, useEffect }from "react";
 import { Link, useParams } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
-import "./LobbyDetail.css";
+import styles from './LobbyDetail.module.css'
 
 function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 	const { lobby_id } = useParams()
@@ -15,10 +15,9 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 				console.log('setting state',res);
 			})
 	}, [])
-
+ 
 	return (
-		<>
-			<div className="lobby-detail">
+			<div className={styles.container}>
 				<div className="main">
 					<div className="leftSide">
 						<div className="leftSide-items">
@@ -64,7 +63,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 				</div>
 				<Message details={lobbyInfo} user={user}/>
 			</div>
-		</>
 	);
 }
 
