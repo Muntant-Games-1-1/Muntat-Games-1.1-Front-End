@@ -8,22 +8,26 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 			<h1> {lobby?.owner?.name}</h1>
 			<h1>{lobby?.name}</h1>
 			{lobby.owner._id && lobby?.owner?._id === user?.profile ? (
-				<div>
-					<button onClick={() => handleDeleteLobbies(lobby._id)}>Delete</button>
-					<Link to="/edit-lobby" state={lobby}>
-						Update Lobby
-					</Link>
+				<div className={styles.buttonContainer}>
+					<div className={styles.editDeleteContainer}>
+						<button onClick={() => handleDeleteLobbies(lobby._id)}>Delete</button>
+						<button>
+						<Link to="/edit-lobby" state={lobby}>
+							Update Lobby
+						</Link>
+						</button>
+					</div>
 					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 						<button>View</button>
 					</Link>
 				</div>
 			) : (
-				<>
+				<div className={styles.buttonContainer}>
 					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 						<button onClick={() => handleJoin(lobby?._id)}>Join</button>
 						{/* {console.log(join.lobby._id)} */}
 					</Link>
-				</>
+				</div>
 			)}
 		</div>
 	);

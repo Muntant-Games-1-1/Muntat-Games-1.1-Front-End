@@ -1,7 +1,48 @@
 .container {
-  border: black 1px solid;
   width: 20vh;
   min-width: 400px;
+  height: 15vh;
+  min-height: 300px;
   text-align: center;
-  box-shadow: 4px 3px 4px grey;
+  border-radius: 10px;
+  transition: 0.15s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 0px 0px 10px grey;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.buttonContainer > a > button {
+  width: 70%;
+  margin: 10px;
+}
+
+.editDeleteContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.editDeleteContainer > button {
+  width: 35%;
+}
+
+button {
+  border-radius: 40px;
 }

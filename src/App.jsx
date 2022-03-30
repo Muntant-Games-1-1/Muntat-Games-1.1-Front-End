@@ -45,11 +45,11 @@ const App = () => {
 			})
 			.catch(navigate("/"));
 	}
-	useEffect(() => {
-		if (user) {
-			lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
-		}
-	}, [user]);
+	// useEffect(() => {
+	// 	if (user) {
+	// 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
+	// 	}
+	// }, [user]);
 
 // Event Handlers
 	const handleLogout = () => {
