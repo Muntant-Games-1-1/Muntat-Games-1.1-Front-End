@@ -13,6 +13,7 @@ import AddAGame from "./pages/AddAGame/AddAGame";
 import EditALobby from "./pages/EditALobby/EditALobby";
 import * as gameService from "./services/gameService";
 import LobbyDetail from "./pages/LobbyDetail/LobbyDetail";
+import './App.css';
 
 const App = () => {
 	// State Constants

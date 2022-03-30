@@ -8,9 +8,27 @@
 
 .label,
 .button {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
-.inputContainer {
+.buttonContainer {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.signupButton,
+.cancelButton {
+  width: 70%;
+  margin: 5px 0;
+}
+
+a {
+  width: 100%;
+}
+
+input {
+  margin: 5px 0;
 }

@@ -87,12 +87,14 @@ const SignupForm = props => {
           placeholder='Confirm Password'
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div className={styles.buttonContainer}>
+        <button disabled={isFormInvalid()} className={styles.signupButton}>
           Sign Up
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button
+          className={styles.cancelButton}
+          >Cancel</button>
         </Link>
       </div>
     </form>

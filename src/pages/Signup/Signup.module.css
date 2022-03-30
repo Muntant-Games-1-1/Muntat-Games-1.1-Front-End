@@ -11,6 +11,7 @@
 
 .formBox {
   height: fit-content;
+  padding-top: 30px;
   width: 350px;
   border: black 1px solid;
   text-align: center;
