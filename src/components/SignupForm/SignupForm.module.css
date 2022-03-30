@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
@@ -23,6 +27,16 @@
 .cancelButton {
   width: 70%;
   margin: 5px 0;
+  border-radius: 40px;
+  border: none;
+}
+.signupButton {
+  background-color: rgb(43, 255, 36);
+  transition: ease-in-out;
+}
+
+.signupButton:hover {
+  color: white;
 }
 
 a {
@@ -31,4 +45,10 @@ a {
 
 input {
   margin: 5px 0;
+}
+
+button.signupButton:disabled,
+button.signupButton:disabled:hover {
+  background-color: rgba(43, 255, 36, 0.459);
+  color: black;
 }
