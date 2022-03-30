@@ -80,7 +80,7 @@ const NavBar = ({ user, handleLogout, handleGetAllLobby}) => {
   <Link className={styles.link} to="/profiles">Profiles</Link>
   <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
   <Link className={styles.link} to="/add-game">Add A Game</Link>
-  <Link className={styles.link} to="" onClick={handleLogout}>Logout</Link>
+  <Link className={styles.logout} to="" onClick={handleLogout}>Logout</Link>
 </div>
 </nav>
       )
