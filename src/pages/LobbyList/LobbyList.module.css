@@ -2,4 +2,6 @@
   border: black 1px solid;
   width: 20vh;
   min-width: 400px;
+  text-align: center;
+  box-shadow: 4px 3px 4px grey;
 }
