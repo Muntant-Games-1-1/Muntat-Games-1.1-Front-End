@@ -1,16 +1,14 @@
 import React, { useState, useEffect }from "react";
-import { useLocation, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
-import { joinLobby } from "../../services/lobbyService";
 import * as lobbyService from "../../services/lobbyService";
 import "./LobbyDetail.css";
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby }) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 	const { lobby_id } = useParams()
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
 	useEffect(() => {
-		console.log('[useEffect] initial state',lobbyInfo)
 		lobbyService.getLobbyById(lobby_id)
 			.then(res => {
 				setLobbyInfo(res)
@@ -73,7 +71,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby }) {
 						</>
 					</div>
 				</div>
-				<Message details={lobbyInfo} />
+				<Message details={lobbyInfo} user={user}/>
 			</div>
 		</>
 	);

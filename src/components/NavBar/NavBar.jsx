@@ -33,6 +33,11 @@ const NavBar = ({ user, handleLogout }) => {
                 </Link>
               </li>
               <li>
+                <Link className={styles.link} to="/add-game">
+                  Add a Game
+                </Link>
+              </li>
+              <li>
                 <Link className={styles.link} to="" onClick={handleLogout}>
                   LOG OUT
                 </Link>
