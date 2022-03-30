@@ -16,7 +16,7 @@ async function createMessage(messageDetails, details) {
 }
 
 async function getAllMessages(location) {
-  const messages = await fetch(`${ BASE_URL }/${location.state._id}`, {
+	const messages = await fetch(`${BASE_URL}/${location.state._id}`, {
 		method: "GET",
 		headers: {
 			"content-type": "application/json",
@@ -27,13 +27,13 @@ async function getAllMessages(location) {
 	return result;
 }
 
-export async function deleteOneMessage(id) {
-  return fetch(`${BASE_URL}/${id}`, {
-    method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${tokenService.getToken()}`,
-    },
-  }).then((res) => res.json());
+export async function deleteOneMessage(id, lobbyId) {
+	return fetch(`${BASE_URL}/${lobbyId}/message/${id}`, {
+		method: "DELETE",
+		headers: {
+			Authorization: `Bearer ${tokenService.getToken()}`,
+		},
+	}).then(res => res.json());
 }
 
 export { createMessage, getAllMessages, deleteOneMessage as delete };

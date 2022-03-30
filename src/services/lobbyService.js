@@ -52,7 +52,6 @@ export async function joinLobby(lobby_id){
 export async function getLobbyById(id){
   const lobby = await fetch(`${BASE_URL}/${id}`)
   const data = await lobby.json()
-  console.log('service', data);
   return data
 }
 
