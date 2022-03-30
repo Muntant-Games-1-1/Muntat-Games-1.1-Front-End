@@ -34,8 +34,7 @@
   width: 35%;
 }
 
-button {
-  border-radius: 40px;
+.buttonContainer {
   border: none;
 }
 
@@ -44,6 +43,7 @@ button {
   background-color: white;
   border: #000000 solid 2px;
   transition: 0.2s ease-in-out;
+  border-radius: 40px;
 }
 
 .buttonContainer button a {
