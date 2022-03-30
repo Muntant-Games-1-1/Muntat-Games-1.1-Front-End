@@ -1,11 +1,16 @@
 import styles from './Landing.module.css'
 import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
+import './Landing.module.css'
 
 const Landing = ({ user, lobby, handleDeleteLobby, handleJoin }) => {
   return (
+    <>
+    <div className={styles.header}>
+      <h1 className={styles.title}>All Lobbies</h1>
+      {!user ? <p>Login or Sign-up To Join / Create A Lobby</p> : ''}
+      </div>
     <main className={styles.container}>
-      <h1>hello, {user ? user.name : 'friend'}</h1>
       {lobby && lobby.map((lobbies)=>(
         <div key={lobbies._id}>
           <LobbyList 
@@ -17,6 +22,7 @@ const Landing = ({ user, lobby, handleDeleteLobby, handleJoin }) => {
         </div>
       ))}
     </main>
+    </>
   )
   
 }
