@@ -26,8 +26,6 @@ export async function deleteOneLobby(id) {
   .then(res => res.json())
 }
 
-
-
 export async function updateLobby(lobbyDetails) {
   const lobby = await fetch(`${BASE_URL}/${lobbyDetails._id}`, {
     method: 'PUT', 
@@ -40,13 +38,22 @@ export async function updateLobby(lobbyDetails) {
   return lobby.json()
   } 
 
-  export async function joinLobby(lobby_id){
-    const joinLobby = await fetch(`${BASE_URL}/${lobby_id}/join`, {
-      method: 'PUT',
-      headers: { 
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${tokenService.getToken()}`
-      }      
-    })
-    return joinLobby.json()
-  }
+export async function joinLobby(lobby_id){
+  const joinLobby = await fetch(`${BASE_URL}/${lobby_id}/join`, {
+    method: 'PUT',
+    headers: { 
+      'content-type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }      
+  })
+  return joinLobby.json()
+}
+
+export async function getLobbyById(id){
+  const lobby = await fetch(`${BASE_URL}/${id}`)
+  const data = await lobby.json()
+  console.log('service', data);
+  return data
+}
+
+

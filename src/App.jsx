@@ -94,6 +94,7 @@ const App = () => {
 
 	const handleJoin = (lobby_id) => {
 		lobbyService.joinLobby(lobby_id)
+			.then(res => console.log('handle join', res))
 	}
 
 	return (
@@ -174,10 +175,10 @@ const App = () => {
 				/>
 
 				<Route
-					path="/lobby-detail"
+					path="/lobby-detail/:lobby_id"
 					element={
 						user ? (
-							<LobbyDetail  handleJoin={handleJoin} lobby={lobby}/>
+							<LobbyDetail  handleJoin={handleJoin} lobby={lobby} handleDeleteLobby={handleDeleteLobby}/>
 						) : (
 							<Navigate to="/login" />
 						)
