@@ -13,12 +13,12 @@
 }
 
 a {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 a:hover {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .buttonContainer {
@@ -30,7 +30,6 @@ a:hover {
 
 .buttonContainer > a > button {
   width: 70%;
-  margin: 10px;
 }
 
 .editDeleteContainer {
@@ -45,4 +44,16 @@ a:hover {
 
 button {
   border-radius: 40px;
+  border: none;
+}
+
+a > button {
+  color: black;
+  background-color: white;
+  border: #000000 solid 2px;
+  transition: 0.2s ease-in-out;
+}
+.buttonContainer button:hover {
+  color: white;
+  background-color: black;
 }
