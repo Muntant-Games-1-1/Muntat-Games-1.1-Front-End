@@ -78,7 +78,6 @@ function AddAGame({handleCreateGame, categories}) {
          name="categories"
           id="category"
           onChange={handleChange}
-          multiple
           >
             {categories && categories.map(category => (
               <option key={category._id} value={category._id}>{category.name}</option>
