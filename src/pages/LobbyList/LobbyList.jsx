@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link } from 'react-router-dom'
 
-const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
+const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin })=>{
 	
   return (
 		<>
@@ -9,19 +9,18 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 			<h1>{lobby?.name}</h1>
 			{lobby.owner._id && lobby?.owner?._id === user?.profile ? (
 				<div>
-					<button onClick={() => handleDeleteLobbies(lobby._id)}>Delete</button>
+					<button onClick={() => handleDeleteLobbies(lobby?._id)}>Delete</button>
 					<Link to="/edit-lobby" state={lobby}>
 						Update Lobby
 					</Link>
-					<Link to="/lobby-detail" state={lobby}>
+					<Link to={`/lobby-detail/${lobby?._id}`} state={lobby}>
 						<button>View</button>
 					</Link>
 				</div>
 			) : (
 				<>
-					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
+					<Link to={`/lobby-detail/${lobby?._id}`} state={lobby}>
 						<button onClick={() => handleJoin(lobby?._id)}>Join</button>
-						{/* {console.log(join.lobby._id)} */}
 					</Link>
 				</>
 			)}

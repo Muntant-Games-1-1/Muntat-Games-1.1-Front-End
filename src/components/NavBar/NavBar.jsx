@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-
+import * as lobbyService from "../../services/lobbyService";
 const NavBar = ({ user, handleLogout }) => {
+
   return (
     <>
       {user ? (
