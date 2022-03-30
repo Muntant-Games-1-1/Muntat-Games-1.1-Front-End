@@ -7,7 +7,7 @@ const LoginForm = props => {
   const [formData, setFormData] = useState({
     email: '',
     pw: '',
-  })
+  }) 
   const navigate = useNavigate()
 
   const handleChange = e => {
