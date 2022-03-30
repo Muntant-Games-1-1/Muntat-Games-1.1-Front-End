@@ -9,7 +9,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
 	useEffect(() => {
-		console.log('[useEffect] initial state',lobbyInfo)
 		lobbyService.getLobbyById(lobby_id)
 			.then(res => {
 				setLobbyInfo(res)
@@ -17,7 +16,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 			})
 	}, [])
 
-	console.log('jsx rendering',lobbyInfo);
 	return (
 		<>
 			<div className="lobby-detail">
