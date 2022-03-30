@@ -46,7 +46,7 @@ const NavBar = ({ user, handleLogout }) => {
         </nav>
       ) : (
         <nav className={styles.navbar}>
-          <ul className="navbar">
+          <ul >
             <li>
               <Link className={styles.link} to="/login">
                 Log In
