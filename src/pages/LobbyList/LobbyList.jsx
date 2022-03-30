@@ -13,7 +13,7 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 					<Link to="/edit-lobby" state={lobby}>
 						Update Lobby
 					</Link>
-					<Link to="/lobby-detail" state={lobby}>
+					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 						<button>View</button>
 					</Link>
 				</div>
