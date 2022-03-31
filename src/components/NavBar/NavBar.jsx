@@ -1,26 +1,33 @@
 import { Link } from 'react-router-dom'
-
-const NavBar = ({ user, handleLogout }) => {
-  return (
+import styles from './NavBar.module.css'
+import logo from '../../images/logo.png'
+const NavBar = ({ user, handleLogout, handleGetAllLobby}) => {
+  return(
     <>
-      {user ?
+    {user ? (
         <nav>
-          <ul>
-            <li>Welcome, {user.name}</li>
-            <li><Link to="/profiles">Profiles</Link></li>
-            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-            <li><Link to="/changePassword">Change Password</Link></li>
-          </ul>
-        </nav>
+<Link onClick={handleGetAllLobby} to="/"><img src={logo} alt="logo" className={styles.logo}/></Link>
+<div className={styles.navLinks}>
+  <Link className={styles.link} to="/profiles">Profiles</Link>
+  <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
+  <Link className={styles.link} to="/add-game">Add A Game</Link>
+  <Link className={styles.logout} to="" onClick={handleLogout}>Logout</Link>
+</div>
+</nav>
+      )
       :
-        <nav>
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
-        </nav>
+      <nav>
+        <Link onClick={handleGetAllLobby} to="/"><img src={logo} alt="logo" className={styles.logo}/></Link>
+        <div className={styles.navLinks}> 
+          <Link  className={styles.link} to="/login">Login</Link>
+          <Link  className={styles.link} to="/signup">Sign-up</Link>
+        </div>
+      </nav>
+      
+      
+      
       }
-    </>
+      </>
   )
 }
 

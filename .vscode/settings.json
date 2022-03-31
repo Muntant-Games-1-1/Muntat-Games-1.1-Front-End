@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
+  "peacock.color": "blue",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#3333ff",
     "activityBar.activeBorder": "#600000",
@@ -17,6 +22,11 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#0000ff99",
     "titleBar.inactiveForeground": "#e7e7e799"
-  },
+  }
+<<<<<<< HEAD
+=======
+=======
   "peacock.color": "blue"
+>>>>>>> 387ddaabc8efcf7dfd1fb47105c91aa5e997d566
+>>>>>>> develop
 }
