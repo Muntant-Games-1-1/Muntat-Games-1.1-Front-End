@@ -4,7 +4,7 @@ import styles from './LobbyList.module.css'
 const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
   return (
 		<div className={styles.container}>
-			<span><p>Lobby Name:</p><h3>{lobby?.name}</h3></span>
+			<span><p>Game:</p><h3>{lobby?.game.name}</h3></span>
 			{lobby.owner._id && lobby?.owner?._id === user?.profile ? (
 				<div className={styles.buttonContainer}>
 					<div className={styles.editDeleteContainer}>
@@ -34,6 +34,7 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 					</Link>
 				</div>
 			)}
+			<span><p>Lobby Name:</p><h3>{lobby?.name}</h3></span>
 			<p>A Lobby By {lobby.owner.name}</p>
 		</div>
 	);

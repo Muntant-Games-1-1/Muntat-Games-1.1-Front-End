@@ -8,13 +8,17 @@
   border-radius: 10px;
   transition: 0.15s ease-in-out;
   border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 10px 20px 10px;
 }
 
 .container > p {
   color: white;
 }
 
-h3 {
+span > h3 {
   color: white;
   padding: 0;
   margin: 0;
@@ -39,6 +43,10 @@ h3 {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 7px;
+}
+
+.editDeleteContainer a {
+  width: fit-content;
 }
 
 .editDeleteContainer > button {
