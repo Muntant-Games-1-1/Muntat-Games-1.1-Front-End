@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import MessageForm from "../../components/MessageForm/MessageForm.jsx";
 import styles from "./Message.module.css";
 import * as messageService from "../../services/messageService.js";
@@ -32,26 +32,29 @@ export default function Message({ details, user }) {
 	}, []);
 
 	return (
-		<div className={styles.msgContainer}>
+		<>
 			<h1>Message Board</h1>
+		<div className={styles.messageContainer}>
 			<div>
 				{messages && messages.length ? (
-						<div>
+						<div >
 							{messages.map((message) => {
 								return (
-									<div key={message._id}>
+									<div key={message._id} >
 										{user.profile === message.owner._id ? (
-											<p className={styles.rightAlign}>
-												<span>{message.content}</span>
-												<a
+											<div className={styles.rightAlign}>
+												<p className={styles.messageContent}>
+													<span>{message.content}</span>
+												</p >
+												<button
 													className={styles.trash}
 													onClick={() =>
 														handleDeleteMessage(message._id, location.state._id)
 													}
 												>
 													<FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-												</a>
-											</p>
+												</button>
+											</div>
 										) : (
 											<p className={styles.leftAlign}>
 												<span>
@@ -69,5 +72,6 @@ export default function Message({ details, user }) {
 			</div>
 			<MessageForm createMessage={handleCreateMessage} details={details} />
 		</div>
+		</>
 	);
 }

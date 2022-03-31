@@ -2,7 +2,7 @@ import React, { useState, useEffect }from "react";
 import { Link, useParams } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
-import "./LobbyDetail.css";
+import styles from './LobbyDetail.module.css'
 
 function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 	const { lobby_id } = useParams()
@@ -14,10 +14,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 				setLobbyInfo(res)
 			})
 	}, [])
-
 	return (
-		<>
-			<div className="lobby-detail">
+			<div className={styles.container}>
 				<div className="main">
 					<div className="leftSide">
 						<div className="leftSide-items">
@@ -50,18 +48,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 								{lobbyInfo?.game?.maxPlayers - lobbyInfo?.waitingPlayers?.length}
 							</h2>
 						</div>
-						<>
-						{/* { lobbyInfo?.owner?._id === lobbyInfo.owner._id ? (
-						<div> 
-						<Link to="/"  state={lobby}>
-						<button onClick={() => handleDeleteLobby(lobby._id)}>Delete</button>
-					</Link>
-					</div>
-							)	: (
-								<h1>1</h1>
-							)} */}
-						
-									<Link to="/" >
+						<>						
+							<Link to="/" >
 						<button onClick={() => handleJoin(lobbyInfo?._id)}>leave lobby</button>
 					</Link>
 						
@@ -70,7 +58,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 				</div>
 				<Message details={lobbyInfo} user={user}/>
 			</div>
-		</>
 	);
 }
 

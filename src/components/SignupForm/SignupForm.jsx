@@ -11,7 +11,7 @@ const SignupForm = props => {
     password: '',
     passwordConf: '',
   })
-
+ 
   const handleChange = e => {
     props.updateMessage('')
     setFormData({
@@ -44,7 +44,6 @@ const SignupForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
         <input
           type="text"
           autoComplete="off"
@@ -52,10 +51,10 @@ const SignupForm = props => {
           value={name}
           name="name"
           onChange={handleChange}
+          placeholder='Full Name'
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
         <input
           type="text"
           autoComplete="off"
@@ -63,10 +62,10 @@ const SignupForm = props => {
           value={email}
           name="email"
           onChange={handleChange}
+          placeholder='Please Enter Your Email'
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
         <input
           type="password"
           autoComplete="off"
@@ -74,12 +73,10 @@ const SignupForm = props => {
           value={password}
           name="password"
           onChange={handleChange}
+          placeholder='Enter A Secure Password'
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
-        </label>
         <input
           type="password"
           autoComplete="off"
@@ -87,14 +84,17 @@ const SignupForm = props => {
           value={passwordConf}
           name="passwordConf"
           onChange={handleChange}
+          placeholder='Confirm Password'
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div className={styles.buttonContainer}>
+        <button disabled={isFormInvalid()} className={styles.signupButton}>
           Sign Up
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button
+          className={styles.cancelButton}
+          >Cancel</button>
         </Link>
       </div>
     </form>

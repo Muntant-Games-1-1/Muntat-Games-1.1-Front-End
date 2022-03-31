@@ -13,6 +13,8 @@ import AddAGame from "./pages/AddAGame/AddAGame";
 import EditALobby from "./pages/EditALobby/EditALobby";
 import * as gameService from "./services/gameService";
 import LobbyDetail from "./pages/LobbyDetail/LobbyDetail";
+import PageNotFound from './pages/PageNotFound/PageNotFound'
+import './App.css';
 
 const App = () => {
 	// State Constants
@@ -49,12 +51,13 @@ const App = () => {
 			})
 			.catch(navigate("/"));
 	}
-	useEffect(() => {
-		if (user) {
-			lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
-		}
-	}, [user]);
+	// useEffect(() => {
+	// 	if (user) {
+	// 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
+	// 	}
+	// }, [user]);
 
+// Event Handlers
 	const handleLogout = () => {
 		authService.logout();
 		setUser(null);
@@ -190,6 +193,7 @@ const App = () => {
 						)
 					}
 				/>
+				< Route path='*' element={< PageNotFound />} /> 
 			</Routes>
 		</>
 	);

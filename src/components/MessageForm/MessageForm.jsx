@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import styles from './MessageForm.module.css'
 export default function MessageForm({ createMessage, details }) {
 
 	const [validForm, setValidForm] = useState(true);
@@ -24,7 +24,7 @@ export default function MessageForm({ createMessage, details }) {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit} ref={formElement}>
+			<form onSubmit={handleSubmit} ref={formElement} className={styles.myForm}>
 				<label htmlFor="messageContent"></label>
 				<input
 					required
@@ -34,9 +34,13 @@ export default function MessageForm({ createMessage, details }) {
 					name="content"
 					maxLength="144"
 					onChange={handleChange}
+					className={styles.messageInput}
 				/>
-				<button type="submit" disabled={!validForm}>
-					Add Message
+				<button
+					 type="submit" disabled={!validForm}
+					 className={styles.messageButton}
+				>
+				➤
 				</button>
 			</form>
 		</div>

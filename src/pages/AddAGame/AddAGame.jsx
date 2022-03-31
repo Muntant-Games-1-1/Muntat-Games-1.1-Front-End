@@ -18,6 +18,7 @@ function AddAGame({handleCreateGame, categories}) {
   // Event Handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    console.log(formData)
   }
 
   function handleSubmit(e) {

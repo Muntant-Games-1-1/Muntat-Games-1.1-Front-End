@@ -1,5 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=Quicksand&display=swap");
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 7px;
+  font-size: 50px;
+  margin: 10px;
+  color: rgb(0, 0, 0);
+}
+
 .container {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px;
 }
