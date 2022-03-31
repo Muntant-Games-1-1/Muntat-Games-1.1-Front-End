@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
 import './Landing.module.css'
 import * as lobbyService from "../../services/lobbyService";
-const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby }) => {
+
+const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, setLobby }) => {
 
   return (
     <>

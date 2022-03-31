@@ -4,7 +4,7 @@ import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import styles from './LobbyDetail.module.css'
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 	const { lobby_id } = useParams()
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
@@ -12,10 +12,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 		lobbyService.getLobbyById(lobby_id)
 			.then(res => {
 				setLobbyInfo(res)
-				console.log('setting state',res);
 			})
 	}, [])
- 
 	return (
 			<div className={styles.container}>
 				<div className="main">
@@ -23,7 +21,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 						<div className="leftSide-items">
 							<div className="gameName">
 								<h1>Game: {lobbyInfo?.game?.name}</h1>
-								{console.log('jsx rendering',lobbyInfo)}
 							</div>
 							<div>
 								{lobbyInfo?.game?.description ? (
@@ -55,6 +52,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 							<Link to="/" >
 						<button onClick={() => handleJoin(lobbyInfo?._id)}>leave lobby</button>
 					</Link>
+						
 						</>
 					</div>
 				</div>
