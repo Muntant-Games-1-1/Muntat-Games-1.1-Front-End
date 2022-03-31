@@ -6,20 +6,46 @@
   margin-bottom: 50px;
 }
 
-.label,
-.button {
-  margin-right: 0.5rem;
-}
-
 .inputContainer {
   margin-bottom: 1rem;
 }
 
-input {
-  padding-left: 10px;
+.buttonContainer {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 #password,
 #email {
   width: 100px;
+}
+
+.loginButton,
+.cancelButton {
+  width: 70%;
+  margin: 5px 0;
+  border-radius: 40px;
+  border: none;
+}
+.loginButton {
+  background-color: #2bff24;
+  transition: ease-in-out;
+}
+
+.loginButton:hover {
+  color: white;
+}
+
+a {
+  width: 100%;
+}
+
+input {
+  margin: 5px 0;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px black solid;
 }

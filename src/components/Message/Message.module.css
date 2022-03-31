@@ -6,6 +6,10 @@
   color: #d3a38f;
   cursor: pointer;
   margin-left: 5px;
+  background-color: transparent;
+  width: fit-content;
+  height: fit-content;
+  border: none;
 }
 
 .trash:hover{
@@ -19,11 +23,28 @@
 }
 
 .rightAlign {
-  margin-left: auto;
-  text-align: right;
-  color: green;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .underline {
   text-decoration: underline;
+}
+
+.messageContent{
+  color: black;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background-color: rgb(96, 178, 255);
+  width: fit-content;
+  margin-bottom: 0px;
+  max-width: 50%;
+}
+
+.messageContainer{
+  overflow: auto;
+  height: 35vh;
+  margin: 10px 30px;
 }

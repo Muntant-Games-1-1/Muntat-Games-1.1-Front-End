@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
@@ -8,9 +12,45 @@
 
 .label,
 .button {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
-.inputContainer {
+.buttonContainer {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.signupButton,
+.cancelButton {
+  width: 70%;
+  margin: 5px 0;
+  border-radius: 40px;
+  border: none;
+}
+.signupButton {
+  background-color: rgb(43, 255, 36);
+  transition: ease-in-out;
+}
+
+.signupButton:hover {
+  color: white;
+}
+
+a {
+  width: 100%;
+}
+
+input {
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px black solid;
+}
+
+button.signupButton:disabled,
+button.signupButton:disabled:hover {
+  background-color: rgba(43, 255, 36, 0.459);
+  color: black;
 }
