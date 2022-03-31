@@ -4,6 +4,7 @@ import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import "./LobbyDetail.css";
 
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 	const { lobby_id } = useParams()
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
@@ -13,10 +14,6 @@ import "./LobbyDetail.css";
 				setLobbyInfo(res)
 			})
 	}, [])
-
-	function handleExitLobby() {
-		
-	}
 
 	return (
 		<>
@@ -65,7 +62,7 @@ import "./LobbyDetail.css";
 							)} */}
 						
 									<Link to="/" >
-						<button onClick={() => handleExitLobby()}>leave lobby</button>
+						<button onClick={() => handleJoin(lobbyInfo?._id)}>leave lobby</button>
 					</Link>
 						
 						</>
