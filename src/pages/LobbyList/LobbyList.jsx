@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import {Link } from 'react-router-dom'
 import styles from './LobbyList.module.css'
 const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
-	
   return (
 		<div className={styles.container}>
 			<span><p>Lobby Name:</p><h3>{lobby?.name}</h3></span>
@@ -14,11 +13,10 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 							className={styles.delete}>
 							Delete
 						</button>
-						<button className={styles.update}>
 						<Link to="/edit-lobby" state={lobby}>
-							Update Lobby
+							<button className={styles.update}>Update Lobby</button>
 						</Link>
-						</button>
+				
 					</div>
 					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 						<button
@@ -36,6 +34,7 @@ const LobbyList = ({lobby, handleDeleteLobbies, user, handleJoin})=>{
 					</Link>
 				</div>
 			)}
+			<p>A Lobby By {lobby.owner.name}</p>
 		</div>
 	);
 }

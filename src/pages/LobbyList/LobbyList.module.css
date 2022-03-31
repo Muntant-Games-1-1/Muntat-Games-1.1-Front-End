@@ -10,6 +10,10 @@
   border: 2px black solid;
 }
 
+.container > p {
+  color: white;
+}
+
 h3 {
   color: white;
   padding: 0;
@@ -46,21 +50,13 @@ h3 {
 }
 
 .buttonContainer button {
-  color: black;
-  background-color: white;
-  border: #000000 solid 2px;
+  color: white;
+  background-color: #1b262c;
+  border: #ffffff solid 1px;
   transition: 0.2s ease-in-out;
   border-radius: 40px;
 }
 
-.buttonContainer button a {
-  color: black;
-  text-decoration: none;
-}
-
-.buttonContainer button a:hover {
-  color: white;
-}
 .buttonContainer button:hover {
   color: white;
   background-color: black;

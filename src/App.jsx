@@ -189,7 +189,7 @@ const App = () => {
 						)
 					}
 				/>
-				< Route < PageNotFound /> />
+				< Route path='*' element={< PageNotFound />} /> 
 			</Routes>
 		</>
 	);
