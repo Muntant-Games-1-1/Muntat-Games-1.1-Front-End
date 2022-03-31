@@ -31,7 +31,6 @@ const App = () => {
 
 	useEffect(() => {
 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
-		console.log('ran');
 	}, []);
 
 	useEffect(() => {
@@ -93,7 +92,7 @@ const App = () => {
 	const handleJoin = lobby_id => {
 		lobbyService
 			.joinLobby(lobby_id)
-			.then(res => console.log("handle join", res));
+			.then(res => handleGetAllLobby);
 	};
 
 	return (

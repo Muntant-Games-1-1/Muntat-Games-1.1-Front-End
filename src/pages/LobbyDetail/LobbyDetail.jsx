@@ -12,20 +12,15 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 		lobbyService.getLobbyById(lobby_id)
 			.then(res => {
 				setLobbyInfo(res)
-				console.log('setting state',res);
 			})
 	}, [])
- 
 	return (
 			<div className={styles.container}>
-				<div className="main">
+				<div className={styles.main}>
 					<div className="leftSide">
 						<div className="leftSide-items">
 							<div className="gameName">
-								<h1>Game: {lobbyInfo?.game?.name}</h1>
-								{console.log('jsx rendering',lobbyInfo)}
-							</div>
-							<div>
+								<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
 								{lobbyInfo?.game?.description ? (
 									<p>{lobbyInfo?.game?.description}</p>
 								) : (
@@ -42,10 +37,10 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 							<h2>{lobbyInfo?.owner?.name}'s Lobby</h2>
 							<h2>
 								Waiting Players:
+							</h2>
 								{lobbyInfo.waitingPlayers?.map((player,i) => (
 									<span key={i}> {player.name}, </span>
 								))}
-							</h2>
 							<h2>
 								Open spots:{" "}
 								{lobbyInfo?.game?.maxPlayers - lobbyInfo?.waitingPlayers?.length}

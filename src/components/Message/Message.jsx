@@ -32,12 +32,13 @@ export default function Message({ details, user }) {
 	}, []);
 
 	return (
-		<>
+		<div className={styles.center}>
 			<h1>Message Board</h1>
-		<div className={styles.messageContainer}>
+		<div className={styles.allMessageContainer}>
+			<div className={styles.leftSide}>
 			<div>
 				{messages && messages.length ? (
-						<div >
+						<div className={styles.allMessages}>
 							{messages.map((message) => {
 								return (
 									<div key={message._id} >
@@ -57,21 +58,24 @@ export default function Message({ details, user }) {
 											</div>
 										) : (
 											<p className={styles.leftAlign}>
-												<span>
-													<b className={styles.underline}>{message?.owner?.name}:</b> {message.content}
-												</span>
+												<b>{message?.owner?.name}:</b>
+												<span className={styles.otherMessageContent}>{message.content}</span>
 											</p>
 										)}
 									</div>
 								);
 							})}
 						</div>
-				) : (
-					<p> No messages yet</p>
-				)}
+					) : (
+						<p> No messages yet</p>
+					)}
+				</div>
 			</div>
-			<MessageForm createMessage={handleCreateMessage} details={details} />
+			<div className={styles.rightSide}>
+			</div>
+
 		</div>
-		</>
+		<MessageForm createMessage={handleCreateMessage} details={details} />
+		</div>
 	);
 }

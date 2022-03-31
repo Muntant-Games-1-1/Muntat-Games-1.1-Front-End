@@ -1,3 +1,14 @@
 .container {
-  color: red;
+  display: flex;
+  flex-direction: row;
+  margin: 20px 20px 20px 20px;
+}
+
+
+.main {
+  width: 60vw;
+}
+
+.center{
+  text-align: center;
 }
