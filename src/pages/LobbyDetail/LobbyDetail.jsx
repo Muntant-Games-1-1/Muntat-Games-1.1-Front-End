@@ -6,7 +6,8 @@ import styles from './LobbyDetail.module.css'
 
 function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 	const { lobby_id } = useParams()
-	const [ lobbyInfo, setLobbyInfo ] = useState({})
+	const [lobbyInfo, setLobbyInfo] = useState({})
+	const waitingList = lobbyInfo?.waitingPlayers?.map(player => player.name);
 
 	useEffect(() => {
 		lobbyService.getLobbyById(lobby_id)
@@ -38,10 +39,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 							</div>
 							<h2>{lobbyInfo?.owner?.name}'s Lobby</h2>
 							<h2>
-								Waiting Players:
-								{lobbyInfo.waitingPlayers?.map((player,i) => (
-									<span key={i}> {player.name}, </span>
-								))}
+								Waiting Players: { waitingList?.join(", ") }
 							</h2>
 							<h2>
 								Open spots:{" "}
