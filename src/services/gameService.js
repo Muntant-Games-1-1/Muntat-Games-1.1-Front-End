@@ -2,7 +2,7 @@ import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}`
 
 export async function getCategories(){
-  const categories = await fetch(`${BASE_URL}/api/categories`, {
+  const categories = await fetch(`${BASE_URL}api/categories`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
@@ -12,7 +12,7 @@ export async function getCategories(){
 }
 
 export async function addGame(gameDetails){
-  const game = await fetch(`${BASE_URL}/api/games`, {
+  const game = await fetch(`${BASE_URL}api/games`, {
     method: 'POST', 
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -25,7 +25,7 @@ export async function addGame(gameDetails){
 
 
 export async function getAllGames() {
-  return fetch(`${BASE_URL}/api/games`, {
+  return fetch(`${BASE_URL}api/games`, {
     method: 'GET', 
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
