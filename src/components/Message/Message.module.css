@@ -64,4 +64,6 @@
   height: 65vh;
   width: 40vw;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color:transparent transparent ;
 }

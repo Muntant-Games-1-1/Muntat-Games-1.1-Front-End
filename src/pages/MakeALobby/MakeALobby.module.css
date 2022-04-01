@@ -24,10 +24,19 @@
   border: none;
   margin-top: 20px;
   padding: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.createButton:hover{
+  font-size: 27px;
 }
 
 .createButton:disabled{
   background-color: rgba(41, 55, 87, 0.498);
+}
+
+.createButton:disabled:hover{
+  font-size: 25px;
 }
 
 .makeALobby input {

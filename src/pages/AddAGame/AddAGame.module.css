@@ -1,0 +1,60 @@
+.gameForm{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.center{
+  text-align: center;
+}
+
+.gameName, .playerLimit, .description, .categories {
+  margin: 10px 30vw;
+  text-align: center;
+}
+
+.gameForm input {
+  border:rgb(41, 55, 87) 2px solid;
+}
+
+.gameForm input:focus{
+  border: 3px solid rgb(46, 58, 84);
+}
+
+.biggerInput{
+  width: 30vw;
+  height: 200px;
+  display: flex;
+  padding: 10px;
+  border:rgb(41, 55, 87) 2px solid;
+  border-radius: 10px;
+}
+
+.btnContainer{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.submitBtn{
+  background-color: rgb(41, 55, 87);
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  padding: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.submitBtn:hover{
+  font-size: 27px;
+}
+
+.submitBtn:disabled{
+  background-color: rgba(41, 55, 87, 0.498);
+}
+
+.submitBtn:disabled:hover{
+  font-size: 25px;
+}
