@@ -38,10 +38,6 @@ const App = () => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
 
-	useEffect(() => {
-		console.warn('[app]lobby change', lobby)
-	}, [lobby])
-
 	function handleCreateLobby(newLobby) {
 		lobbyService
 			.createLobby(newLobby)
