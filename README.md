@@ -55,9 +55,11 @@ npm start
 <br>
 
 Home Screen
+
 <img alt="Homepage" src="https://i.imgur.com/XiOlgSb.png" width="600px" >
 
 Log In Screen
+
 <img alt="Lobby Detail View" src="https://i.imgur.com/zt1nUqc.png" width="600px">
 
 
