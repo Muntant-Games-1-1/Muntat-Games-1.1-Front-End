@@ -1,5 +1,6 @@
 import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}`
+
 export async function getCategories(){
   const categories = await fetch(`${BASE_URL}api/categories`, {
     method: 'GET',

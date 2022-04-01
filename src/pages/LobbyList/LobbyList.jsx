@@ -27,16 +27,18 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby })=>
 				) : (
 					<>
 					{ players?.includes(user?.profile?.toString()) ? (
-					
+					<div className={styles.buttonContainer}>
 						<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
-						<button>View</button>
-					</Link>
+							<button>View</button>
+						</Link>
+					</div>
 						
 					) : (
-						
-					<Link to={`/lobby-detail/${lobby?._id}` } state = { lobby }>
-							<button onClick={ () => handleJoin(lobby?._id) }>Join</button>
-					</Link>
+						<div className={styles.buttonContainer}>
+							<Link to={`/lobby-detail/${lobby?._id}` } state = { lobby }>
+									<button onClick={ () => handleJoin(lobby?._id) }>Join</button>
+							</Link>
+						</div>
 				)
 			}
 			</>

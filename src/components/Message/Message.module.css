@@ -1,25 +1,24 @@
-.msgContainer {
-  border: 2px solid red;
-}
 
 .trash{
-  color: #d3a38f;
+  color: #ff00005c;
   cursor: pointer;
   margin-left: 5px;
   background-color: transparent;
   width: fit-content;
   height: fit-content;
   border: none;
+  transition: all .15s ease-in-out;
 }
 
 .trash:hover{
-  color:#e47317
+  color:#ff3939
 }
 
 .leftAlign {
-  margin-right: auto;
-  text-align: left;
-  color: purple;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .rightAlign {
@@ -43,8 +42,28 @@
   max-width: 50%;
 }
 
-.messageContainer{
+
+.otherMessageContent{
+  color: black;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background-color: rgb(204, 204, 204);
+  width: fit-content;
+  margin-bottom: 0px;
+  max-width: 50%;
+}
+
+.center{
+  text-align: center;
+  border: 4px rgb(188, 188, 188) solid;
+  border-radius: 20px;
+  background-color: rgba(96, 178, 255, .2);
+}
+
+.allMessageContainer{
+  height: 65vh;
+  width: 40vw;
   overflow: auto;
-  height: 35vh;
-  margin: 10px 30px;
+  scrollbar-width: thin;
+  scrollbar-color:transparent transparent ;
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import styles from './AddAGame.module.css'
 
 function AddAGame({handleCreateGame, categories}) {
 
@@ -32,61 +33,73 @@ function AddAGame({handleCreateGame, categories}) {
 
   return (
     <>
-      <h1>Add A Game</h1>
+       <div className={styles.center}>
+        <h1>Add A Game</h1>
+      </div>
       <form
         onSubmit={handleSubmit}
         ref={formElement}
       >
-        {/* Game Name Input */}
-        <label htmlFor="gameName">Game Name</label>
-        <input
-          required
-          type="text"
-          id='gameName'
-          name='name'
-          value={formData.name}
-          onChange={handleChange}
-        />
-       {/* Player Limit Input */}
-        <label htmlFor="maxPlayers">Player Limit</label>
-        <input
-          required
-          type="number"
-          id='maxPlayers'
-          name='maxPlayers'
-          value={formData.maxPlayers}
-          onChange={handleChange}
-        />
+        <div className={styles.gameForm} >
+          <div className={styles.gameName}>
+            <h3>Game Name</h3>
+            <input
+              required
+              type="text"
+              id='gameName'
+              name='name'
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+        {/* Player Limit Input */}
+        <div className={styles.playerLimit}>
+            <h3>Player Limit</h3>
+            <input
+              required
+              type="number"
+              id='maxPlayers'
+              name='maxPlayers'
+              value={formData.maxPlayers}
+              onChange={handleChange}
+            />
+          </div>  
 
-        {/* Selection For Game Category */}
-
-      {/* Game Description Input */}
-        <label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          id="description"
-          cols="30"
-          rows="10"
-          onChange={handleChange}
-          value={formData.description}
-          required
-          >
-        </textarea>
-        <label htmlFor="category">Categories</label>
-        <select
-         name="categories"
-          id="category"
-          onChange={handleChange}
-          >
-            {categories && categories.map(category => (
-              <option key={category._id} value={category._id}>{category.name}</option>
-            ))}
-        </select>
-        <button
-          type='submit'
-          disabled={!validForm}>
-            Add Game
-        </button>
+        {/* Game Description Input */}
+        <div className={styles.description}>
+            <h3>Description</h3>
+            <textarea
+              name="description"
+              id="description"
+              onChange={handleChange}
+              value={formData.description}
+              className={styles.biggerInput}
+              required
+              >
+            </textarea>
+          </div>
+          <div className={styles.categories}>
+            <h3>Categories</h3>
+            <select
+            name="categories"
+              id="category"
+              onChange={handleChange}
+              >
+                {categories && categories.map(category => (
+                  <option key={category._id} value={category._id}>{category.name}</option>
+                ))}
+            </select>
+          </div>
+          </div>
+          <section className={styles.btnContainer}>
+            <button
+              type='submit'
+              disabled={!validForm}
+              className={styles.submitBtn}
+              >
+                Add Game
+            </button>
+          </section>
       </form>
     </>
   );
