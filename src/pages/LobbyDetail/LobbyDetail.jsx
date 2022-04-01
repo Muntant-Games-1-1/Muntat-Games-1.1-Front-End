@@ -4,7 +4,7 @@ import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import styles from './LobbyDetail.module.css'
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAndLeave}) {
 	const { lobby_id } = useParams()
 	const [lobbyInfo, setLobbyInfo] = useState({})
 	const waitingList = lobbyInfo?.waitingPlayers?.map(player => player.name);
@@ -39,14 +39,12 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 								)}
 							</div>
 						<div className={styles.center}>						
-							<Link to="/" >
 						<button
-							 onClick={() => handleJoin(lobbyInfo?._id)}
+							 onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
 							 className={styles.leaveButton}
 						>
 							Exit Lobby
-						</button>
-					</Link>
+						</button> 
 						</div>
 					</div>
 				</div>

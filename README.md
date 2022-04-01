@@ -12,15 +12,15 @@ Here are links to the [deployed applcation](https://mutant-games.herokuapp.com/)
 
 To run the project locally:
 
-1. Clone and initiate the [back-end repository](https://github.com/Team-Mutant/Mutant-games-back-end) (following the step-by-step setup guide in the README)
+1. Clone and initiate the [back-end repository](https://github.com/Team-Mutant/Mutant-games-back-end) (following the step-by-step setup guide in the README).
 
-2. Navigate to the directory you want to clone this app into and run the command 
+2. Navigate to the directory you want to clone this app into and run the command.
 
  ```bash 
  git clone git@github.com:Team-Mutant/Mutant-games-front-end.git
  ```
 
-3. After cloning the front-end project directory, run the command 
+3. After cloning the front-end project directory, run the command.
 
 ```bash
 touch .env
@@ -32,13 +32,13 @@ touch .env
 REACT_APP_BACKEND_SERVER_URL=http://localhost:3001
 ```
 
-5. Install all dependencies by running the command 
+5. Install all dependencies by running the command.
 
 ```bash
 npm i
 ```
 
-6. Spin up the app by running the command 
+6. Spin up the app by running the command.
 
 ```bash
 npm start
@@ -79,7 +79,7 @@ On the next version of Mutant Games, we are excited to introduce real-time commu
 
 Koffi Hessou - Git Manager, Visionary
 
-Sun Huang - SRUM Manager, Organization Lead
+Sun Hwang - SCRUM Manager, Organization Lead
 
 Teal Ewer - Database Manager, Documenter
 

@@ -37,7 +37,7 @@ const App = () => {
 	useEffect(() => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
-
+ 
 	function handleCreateLobby(newLobby) {
 		lobbyService
 			.createLobby(newLobby)
@@ -88,7 +88,14 @@ const App = () => {
 	const handleJoin = lobby_id => {
 		lobbyService
 			.joinLobby(lobby_id)
-			.then(res => handleGetAllLobby);
+			.then(res => handleGetAllLobby)
+	};
+
+	const handleJoinAndLeave = lobby_id => {
+		lobbyService
+			.joinLobby(lobby_id)
+			.then(res => handleGetAllLobby())
+			.then(() => navigate('/'));
 	};
 
 	return (
@@ -178,6 +185,7 @@ const App = () => {
 								lobby={lobby}
 								handleDeleteLobby={handleDeleteLobby}
 								setLobby={setLobby}
+								handleJoinAndLeave={handleJoinAndLeave}
 							/>
 						) : (
 							<Navigate to="/login" />
