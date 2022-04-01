@@ -1,16 +1,17 @@
 
 .trash{
-  color: #d3a38f;
+  color: #ff00005c;
   cursor: pointer;
   margin-left: 5px;
   background-color: transparent;
   width: fit-content;
   height: fit-content;
   border: none;
+  transition: all .15s ease-in-out;
 }
 
 .trash:hover{
-  color:#e47317
+  color:#ff3939
 }
 
 .leftAlign {

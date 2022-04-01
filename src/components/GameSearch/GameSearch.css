@@ -1,5 +1,6 @@
 input {
   width: 20vw;
+  height: 30px;
   min-width: 300px;
 }
 
@@ -12,8 +13,18 @@ div.dropDown {
   width: 20vw;
   min-width: 300px;
   text-align: center;
-  max-height: 350px;
+  max-height: 250px;
   overflow: auto;
+  position: absolute;
+  margin-top: 35px;
+}
+
+div.dropDown button {
+  height: 30px;
+  border: none;
+  border-bottom: 1px white solid;
+  color: white;
+  background-color: rgb(41, 55, 87); ;
 }
 
 button.searchResult {

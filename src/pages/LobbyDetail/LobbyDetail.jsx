@@ -17,40 +17,44 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
 	return (
 			<div className={styles.container}>
 				<div className={styles.main}>
-					<div className="leftSide">
-						<div className="leftSide-items">
-							<div className="gameName">
-								<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
-								{lobbyInfo?.game?.description ? (
-									<p>{lobbyInfo?.game?.description}</p>
-								) : (
-									<p> No description Available </p>
-								)}
-							</div>
-						</div>
-					</div>
 					<div className="rightside">
-						<div className="rightside-item">
+						<div className={styles.center}>
 							<div className="lobbyname">
-								<h2>Lobby Name: {lobbyInfo?.name}</h2>
+								<h4 className={styles.center}>Lobby Name: </h4>
+								<h1 className={styles.center}>{lobbyInfo?.name}</h1>
 							</div>
-							<h2>{lobbyInfo?.owner?.name}'s Lobby</h2>
+							<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
+							<hr/>
 							<h2>
 								Waiting Players:
-							</h2>
 								{lobbyInfo.waitingPlayers?.map((player,i) => (
 									<span key={i}> {player.name}, </span>
 								))}
+							</h2>
+							
 							<h2>
-								Open spots:{" "}
+								Lobby Openings:{" "}
 								{lobbyInfo?.game?.maxPlayers - lobbyInfo?.waitingPlayers?.length}
 							</h2>
 						</div>
-						<>						
+						<div className="gameName">
+								<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
+								{lobbyInfo?.game?.description ? (
+									<p className={styles.center}>{lobbyInfo?.game?.description}</p>
+								) : (
+									<p className={styles.center}> No description Available </p>
+								)}
+							</div>
+						<div className={styles.center}>						
 							<Link to="/" >
-						<button onClick={() => handleJoin(lobbyInfo?._id)}>leave lobby</button>
+						<button
+							 onClick={() => handleJoin(lobbyInfo?._id)}
+							 className={styles.leaveButton}
+						>
+							Exit Lobby
+						</button>
 					</Link>
-						</>
+						</div>
 					</div>
 				</div>
 				<Message details={lobbyInfo} user={user}/>
