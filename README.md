@@ -6,13 +6,9 @@ From the dev team that brought you *Duck Duck Shoe*.
 
 Mutant Games is an open source video game lobby service! Users can create and join lobbies to connect with their friends and chat about their favorite video games.
 
-<br>
-
 ## Getting Started:
 
 Here are links to the [deployed applcation](https://mutant-games.herokuapp.com/) and a [Trello Board](https://trello.com/b/K7ydDNPv/tmnt) containing planning materials.
-
-
 
 To run the project locally:
 
@@ -47,12 +43,7 @@ npm i
 ```bash
 npm start
 ```
-
-<br>
-
 ## Screenshots:
-
-<br>
 
 Home Screen
 
@@ -61,7 +52,6 @@ Home Screen
 Log In Screen
 
 <img alt="Lobby Detail View" src="https://i.imgur.com/zt1nUqc.png" width="600px">
-
 
 ## Technologies Used:
 
