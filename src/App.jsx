@@ -31,11 +31,16 @@ const App = () => {
 
 	useEffect(() => {
 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
+		
 	}, []);
 
 	useEffect(() => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
+
+	useEffect(() => {
+		console.warn('[app]lobby change', lobby)
+	}, [lobby])
 
 	function handleCreateLobby(newLobby) {
 		lobbyService
@@ -46,11 +51,6 @@ const App = () => {
 			})
 			.catch(navigate("/"));
 	}
-	// useEffect(() => {
-	// 	if (user) {
-	// 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
-	// 	}
-	// }, [user]);
 
 // Event Handlers
 	const handleLogout = () => {
@@ -172,7 +172,6 @@ const App = () => {
 						)
 					}
 				/>
-
 				<Route
 					path="/lobby-detail/:lobby_id"
 					element={
@@ -182,6 +181,7 @@ const App = () => {
 								handleJoin={handleJoin}
 								lobby={lobby}
 								handleDeleteLobby={handleDeleteLobby}
+								setLobby={setLobby}
 							/>
 						) : (
 							<Navigate to="/login" />

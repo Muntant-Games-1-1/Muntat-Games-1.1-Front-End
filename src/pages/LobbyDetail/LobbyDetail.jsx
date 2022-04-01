@@ -4,7 +4,7 @@ import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import styles from './LobbyDetail.module.css'
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user }) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 	const { lobby_id } = useParams()
 	const [ lobbyInfo, setLobbyInfo ] = useState({})
 
