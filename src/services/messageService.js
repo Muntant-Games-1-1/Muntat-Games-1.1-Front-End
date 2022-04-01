@@ -1,5 +1,5 @@
 import * as tokenService from "./tokenService";
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/messages`;
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}api/messages`;
 
 async function createMessage(messageDetails, details) {
 	messageDetails.lobby = details._id;
