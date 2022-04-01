@@ -1,0 +1,49 @@
+.center{
+  text-align: center;
+}
+
+.allInputs {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button{
+  text-align: center;
+}
+
+
+.gameSearch, .playerLimit, .lobbyName {
+  text-align: center;
+}
+
+.createButton{
+  background-color: rgb(41, 55, 87);
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  padding: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.createButton:hover{
+  font-size: 27px;
+}
+
+.createButton:disabled{
+  background-color: rgba(41, 55, 87, 0.498);
+}
+
+.createButton:disabled:hover{
+  font-size: 25px;
+}
+
+.makeALobby input {
+  border:rgb(41, 55, 87) 2px solid;
+}
+
+.makeALobby input:focus{
+  border: 3px solid rgb(46, 58, 84);
+}
+

@@ -1,6 +1,7 @@
 import {useRef, useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom'
 import GameSearch from '../../components/GameSearch/GameSearch'
+import styles from './EditALobby.module.css'
 function EditALobby({games, handleEditLobby}) {
   // All State , Constants, & Helper Functions
   const location = useLocation()
@@ -56,35 +57,53 @@ function handleSubmit(e) {
 // Jsx
   return (
     <div className='lobby-form'>
+      < div className={styles.center}>
       <h1>Edit A Lobby</h1>
-      <form onSubmit={handleSubmit} ref={formElement}>
-        <h3>Lobby Name</h3>
-        <input
-          required
-          type="text"
-          id='lobbyName'
-          name='name'
-          onChange={handleChange}
-          value={formData.name}
-        />
-
-        < GameSearch
-            formData={formData} 
-            games={games}     
-            handleChange={handleChange}
-            searchResults={searchResults}
-            handleGameSelection={handleGameSelection}
-        />
-        <h3>Player Limit</h3>
-        <input
-          type="number"
-          id='lobbyLimit'
-          name='lobbyLimit'
-          onChange={handleChange} 
-          value={formData.lobbyLimit}
-          required
-          />
-        <button type='submit' disabled={!validForm}>Update</button>
+      </div>
+        
+      <form onSubmit={handleSubmit} ref={formElement}  className={styles.makeALobby}>
+        <div className={styles.allInputs}>
+          <div className={styles.lobbyName}>
+            <h3>Lobby Name</h3>
+            <input
+              required
+              type="text"
+              id='lobbyName'
+              name='name'
+              onChange={handleChange}
+              value={formData.name}
+              />
+            </div>
+            <div className={styles.playerLimit}>
+              <h3>Player Limit</h3>
+              <input
+                type="number"
+                id='lobbyLimit'
+                name='lobbyLimit'
+                onChange={handleChange} 
+                value={formData.lobbyLimit}
+                required
+                />
+            </div>
+            <div className={styles.gameSearch}>
+            < GameSearch
+                formData={formData} 
+                games={games}     
+                handleChange={handleChange}
+                searchResults={searchResults}
+                handleGameSelection={handleGameSelection}
+            />
+            </div>
+          </div>
+          <div className={styles.button}>
+          <button
+           type='submit'
+           disabled={!validForm}
+           className={styles.createButton}
+           >
+             Update
+          </button>
+           </div>
       </form>
     </div>
   );

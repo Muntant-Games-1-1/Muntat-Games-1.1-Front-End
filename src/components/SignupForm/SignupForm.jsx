@@ -51,6 +51,7 @@ const SignupForm = props => {
           value={name}
           name="name"
           onChange={handleChange}
+          style={{width: '200px'}}
           placeholder='Full Name'
         />
       </div>
@@ -62,6 +63,7 @@ const SignupForm = props => {
           value={email}
           name="email"
           onChange={handleChange}
+          style={{width: '200px'}}
           placeholder='Please Enter Your Email'
         />
       </div>
@@ -73,6 +75,7 @@ const SignupForm = props => {
           value={password}
           name="password"
           onChange={handleChange}
+          style={{width: '200px'}}
           placeholder='Enter A Secure Password'
         />
       </div>
@@ -84,6 +87,7 @@ const SignupForm = props => {
           value={passwordConf}
           name="passwordConf"
           onChange={handleChange}
+          style={{width: '200px'}}
           placeholder='Confirm Password'
         />
       </div>

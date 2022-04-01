@@ -62,7 +62,7 @@ function handleGameSelection(e) {
   }, [formData, games])
 
   return (
-    <>
+    <> 
       <div className={styles.center}>
         <h1>Create A Lobby</h1>
       </div> 
