@@ -26,7 +26,11 @@ div.dropDown button {
   border: none;
   border-bottom: 1px white solid;
   color: white;
-  background-color: rgb(41, 55, 87); ;
+  background-color: rgb(41, 55, 87);
+}
+
+div.dropDown button:hover{
+  background-color: rgb(66, 83, 125);
 }
 
 button.searchResult {

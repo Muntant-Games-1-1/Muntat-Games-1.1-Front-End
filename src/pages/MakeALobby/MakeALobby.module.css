@@ -33,3 +33,7 @@
 .makeALobby input {
   border:rgb(41, 55, 87) 2px solid;
 }
+
+.makeALobby input:focus{
+  border: 3px solid rgb(46, 58, 84);
+}
