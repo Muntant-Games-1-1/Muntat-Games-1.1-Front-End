@@ -17,6 +17,8 @@ div.dropDown {
   overflow: auto;
   position: absolute;
   margin-top: 35px;
+  scrollbar-width: thin;
+  scrollbar-color:#293757 #3282b8 ;
 }
 
 div.dropDown button {
