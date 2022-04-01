@@ -71,8 +71,6 @@ This full-stack MERN application was built using:
 ![](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=whit)
 ![](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=whit)
 
-<br>
-
 ## Next Steps:
 
 On the next version of Mutant Games, we are excited to introduce real-time communication via Socket.io!  We will also be implementing the ability for users to keep up with their friend's with an "Add Friend" feature.
