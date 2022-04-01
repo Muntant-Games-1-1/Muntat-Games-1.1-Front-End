@@ -74,3 +74,13 @@ This full-stack MERN application was built using:
 ## Next Steps:
 
 On the next version of Mutant Games, we are excited to introduce real-time communication via Socket.io!  We will also be implementing the ability for users to keep up with their friend's with an "Add Friend" feature.
+
+## The Team:
+
+Koffi Hessou - Git Manager, Visionary
+
+Sun Huang - SRUM Manager, Organization Lead
+
+Teal Ewer - Database Manager, Documenter
+
+Zena Endrias - Front End Lead, Designer
