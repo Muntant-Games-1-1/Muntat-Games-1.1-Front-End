@@ -57,8 +57,8 @@ npm start
 Home Screen
 <img alt="Homepage" src="https://i.imgur.com/XiOlgSb.png" width="600px" >
 
-Lobby Detail View
-<img alt="Lobby Detail View" src="https://images.unsplash.com/photo-1603314585442-ee3b3c16fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" width="600px">
+Log In Screen
+<img alt="Lobby Detail View" src="https://i.imgur.com/zt1nUqc.png" width="600px">
 
 
 ## Technologies Used:
