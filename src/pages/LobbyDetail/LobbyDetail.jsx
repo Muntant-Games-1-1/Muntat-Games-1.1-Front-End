@@ -31,11 +31,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user}) {
 									<span key={i}> {player.name}, </span>
 								))}
 							</h2>
-							
-							<h2>
-								Lobby Openings:{" "}
-								{lobbyInfo?.game?.maxPlayers - lobbyInfo?.waitingPlayers?.length}
-							</h2>
 						</div>
 						<div className="gameName">
 								<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
