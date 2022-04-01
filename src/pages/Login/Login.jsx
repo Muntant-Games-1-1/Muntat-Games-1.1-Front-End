@@ -23,6 +23,6 @@ const LoginPage = props => {
       </div>
     </main>
   )
-}
+} 
 
 export default LoginPage

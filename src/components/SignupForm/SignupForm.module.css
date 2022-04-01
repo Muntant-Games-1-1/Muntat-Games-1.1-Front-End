@@ -54,3 +54,12 @@ button.signupButton:disabled:hover {
   background-color: rgba(43, 255, 36, 0.459);
   color: black;
 }
+
+
+.inputContainer input {
+  max-width: 100%;
+}
+
+
+
+
