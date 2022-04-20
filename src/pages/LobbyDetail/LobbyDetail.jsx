@@ -1,10 +1,10 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import styles from './LobbyDetail.module.css'
 
-function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAndLeave}) {
+function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAndLeave }) {
 	const { lobby_id } = useParams()
 	const [lobbyInfo, setLobbyInfo] = useState({})
 	const waitingList = lobbyInfo?.waitingPlayers?.map(player => player.name);
@@ -15,41 +15,42 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 				setLobbyInfo(res)
 			})
 	}, [])
+	console.log(lobbyInfo)
 	return (
-			<div className={styles.container}>
-				<div className={styles.main}>
-					<div className="rightside">
-						<div className={styles.center}>
-							<div className="lobbyname">
-								<h4 className={styles.center}>Lobby Name: </h4>
-								<h1 className={styles.center}>{lobbyInfo?.name}</h1>
-							</div>
-							<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
-							<hr/>
-							<h2>
-								Waiting Players: { waitingList?.join(", ") }
-							</h2>
+		<div className={styles.container}>
+			<div className={styles.main}>
+				<div className="rightside">
+					<div className={styles.center}>
+						<div className="lobbyname">
+							<h4 className={styles.center}>Lobby Name: </h4>
+							<h1 className={styles.center}>{lobbyInfo?.name}</h1>
 						</div>
-						<div className="gameName">
-								<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
-								{lobbyInfo?.game?.description ? (
-									<p className={styles.center}>{lobbyInfo?.game?.description}</p>
-								) : (
-									<p className={styles.center}> No description Available </p>
-								)}
-							</div>
-						<div className={styles.center}>						
+						<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
+						<hr />
+						<h2>
+							Waiting Players: {waitingList?.join(", ")}
+						</h2>
+					</div>
+					<div className="gameName">
+						<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
+						{lobbyInfo?.game?.description ? (
+							<p className={styles.center}>{lobbyInfo?.game?.description}</p>
+						) : (
+							<p className={styles.center}> No description Available </p>
+						)}
+					</div>
+					<div className={styles.center}>
 						<button
-							 onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
-							 className={styles.leaveButton}
+							onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
+							className={styles.leaveButton}
 						>
 							Exit Lobby
-						</button> 
-						</div>
+						</button>
 					</div>
 				</div>
-				<Message details={lobbyInfo} user={user}/>
 			</div>
+			<Message details={lobbyInfo} user={user} />
+		</div>
 	);
 }
 

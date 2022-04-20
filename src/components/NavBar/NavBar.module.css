@@ -1,5 +1,5 @@
 nav {
-  background-color: #1b262c;
+  background-color: transparent;
   overflow: hidden;
   height: 70px;
   display: flex;
@@ -16,12 +16,11 @@ nav {
 
 a.link,
 a.logout {
-  color: rgb(255, 255, 255);
+  color: white;
   text-decoration: none;
   text-align: center;
   width: fit-content;
   padding: 5px 20px;
-  border: #1b262c 2px solid;
   transition: 0.2s ease-in-out;
 }
 
@@ -34,7 +33,7 @@ a.logout {
 
 .logout {
   box-shadow: 0px 0px 5px #113953;
-  background-color: #3282b8;
+  background-color: #6a1bfc;
   border-radius: 20px;
 }
 
@@ -42,6 +41,4 @@ a.link:hover {
   color: #3282b8;
 }
 
-a.logout:hover {
-  border: white 2px solid;
-}
+a.logout:hover {}
