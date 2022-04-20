@@ -1,11 +1,8 @@
 import styles from './Landing.module.css'
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
 import './Landing.module.css'
-import * as lobbyService from "../../services/lobbyService";
 
-const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, setLobby, chooseRandomBackgroundImage }) => {
+const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, chooseRandomBackgroundImage }) => {
 
   return (
     <div className={styles.total_home}>
