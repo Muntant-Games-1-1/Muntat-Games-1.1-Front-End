@@ -116,6 +116,7 @@ const App = () => {
 							handleDeleteLobby={handleDeleteLobby}
 							handleJoin={handleJoin}
 							handleGetAllLobby={handleGetAllLobby}
+							chooseRandomBackgroundImage={chooseRandomBackgroundImage}
 						/>
 					}
 				/>

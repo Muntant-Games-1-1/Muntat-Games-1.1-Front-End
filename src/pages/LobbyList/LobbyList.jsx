@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from './LobbyList.module.css'
-const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby }) => {
+const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby, chooseRandomBackgroundImage }) => {
 	let players = lobby.waitingPlayers.map(player => player._id)
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} style={{ backgroundImage: `url(${chooseRandomBackgroundImage()})` }}>
 			<span><p>Game:</p><h3>{lobby?.game?.name}</h3></span>
 			{(lobby.owner._id && lobby?.owner?._id === user?.profile) ? (
 				<div className={styles.buttonContainer}>

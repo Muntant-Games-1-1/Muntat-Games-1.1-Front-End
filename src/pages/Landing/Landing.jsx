@@ -5,7 +5,7 @@ import LobbyList from '../LobbyList/LobbyList'
 import './Landing.module.css'
 import * as lobbyService from "../../services/lobbyService";
 
-const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, setLobby }) => {
+const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, setLobby, chooseRandomBackgroundImage }) => {
 
   return (
     <div className={styles.total_home}>
@@ -38,6 +38,7 @@ const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby
               lobby={lobbies}
               handleDeleteLobbies={handleDeleteLobby}
               handleGetAllLobby={handleGetAllLobby}
+              chooseRandomBackgroundImage={chooseRandomBackgroundImage}
             />
           </div>
         ))}
