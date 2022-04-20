@@ -40,8 +40,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 							</div>
 						<div className={styles.center}>						
 						<button
-							 onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
-							 className={styles.leaveButton}
+							onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
+							className={styles.leaveButton}
 						>
 							Exit Lobby
 						</button> 
