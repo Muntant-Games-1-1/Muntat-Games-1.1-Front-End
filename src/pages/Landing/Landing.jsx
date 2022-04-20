@@ -22,6 +22,11 @@ const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby
           <p className={styles.details}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam cumque distinctio quo architecto, ullam numquam autem laboriosam nobis, molestias officia sequi non beatae sunt inventore repellendus eum, enim qui repudiandae.
           </p>
+          <div className={styles.main_buttons}>
+            <button className={styles.reg_btn}>Button</button>
+            <button className={styles.reg_btn}>My Button Example</button>
+            <button className={styles.the_btn}>Button Here</button>
+          </div>
         </div>
       }
       <main className={styles.container}>

@@ -21,6 +21,9 @@ a.logout {
   width: fit-content;
   padding: 5px 20px;
   transition: 0.2s ease-in-out;
+  box-shadow: 0px 0px 5px #113953;
+  background-color: #6a1bfc;
+  border-radius: 20px;
 }
 
 a.link {
@@ -42,11 +45,6 @@ a.link {
   float: left;
 }
 
-.logout {
-  box-shadow: 0px 0px 5px #113953;
-  background-color: #6a1bfc;
-  border-radius: 20px;
-}
 
 a.link:hover {
   background-color: #c4c4c4;
