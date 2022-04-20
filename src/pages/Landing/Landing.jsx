@@ -15,6 +15,9 @@ const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby
       </div>
       {!user ?
         <div className={styles.header}>
+          <p className={styles.details}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam cumque distinctio quo architecto, ullam numquam autem laboriosam nobis, molestias officia sequi non beatae sunt inventore repellendus eum, enim qui repudiandae.
+          </p>
           <p>Login or Sign-up To Join / Create A Lobby</p>
         </div>
         :
