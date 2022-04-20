@@ -18,7 +18,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 	return (
 			<div className={styles.container}>
 				<div className={styles.main}>
-					<div className="rightside">
+					<div className={styles.rightside}>
 						<div className={styles.center}>
 							<div className="lobbyname">
 								<h4 className={styles.center}>Lobby Name: </h4>

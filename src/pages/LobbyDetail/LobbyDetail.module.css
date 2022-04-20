@@ -1,34 +1,5 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  margin: 20px 20px 20px 20px;
-}
-
-
-.main {
-  width: 60vw;
-}
-
-.center{
-  text-align: center;
-}
-
-.leaveButton{
-  color: black;
-  background-color: rgb(255, 68, 68);
-  border-radius: 10px;
-  padding: 10px;
-  transition: all .2s ease-in-out;
-}
-
-.leaveButton:hover{
-  padding: 12px;
-  font-size: 20px;
+.rightside {
   background-color: red;
-  color: white;
-}
-
-h2 > span{
-  font-size: 20px;
-  margin: 10px
+  margin-left: 12rem;
+  margin-right: 12rem;
 }
