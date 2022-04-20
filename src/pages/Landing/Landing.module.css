@@ -2,6 +2,9 @@
 
 .header {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -18,4 +21,14 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 10px;
+}
+
+.total_home {
+  margin-top: 100px;
+}
+
+.details {
+  width: 40vw;
+  max-width: 800px;
+  margin-bottom: 100px;
 }
