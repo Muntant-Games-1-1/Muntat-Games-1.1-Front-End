@@ -1,10 +1,8 @@
 .container {
-  background-color: #0f4c75;
-  width: 15vh;
-  min-width: 300px;
-  height: 40vh;
-  min-height: 200px;
-  text-align: center;
+  width: 80vw;
+  max-width: 900px;
+  min-width: 600px;
+  height: 120px;
   border-radius: 10px;
   transition: 0.15s ease-in-out;
   border: 2px black solid;
@@ -14,15 +12,16 @@
   margin: 0 10px 20px 10px;
 }
 
-.container > p {
-  color: white;
+.container>p {
+  color: black;
 }
 
-span > h3 {
-  color: white;
+span>h3 {
+  color: black;
   padding: 0;
   margin: 0;
 }
+
 .container:hover {
   box-shadow: 0px 0px 10px grey;
 }
@@ -34,7 +33,7 @@ span > h3 {
   width: 100%;
 }
 
-.buttonContainer > a > button {
+.buttonContainer>a>button {
   width: 70%;
 }
 
@@ -49,7 +48,7 @@ span > h3 {
   width: fit-content;
 }
 
-.editDeleteContainer > button {
+.editDeleteContainer>button {
   width: 35%;
 }
 
@@ -70,7 +69,7 @@ span > h3 {
   background-color: black;
 }
 
-span > p {
-  color: white;
+span>p {
+  color: black;
   margin: 0;
 }

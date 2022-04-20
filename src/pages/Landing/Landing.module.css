@@ -21,10 +21,9 @@
 
 .container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
   margin: 10px;
+  align-items: center;
 }
 
 .total_home {
@@ -61,4 +60,14 @@
   background-color: #6a1bfc;
   border-radius: 5px;
   border: none;
+}
+
+
+.reg_btn:hover {
+  background-color: #c4c4c4;
+  ;
+}
+
+.the_btn:hover {
+  background-color: #7e38ff;
 }

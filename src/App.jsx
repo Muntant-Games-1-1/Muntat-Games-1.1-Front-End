@@ -22,7 +22,8 @@ const App = () => {
 	const [lobby, setLobby] = useState([]);
 	const [categories, setCategories] = useState([]);
 	const [games, setGames] = useState([]);
-
+	// Other Constants
+	const potentialBackgroundImages = ['https://wallpaperaccess.com/full/1616111.jpg', 'https://wallpapercave.com/wp/wp3085127.jpg', 'https://wallpaperboat.com/wp-content/uploads/2020/08/08/52220/dark-theme-04.jpg', 'https://img.wallpapersafari.com/desktop/1280/1024/57/25/zja5nO.jpg', 'https://cdn.wallpapersafari.com/49/71/2ceG5f.jpg']
 	const navigate = useNavigate();
 	// Side Effects
 	useEffect(() => {
@@ -31,13 +32,13 @@ const App = () => {
 
 	useEffect(() => {
 		lobbyService.getAllLobby().then(allLobby => setLobby(allLobby));
-		
+
 	}, []);
 
 	useEffect(() => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
- 
+
 	function handleCreateLobby(newLobby) {
 		lobbyService
 			.createLobby(newLobby)
@@ -48,7 +49,7 @@ const App = () => {
 			.catch(navigate("/"));
 	}
 
-// Event Handlers
+	// Event Handlers
 	const handleLogout = () => {
 		authService.logout();
 		setUser(null);
@@ -98,9 +99,13 @@ const App = () => {
 			.then(() => navigate('/'));
 	};
 
+	function chooseRandomBackgroundImage() {
+		let random = Math.floor(Math.random() * 5)
+		return potentialBackgroundImages[random]
+	}
 	return (
 		<>
-			<NavBar user={user} handleLogout={handleLogout} handleGetAllLobby={handleGetAllLobby}/>
+			<NavBar user={user} handleLogout={handleLogout} handleGetAllLobby={handleGetAllLobby} />
 			<Routes>
 				<Route
 					path="/"
@@ -192,7 +197,7 @@ const App = () => {
 						)
 					}
 				/>
-				< Route path='*' element={< PageNotFound />} /> 
+				< Route path='*' element={< PageNotFound />} />
 			</Routes>
 		</>
 	);
