@@ -21,8 +21,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 					<div className={styles.rightside}>
 						<div className={styles.center}>
 							<div className="lobbyname">
-								<h4 className={styles.center}>Lobby Name: </h4>
-								<h1 className={styles.center}>{lobbyInfo?.name}</h1>
+								{/* <h4 className={styles.center}>Lobby Name: </h4> */}
+								{/* <h1 className={styles.center}>{lobbyInfo?.name}</h1> */}
 							</div>
 							<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
 							<hr/>
