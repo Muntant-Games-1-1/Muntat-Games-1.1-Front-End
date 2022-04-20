@@ -5,19 +5,23 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby, cho
 	let players = lobby.waitingPlayers.map(player => player._id)
 	return (
 		<div className={styles.container} style={{ backgroundImage: `url(${chooseRandomBackgroundImage()})` }}>
-			<span><p>Game:</p><h3>{lobby?.game?.name}</h3></span>
+			<div className={styles.lobby_info}>
+				<p className={styles.lobby_owner}>A Lobby By {lobby.owner.name}</p>
+				<span><h3>{lobby?.game?.name}</h3></span>
+				<span>Lobby Name: {lobby?.name}</span>
+			</div>
 			{(lobby.owner._id && lobby?.owner?._id === user?.profile) ? (
 				<div className={styles.buttonContainer}>
-					<div className={styles.editDeleteContainer}>
+					<>
 						<button
 							onClick={() => handleDeleteLobbies(lobby._id)}
 							className={styles.delete}>
 							Delete
 						</button>
 						<Link to="/edit-lobby" state={lobby}>
-							<button className={styles.update}>Update Lobby</button>
+							<button className={styles.update}>Update</button>
 						</Link>
-					</div>
+					</>
 					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 						<button
 							className={styles.join}
@@ -43,8 +47,10 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby, cho
 					}
 				</>
 			)}
-			<span><p>Lobby Name:</p><h3>{lobby?.name}</h3></span>
-			<p>A Lobby By {lobby.owner.name}</p>
+			<div className={styles.players}>
+				<p>Lobby Capacity</p>
+				<p>10 / 90</p>
+			</div>
 		</div>
 	);
 }
