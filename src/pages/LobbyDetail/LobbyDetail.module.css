@@ -4,7 +4,10 @@
   margin-right: 32rem;
   margin-right: 32rem;
   font-size: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-
+.center{
+  display: flex;
+  justify-content: end;
+}
 

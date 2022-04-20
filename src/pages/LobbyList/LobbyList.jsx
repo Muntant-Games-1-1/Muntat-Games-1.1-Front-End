@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from './LobbyList.module.css'
 const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby })=>{
+	console.log(lobby)
 		let players = lobby.waitingPlayers.map(player => player._id)
   return (
 		<div className={styles.container}>

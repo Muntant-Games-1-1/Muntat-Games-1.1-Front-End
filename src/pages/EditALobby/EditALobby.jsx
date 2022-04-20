@@ -94,6 +94,60 @@ function handleSubmit(e) {
                 handleGameSelection={handleGameSelection}
             />
             </div>
+            <select
+          type="text"
+          id='languages'
+          onChange={handleChange}
+          name='languages'
+          value={formData.languages}
+        >
+          <option  value="English"> English </option>
+          <option  value="Spanish"> Spanish </option>
+          <option  value="French"> French </option>
+          <option  value="Chinese"> Chinese </option>
+          <option  value="Hindus"> Hindus </option>
+        </select>
+
+        <select
+          type="text"
+          id='competitive'
+          onChange={handleChange}
+          name='competitive'
+          value={formData.competitive}
+        >
+          <option  value="Easy"> Easy </option>
+          <option  value="Medium"> Medium </option>
+          <option  value="hard"> hard </option>
+          <option  value="competitive"> competitive </option>
+        </select>
+
+        <select
+          type="text"
+          id='console'
+          onChange={handleChange}
+          name='console'
+          value={formData.console}
+        >
+          <option  value="Xbox"> Xbox </option>
+          <option  value="Pc"> Pc </option>
+          <option  value="Nintendo"> Nintendo </option>
+          <option  value="Playstation"> Playstation </option>
+          <option  value="Any"> Any </option>
+        </select>
+
+        <select
+          type="text"
+          id='region'
+          onChange={handleChange}
+          name='region'
+          value={formData.region}
+        >
+          <option  value="North"> North </option>
+          <option  value="East"> East </option>
+          <option  value="South"> South </option>
+          <option  value="West"> West </option>
+        </select>
+
           </div>
           <div className={styles.button}>
           <button

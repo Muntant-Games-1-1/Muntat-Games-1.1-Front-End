@@ -15,14 +15,19 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 				setLobbyInfo(res)
 			})
 	}, [])
+	console.log(lobbyInfo?.languages)
+	console.log(lobbyInfo?.console)
+	console.log(lobbyInfo?.region)
+	console.log(lobbyInfo?.competitive)
 	return (
 			<div className={styles.container}>
 				<div className={styles.main}>
 					<div className={styles.rightside}>
 						<div className={styles.center}>
 							<div className="lobbyname">
-								{/* <h4 className={styles.center}>Lobby Name: </h4> */}
-								{/* <h1 className={styles.center}>{lobbyInfo?.name}</h1> */}
+								<h4 className={styles.center}>Lobby Name: </h4>
+								<h1 className={styles.center}>{lobbyInfo?.name}</h1>
+								<h1>{lobbyInfo?.languages}</h1>
 							</div>
 							<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
 							<hr/>
