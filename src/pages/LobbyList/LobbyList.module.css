@@ -1,28 +1,39 @@
 .container {
-  background-color: #0f4c75;
-  width: 15vh;
-  min-width: 300px;
-  height: 40vh;
-  min-height: 200px;
-  text-align: center;
+  width: 80vw;
+  max-width: 900px;
+  min-width: 600px;
+  height: 120px;
   border-radius: 10px;
   transition: 0.15s ease-in-out;
-  border: 2px black solid;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   margin: 0 10px 20px 10px;
+  padding-left: 10px;
 }
 
-.container > p {
-  color: white;
+.lobby_owner {
+  margin-top: 10px;
 }
 
-span > h3 {
-  color: white;
+.lobby_info {
+  width: 150%;
+}
+
+.container p {
+  color: rgb(255, 255, 255);
+}
+
+.container a {
+  width: fit-content;
+}
+
+span>h3 {
+  color: rgb(255, 255, 255);
   padding: 0;
   margin: 0;
 }
+
 .container:hover {
   box-shadow: 0px 0px 10px grey;
 }
@@ -30,13 +41,15 @@ span > h3 {
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  width: 50%;
 }
 
-.buttonContainer > a > button {
-  width: 70%;
+.buttonContainer button {
+  width: 80px;
 }
+
 
 .editDeleteContainer {
   width: 100%;
@@ -49,17 +62,10 @@ span > h3 {
   width: fit-content;
 }
 
-.editDeleteContainer > button {
-  width: 35%;
-}
-
-.buttonContainer {
-  border: none;
-}
 
 .buttonContainer button {
   color: white;
-  background-color: #1b262c;
+  background-color: #ffffff4d;
   border: #ffffff solid 1px;
   transition: 0.2s ease-in-out;
   border-radius: 40px;
@@ -70,7 +76,25 @@ span > h3 {
   background-color: black;
 }
 
-span > p {
-  color: white;
+span {
+  color: rgb(255, 255, 255);
   margin: 0;
+}
+
+.update,
+.join {
+  margin-top: 5px;
+}
+
+.players {
+  width: 300px;
+  height: 100%;
+  margin-left: 8px;
+  background-color: #6a1bfcb2;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

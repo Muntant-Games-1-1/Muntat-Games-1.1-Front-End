@@ -14,7 +14,7 @@ const NavBar = ({ user, handleLogout, handleGetAllLobby}) => {
 </div>
 </nav>
       )
-      :
+      : 
       <nav>
         <Link onClick={handleGetAllLobby} to="/"><img src={logo} alt="logo" className={styles.logo}/></Link>
         <div className={styles.navLinks}> 

@@ -1,5 +1,5 @@
 nav {
-  background-color: #1b262c;
+  background-color: transparent;
   overflow: hidden;
   height: 70px;
   display: flex;
@@ -11,18 +11,32 @@ nav {
 .navLinks {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
-a.link,
 a.logout {
-  color: rgb(255, 255, 255);
+  color: white;
   text-decoration: none;
   text-align: center;
   width: fit-content;
   padding: 5px 20px;
-  border: #1b262c 2px solid;
   transition: 0.2s ease-in-out;
+  box-shadow: 0px 0px 5px #113953;
+  background-color: #6a1bfc;
+  border-radius: 5px;
+}
+
+a.link {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  width: fit-content;
+  padding: 5px 20px;
+  transition: 0.2s ease-in-out;
+  background-color: #dadada;
+  border-radius: 5px;
+  margin-right: 15px;
+  box-shadow: 0px 0px 5px #757575;
 }
 
 .logo {
@@ -32,16 +46,12 @@ a.logout {
   float: left;
 }
 
-.logout {
-  box-shadow: 0px 0px 5px #113953;
-  background-color: #3282b8;
-  border-radius: 20px;
-}
 
 a.link:hover {
-  color: #3282b8;
+  background-color: #c4c4c4;
+  ;
 }
 
 a.logout:hover {
-  border: white 2px solid;
+  background-color: #7e38ff;
 }
