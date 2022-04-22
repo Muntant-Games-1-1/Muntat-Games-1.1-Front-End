@@ -6,6 +6,8 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   font-size: 22px;
+  margin-top: 20px;
+  padding-left: 50px;
 }
 
 .navLinks {
