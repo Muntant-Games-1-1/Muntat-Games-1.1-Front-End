@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './LobbyList.module.css'
 const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby, chooseRandomBackgroundImage }) => {
 	let players = lobby.waitingPlayers.map(player => player._id)
+	console.log(lobby)
 	return (
 		<div className={styles.container} style={{ backgroundImage: `url(${chooseRandomBackgroundImage()})` }}>
 			<div className={styles.lobby_info}>
@@ -49,7 +50,16 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, setLobby, cho
 			)}
 			<div className={styles.players}>
 				<p>Lobby Capacity</p>
-				<p>10 / 90</p>
+				{lobby ? 
+				<>
+				<p>{lobby.waitingPlayers.length}/{lobby.lobbyLimit}</p>
+				</>
+				:
+				<>
+				<p>loading..</p>
+				</>
+				}
+				
 			</div>
 		</div>
 	);

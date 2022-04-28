@@ -1,5 +1,6 @@
 import styles from './Landing.module.css'
 import LobbyList from '../LobbyList/LobbyList'
+import { Link } from 'react-router-dom'
 import './Landing.module.css'
 
 const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, chooseRandomBackgroundImage }) => {

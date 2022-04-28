@@ -47,7 +47,7 @@ const App = () => {
 		gameService.getCategories().then(categories => setCategories(categories));
 	}, []);
 
-	function handleCreateLobby(newLobby) {
+	const handleCreateLobby = newLobby => {
 		lobbyService
 			.createLobby(newLobby)
 			.then(createdLobby => {
@@ -71,6 +71,7 @@ const App = () => {
 	const handleGetAllLobby = () => {
 		lobbyService.getAllLobby().then(lobbies => setLobby(lobbies))
 	}
+
 	const handleDeleteLobby = id => {
 		lobbyService
 			.deleteOneLobby(id)
@@ -79,7 +80,7 @@ const App = () => {
 			);
 	};
 
-	function handleEditLobby(lobbyInfo) {
+	const handleEditLobby = lobbyInfo => {
 		lobbyService.updateLobby(lobbyInfo).then(updatedLobby => {
 			const newLobbies = lobby.map(l => {
 				return l._id === updatedLobby._id ? updatedLobby : l;
@@ -89,7 +90,7 @@ const App = () => {
 		navigate("/");
 	}
 
-	function handleCreateGame(game) {
+	const handleCreateGame = game => {
 		gameService.addGame(game);
 		navigate("/");
 	}
@@ -107,7 +108,7 @@ const App = () => {
 			.then(() => navigate('/'));
 	};
 
-	function chooseRandomBackgroundImage() {
+	const chooseRandomBackgroundImage = () => {
 		let random = Math.floor(Math.random() * 9)
 		return potentialBackgroundImages[random]
 	}
