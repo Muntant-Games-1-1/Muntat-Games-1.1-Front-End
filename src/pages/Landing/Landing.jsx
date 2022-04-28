@@ -1,11 +1,9 @@
 import styles from './Landing.module.css'
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import LobbyList from '../LobbyList/LobbyList'
+import { Link } from 'react-router-dom'
 import './Landing.module.css'
-import * as lobbyService from "../../services/lobbyService";
 
-const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, setLobby, chooseRandomBackgroundImage }) => {
+const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby, chooseRandomBackgroundImage }) => {
 
   return (
     <div className={styles.total_home}>
@@ -15,17 +13,20 @@ const Landing = ({ user, handleDeleteLobby, handleJoin, lobby, handleGetAllLobby
       </div>
       {!user ?
         <div className={styles.header}>
+          <p className={styles.details}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam cumque distinctio quo architecto, ullam numquam autem laboriosam nobis, molestias officia sequi non beatae sunt inventore repellendus eum, enim qui repudiandae.
+          </p>
           <p>Login or Sign-up To Join / Create A Lobby</p>
         </div>
         :
         <div className={styles.header}>
           <p className={styles.details}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam cumque distinctio quo architecto, ullam numquam autem laboriosam nobis, molestias officia sequi non beatae sunt inventore repellendus eum, enim qui repudiandae.
+            Mutant Games is an open source video game lobby service! Users can create and join lobbies to connect with their friends and chat about their favorite video games. Create a lobby to get started, or visit us on Github below to make contributions.
           </p>
           <div>
-            <button className={styles.reg_btn}>Button</button>
-            <button className={styles.reg_btn}>My Button Example</button>
-            <button className={styles.the_btn}>Button Here</button>
+            <a href="https://github.com/Muntant-Games-1-1/Muntat-Games-1.1-Front-End" rel='noreferrer' target="_blank"><button className={styles.reg_btn}>Github</button></a>
+            <Link to='/create-lobby'><button className={styles.reg_btn}>Create A Lobby</button></Link>
+            <Link to="/add-game"><button className={styles.the_btn}>Add A Game</button></Link>
           </div>
         </div>
       }
