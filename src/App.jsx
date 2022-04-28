@@ -28,8 +28,10 @@ const App = () => {
 		'https://img.wallpapersafari.com/desktop/1280/1024/57/25/zja5nO.jpg',
 		'https://cdn.wallpapersafari.com/49/71/2ceG5f.jpg',
 		'https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700331849.jpg',
-		'https://img.freepik.com/free-photo/black-monstera-leaves-background-wallpaper_53876-102420.jpg?w=2000', 'https://wallpapertops.com/walldb/original/c/f/1/1365.jpg',
-		'https://s3.envato.com/files/220900172/Rain%20On%20Window%20With%20Black%20Background%2003%20Preview.jpg', 'https://t4.ftcdn.net/jpg/01/32/33/79/360_F_132337982_11bhtebolWPLaVglNO2BZudxwD4WGxQ8.jpg',
+		'https://img.freepik.com/free-photo/black-monstera-leaves-background-wallpaper_53876-102420.jpg?w=2000',
+		'https://wallpapertops.com/walldb/original/c/f/1/1365.jpg',
+		'https://s3.envato.com/files/220900172/Rain%20On%20Window%20With%20Black%20Background%2003%20Preview.jpg',
+		'https://t4.ftcdn.net/jpg/01/32/33/79/360_F_132337982_11bhtebolWPLaVglNO2BZudxwD4WGxQ8.jpg',
 		'https://media.istockphoto.com/photos/wave-of-particles-abstract-wave-dots-in-dark-background-big-data-picture-id1355464281?b=1&k=20&m=1355464281&s=170667a&w=0&h=y6kP6uqj4rHFbDphl8BK1cgLxjDeidQSBLw13wcjRD0=']
 
 	const navigate = useNavigate();
@@ -160,7 +162,11 @@ const App = () => {
 				/>
 				<Route
 					path="/add-game"
-					element={<AddAGame handleCreateGame={handleCreateGame} categories={categories} />}
+					element={user ? (
+						<AddAGame handleCreateGame={handleCreateGame} categories={categories} />
+					) : (
+						<Login />
+					)}
 				/>
 				<Route
 					path="/lobby-detail/:lobby_id"

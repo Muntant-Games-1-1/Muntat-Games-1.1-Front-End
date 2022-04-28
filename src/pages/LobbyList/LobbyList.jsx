@@ -8,7 +8,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 	console.log('Not User', !user)
 	console.log('Players', players)
 	return (
-		<div className={styles.container} style={{ backgroundImage: `url(${chooseRandomBackgroundImage()})` }}>
+		<div className={styles.container} style={{ backgroundImage: `url('${chooseRandomBackgroundImage()}')` }}>
 			<div className={styles.lobby_info}>
 				<p className={styles.lobby_owner}>A Lobby By {lobby.owner?.name ?? 'Guest'}</p>
 				<span><h3>{lobby?.game?.name ?? lobby?.game}</h3></span>

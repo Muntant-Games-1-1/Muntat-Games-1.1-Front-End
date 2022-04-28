@@ -40,7 +40,7 @@ export default function Message({ details, user }) {
 			<div className={styles.allMessageContainer}>
 				<div className={styles.leftSide}>
 					<div>
-						{messages && messages?.length ? (
+						{messages?.length && user ? (
 							<div className={styles.allMessages}>
 								{messages?.map((message) => {
 									return (
@@ -70,7 +70,17 @@ export default function Message({ details, user }) {
 								})}
 							</div>
 						) : (
-							<p> No messages yet</p>
+							<>
+								{user ? (
+									<>
+										<p>No messages yet</p>
+									</>
+								) : (
+									<>
+										<p>Please Login To View Messages</p>
+									</>
+								)}
+							</>
 						)}
 					</div>
 				</div>
@@ -79,6 +89,6 @@ export default function Message({ details, user }) {
 
 			</div>
 			<MessageForm createMessage={handleCreateMessage} details={details} />
-		</div>
+		</div >
 	);
 }
