@@ -139,73 +139,35 @@ const App = () => {
 				/>
 				<Route
 					path="/profiles"
-					element={user ? <Profiles /> : <Navigate to="/login" />}
+					element={<Profiles />}
 				/>
 				<Route
 					path="/changePassword"
-					element={
-						user ? (
-							<ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
-						) : (
-							<Navigate to="/login" />
-						)
-					}
+					element={<ChangePassword handleSignupOrLogin={handleSignupOrLogin} />}
 				/>
 				<Route
 					path="/create-lobby"
-					element={
-						user ? (
-							<MakeALobby
-								handleCreateLobby={handleCreateLobby}
-								games={games.games}
-							/>
-						) : (
-							<Navigate to="/login" />
-						)
-					}
+					element={<MakeALobby handleCreateLobby={handleCreateLobby} games={games.games} />}
 				/>
 				<Route
 					path="/edit-lobby"
-					element={
-						user ? (
-							<EditALobby
-								handleEditLobby={handleEditLobby}
-								games={games.games}
-							/>
-						) : (
-							<Navigate to="/login" />
-						)
-					}
+					element={<EditALobby handleEditLobby={handleEditLobby} games={games.games} />}
 				/>
 				<Route
 					path="/add-game"
-					element={
-						user ? (
-							<AddAGame
-								handleCreateGame={handleCreateGame}
-								categories={categories}
-							/>
-						) : (
-							<Navigate to="/login" />
-						)
-					}
+					element={<AddAGame handleCreateGame={handleCreateGame} categories={categories} />}
 				/>
 				<Route
 					path="/lobby-detail/:lobby_id"
 					element={
-						user ? (
-							<LobbyDetail
-								user={user}
-								handleJoin={handleJoin}
-								lobby={lobby}
-								handleDeleteLobby={handleDeleteLobby}
-								setLobby={setLobby}
-								handleJoinAndLeave={handleJoinAndLeave}
-							/>
-						) : (
-							<Navigate to="/login" />
-						)
-					}
+						<LobbyDetail
+							user={user}
+							handleJoin={handleJoin}
+							lobby={lobby}
+							handleDeleteLobby={handleDeleteLobby}
+							setLobby={setLobby}
+							handleJoinAndLeave={handleJoinAndLeave}
+						/>}
 				/>
 				< Route path='*' element={< PageNotFound />} />
 			</Routes>
