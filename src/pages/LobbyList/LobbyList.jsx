@@ -11,7 +11,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 		<div className={styles.container} style={{ backgroundImage: `url(${chooseRandomBackgroundImage()})` }}>
 			<div className={styles.lobby_info}>
 				<p className={styles.lobby_owner}>A Lobby By {lobby.owner?.name ?? 'Guest'}</p>
-				<span><h3>{lobby?.game?.name}</h3></span>
+				<span><h3>{lobby?.game?.name ?? lobby?.game}</h3></span>
 				<span>Lobby Name: {lobby?.name}</span>
 			</div>
 			{(lobby.owner?._id && lobby?.owner?._id === user?.profile) ? (
