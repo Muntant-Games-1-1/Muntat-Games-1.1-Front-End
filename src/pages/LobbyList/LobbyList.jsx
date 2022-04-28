@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import styles from './LobbyList.module.css'
 const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomBackgroundImage }) => {
 	let players = lobby.waitingPlayers?.map(player => player._id) ?? 'Guest'
+
 	console.log(lobby)
-	console.log(user)
+	console.log('Not User', !user)
+	console.log('Players', players)
 	return (
 		<div className={styles.container} style={{ backgroundImage: `url(${chooseRandomBackgroundImage()})` }}>
 			<div className={styles.lobby_info}>
@@ -33,7 +35,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 			) : (
 				// If The Player Is A Member OF The Lobby They Will Have A View Button, Instead Of A Join Button
 				<>
-					{players?.includes(user?.profile?.toString()) ? (
+					{!user || players?.includes(user?.profile?.toString()) ? (
 						<div className={styles.buttonContainer}>
 							<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
 								<button>View</button>
