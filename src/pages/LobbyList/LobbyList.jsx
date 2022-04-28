@@ -37,7 +37,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 				<>
 					{!user || players?.includes(user?.profile?.toString()) ? (
 						<div className={styles.buttonContainer}>
-							<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
+							<Link to={`/lobby-detail/${lobby._id ?? 'guest-session'}`} state={lobby}>
 								<button>View</button>
 							</Link>
 						</div>

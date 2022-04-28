@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import Message from "../../components/Message/Message.jsx";
 import * as lobbyService from "../../services/lobbyService";
 import styles from './LobbyDetail.module.css'
@@ -8,7 +8,8 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 	const { lobby_id } = useParams()
 	const [lobbyInfo, setLobbyInfo] = useState({})
 	const waitingList = lobbyInfo?.waitingPlayers?.map(player => player.name);
-
+	const navigate = useNavigate()
+	const location = useLocation()
 	useEffect(() => {
 		lobbyService.getLobbyById(lobby_id)
 			.then(res => {
@@ -23,9 +24,9 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 					<div className={styles.center}>
 						<div className="lobbyname">
 							<h4 className={styles.center}>Lobby Name: </h4>
-							<h1 className={styles.center}>{lobbyInfo?.name}</h1>
+							<h1 className={styles.center}>{lobbyInfo?.name ?? location.state.name}</h1>
 						</div>
-						<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
+						<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name ?? 'Guest'}</h4>
 						<hr />
 						{user ?
 							<h2>
@@ -52,7 +53,10 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 								Exit Lobby
 							</button>
 							:
-							<button className={styles.leaveButton} >
+							<button
+								className={styles.leaveButton}
+								onClick={() => navigate('/')}
+							>
 								Back To Home
 							</button>
 						}
