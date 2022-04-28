@@ -27,9 +27,13 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 						</div>
 						<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name}</h4>
 						<hr />
-						<h2>
-							Waiting Players: {waitingList?.join(", ")}
-						</h2>
+						{user ?
+							<h2>
+								Waiting Players: {waitingList?.join(", ")}
+							</h2>
+							:
+							<h2>This Is A Guest Preview</h2>
+						}
 					</div>
 					<div className="gameName">
 						<h1 className={styles.center}>{lobbyInfo?.game?.name}</h1>
@@ -40,12 +44,18 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 						)}
 					</div>
 					<div className={styles.center}>
-						<button
-							onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
-							className={styles.leaveButton}
-						>
-							Exit Lobby
-						</button>
+						{user ?
+							<button
+								onClick={() => handleJoinAndLeave(lobbyInfo?._id)}
+								className={styles.leaveButton}
+							>
+								Exit Lobby
+							</button>
+							:
+							<button className={styles.leaveButton} >
+								Back To Home
+							</button>
+						}
 					</div>
 				</div>
 			</div>
