@@ -2,70 +2,73 @@ import { useState, useEffect, useRef } from 'react';
 import GameSearch from '../../components/GameSearch/GameSearch.jsx'
 import * as GameService from '../../services/gameService'
 import styles from './MakeALobby.module.css'
-function MakeALobby({ handleCreateLobby}) {
-  
+function MakeALobby({ handleCreateLobby, user }) {
+
   // State , Constants, & Helper Functions
   const [games, setGames] = useState([])
   const [validForm, setValidForm] = useState(false)
   const [searchResults, setSearchResults] = useState([])
   const formElement = useRef()
-  const [formData, setFormData] = useState({game: ''})
+  const [formData, setFormData] = useState({ game: '' })
   const allGameNames = games?.map(game => game.name.toLowerCase()) ?? []
   // Converts Game Name Into Its Id
-  function getGameId (gameName) {
+  function getGameId(gameName) {
     const correctGame = games.find(game => {
-    return game.name.toLowerCase() === gameName.toLowerCase()
+      return game.name.toLowerCase() === gameName.toLowerCase()
     })
     return correctGame._id
   }
 
-// Action Handlers
-function handleChange(e) {
-  setFormData({ ...formData, [e.target.name]: e.target.value })
-}
+  // Action Handlers
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
-function handleSubmit(e) {
-  e.preventDefault()
-  // Make Sure User Enters A Valid Game Before Submitting
-  if(!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
-  // Exchanging The Game Name With Its Id & Then Submitting Data
-  const newId = getGameId(formData.game)
-  handleCreateLobby({...formData, game: newId})
-}
+  function handleSubmit(e) {
+    e.preventDefault()
+    // Make Sure User Enters A Valid Game Before Submitting
+    if (!allGameNames.includes(formData.game.toLowerCase())) return alert('Please Choose A Valid Game')
+    // Exchanging The Game Name With Its Id & Then Submitting Data IF There Is A Logged In User
+    if (user) {
+      const newId = getGameId(formData.game)
+      return handleCreateLobby({ ...formData, game: newId })
+    }
+    return handleCreateLobby(formData)
+  }
 
-function handleGameSelection(e) {
-  setFormData({...formData, game: e.target.textContent })
-}
+  function handleGameSelection(e) {
+    setFormData({ ...formData, game: e.target.textContent })
+  }
 
-// Side-Effects
-  useEffect(() =>{
-  GameService.getAllGames()
-  .then(games => {
-  setGames(games.games)
-  } )
+  // Side-Effects
+  useEffect(() => {
+    GameService.getAllGames()
+      .then(games => {
+        setGames(games.games)
+      })
   }, [])
 
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
 
-  useEffect(() =>{
+  useEffect(() => {
     let searchedGames = games?.filter(game => {
       // if the search bar is empty, the games will not display
-      if(!formData.game) return false
+      if (!formData.game) return false
       // if a user has the exact name of a valid game in the input, the dropdown wont show anything
-      if(game.name.toLowerCase() === formData.game) return false
-      if(game.name.toLowerCase().includes(formData.game)) return true
+      if (game.name.toLowerCase() === formData.game) return false
+      if (game.name.toLowerCase().includes(formData.game)) return true
       return false
     })
     setSearchResults(searchedGames)
   }, [formData, games])
 
   return (
-    <> 
+    <>
       <div className={styles.center}>
         <h1>Create A Lobby</h1>
-      </div> 
+      </div>
       <form
         onSubmit={handleSubmit}
         ref={formElement}
@@ -90,24 +93,24 @@ function handleGameSelection(e) {
               name='lobbyLimit'
               onChange={handleChange}
               required
-              />
+            />
           </div>
           <div className={styles.gameSearch}>
             < GameSearch
-                formData={formData}
-                handleChange={handleChange}
-                searchResults={searchResults}
-                handleGameSelection={handleGameSelection}
+              formData={formData}
+              handleChange={handleChange}
+              searchResults={searchResults}
+              handleGameSelection={handleGameSelection}
             />
           </div>
-         </div>
-         <div className={styles.button}>
+        </div>
+        <div className={styles.button}>
           <button
             type='submit'
             disabled={!validForm}
             className={styles.createButton}
-            >
-              Create
+          >
+            Create
           </button>
         </div>
       </form>

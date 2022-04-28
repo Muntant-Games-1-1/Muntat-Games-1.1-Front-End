@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate, useRoutes } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
@@ -48,6 +48,10 @@ const App = () => {
 	}, []);
 
 	const handleCreateLobby = newLobby => {
+		// If The User Is not Logged In, They Can Create A New Lobby Temporarily On Their Machine (Wont Enter The Database & Will Disappear Upon Refresh)
+		if (!user) {
+			return setLobby([...lobby, newLobby])
+		}
 		lobbyService
 			.createLobby(newLobby)
 			.then(createdLobby => {
@@ -98,13 +102,13 @@ const App = () => {
 	const handleJoin = lobby_id => {
 		lobbyService
 			.joinLobby(lobby_id)
-			.then(res => handleGetAllLobby)
+			.then(() => handleGetAllLobby)
 	};
 
 	const handleJoinAndLeave = lobby_id => {
 		lobbyService
 			.joinLobby(lobby_id)
-			.then(res => handleGetAllLobby())
+			.then(() => handleGetAllLobby())
 			.then(() => navigate('/'));
 	};
 
@@ -147,7 +151,7 @@ const App = () => {
 				/>
 				<Route
 					path="/create-lobby"
-					element={<MakeALobby handleCreateLobby={handleCreateLobby} games={games.games} />}
+					element={<MakeALobby handleCreateLobby={handleCreateLobby} games={games.games} user={user} />}
 				/>
 				<Route
 					path="/edit-lobby"
