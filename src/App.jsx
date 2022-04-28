@@ -50,13 +50,14 @@ const App = () => {
 	const handleCreateLobby = newLobby => {
 		// If The User Is not Logged In, They Can Create A New Lobby Temporarily On Their Machine (Wont Enter The Database & Will Disappear Upon Refresh)
 		if (!user) {
-			return setLobby([...lobby, newLobby])
+			setLobby([...lobby, newLobby])
+			return navigate("/")
 		}
 		lobbyService
 			.createLobby(newLobby)
 			.then(createdLobby => {
 				setLobby([...lobby, createdLobby]);
-				navigate("/");
+				navigate("/")
 			})
 			.catch(navigate("/"));
 	}
