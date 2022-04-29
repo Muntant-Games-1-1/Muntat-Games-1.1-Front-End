@@ -5,11 +5,16 @@ import logo from '../../images/logo.png'
 const NavBar = ({ user, handleLogout, handleGetAllLobby }) => {
   const mobileNav = useRef()
   function toggleNavBar() {
-    console.log('here')
     if (mobileNav.current.style.display === '') {
       return mobileNav.current.style.display = 'flex'
     }
     mobileNav.current.style.display = ''
+  }
+
+  function closeMobileNavOnNavigation() {
+    if (mobileNav.current.style.display === 'flex') {
+      return mobileNav.current.style.display = ''
+    }
   }
   return (
     <>
@@ -28,7 +33,7 @@ const NavBar = ({ user, handleLogout, handleGetAllLobby }) => {
         <div
           className={styles.navLinks}
           ref={mobileNav}
-          onClick={() => console.log('hello')}
+          onClick={e => closeMobileNavOnNavigation()}
         >
           <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
           {user ? (

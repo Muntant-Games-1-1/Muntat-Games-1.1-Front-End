@@ -18,6 +18,7 @@ nav {
   justify-content: center;
   align-items: center;
   height: auto;
+  transition: .2s ease-in-out;
 }
 
 a.logout {
@@ -84,7 +85,6 @@ a.logout:hover {
     display: flex;
   }
 
-
   .navLinks {
     display: none;
     flex-direction: column;
@@ -92,10 +92,6 @@ a.logout:hover {
     align-items: space-between;
     align-content: space-between;
     width: 100%;
-  }
-
-  .navLinks.active {
-    display: flex;
   }
 
   nav {
@@ -122,6 +118,7 @@ a.logout:hover {
 
   .brand_name {
     display: flex;
+    transition: all .2s ease-in-out;
     justify-content: space-between;
     width: 100%;
     padding: 10px 10px;
