@@ -2,19 +2,20 @@ import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from './LobbyList.module.css'
 const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomBackgroundImage }) => {
-	let players = lobby.waitingPlayers?.map(player => player._id) ?? 'Guest'
-
-	console.log(lobby)
-	console.log('Not User', !user)
-	console.log('Players', players)
+	// Constants
+	const players = lobby.waitingPlayers?.map(player => player._id) ?? 'Guest'
+	const playersInLobby = lobby?.waitingPlayers?.length ?? 1
+	const isTheLobbyFull = playersInLobby >= lobby.lobbyLimit
+	const backgroundImage = chooseRandomBackgroundImage()
+	//JSX
 	return (
-		<div className={styles.container} style={{ backgroundImage: `url('${chooseRandomBackgroundImage()}')` }}>
+		<div className={styles.container} style={{ backgroundImage: `url('${backgroundImage}')` }}>
 			<div className={styles.lobby_info}>
 				<p className={styles.lobby_owner}>A Lobby By {lobby.owner?.name ?? 'Guest'}</p>
 				<span><h3>{lobby?.game?.name ?? lobby?.game}</h3></span>
 				<span>Lobby Name: {lobby?.name}</span>
 			</div>
-			{(lobby.owner?._id && lobby?.owner?._id === user?.profile) ? (
+			{(lobby?.owner?._id === user?.profile) ? (
 				<div className={styles.buttonContainer}>
 					<>
 						<button
@@ -35,7 +36,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 			) : (
 				// If The Player Is A Member OF The Lobby They Will Have A View Button, Instead Of A Join Button
 				<>
-					{!user || players?.includes(user?.profile?.toString()) ? (
+					{!user || players?.includes(user?.profile?.toString()) || isTheLobbyFull ? (
 						<div className={styles.buttonContainer}>
 							<Link to={`/lobby-detail/${lobby._id ?? 'guest-session'}`} state={lobby}>
 								<button>View</button>
@@ -57,7 +58,15 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 				<p>Lobby Capacity</p>
 				{lobby ?
 					<>
-						<p>{lobby.waitingPlayers?.length ?? 1}/{lobby.lobbyLimit}</p>
+						{isTheLobbyFull ? (
+							<>
+								<p className={styles.red}>Lobby Full</p>
+							</>
+						) : (
+							<>
+								<p>{playersInLobby}/{lobby.lobbyLimit}</p>
+							</>
+						)}
 					</>
 					:
 					<>
