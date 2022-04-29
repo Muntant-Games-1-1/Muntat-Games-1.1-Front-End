@@ -2,5 +2,6 @@
 
 body {
   font-family: "Quicksand", sans-serif;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(230, 230, 230);
+  overflow-x: hidden;
 }
