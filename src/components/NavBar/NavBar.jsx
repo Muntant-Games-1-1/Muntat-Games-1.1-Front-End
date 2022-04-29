@@ -4,29 +4,31 @@ import logo from '../../images/logo.png'
 const NavBar = ({ user, handleLogout, handleGetAllLobby }) => {
   return (
     <>
-      {user ? (
-        <nav>
+      <nav>
+        <div className={styles.brand_name}>
           <Link onClick={handleGetAllLobby} to="/"><img src={logo} alt="logo" className={styles.logo} /></Link>
-          <div className={styles.navLinks}>
-            <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
-            <Link className={styles.link} to="/add-game">Add A Game</Link>
-            <Link className={styles.logout} to="" onClick={handleLogout}>Logout</Link>
-          </div>
-        </nav>
-      )
-        :
-        <nav>
-          <Link onClick={handleGetAllLobby} to="/"><img src={logo} alt="logo" className={styles.logo} /></Link>
-          <div className={styles.navLinks}>
-            <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
-            <Link className={styles.link} to="/login">Login</Link>
-            <Link className={styles.link} to="/signup">Sign-up</Link>
-          </div>
-        </nav>
-
-
-
-      }
+          <button className={styles.toggleButton}>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+          </button>
+        </div>
+        <div className={styles.navLinks}>
+          <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
+          {user ? (
+            <>
+              <Link className={styles.link} to="/add-game">Add A Game</Link>
+              <Link className={styles.logout} to="" onClick={handleLogout}>Logout</Link>
+            </>
+          )
+            : (
+              <>
+                <Link className={styles.link} to="/login">Login</Link>
+                <Link className={styles.link} to="/signup">Sign-up</Link>
+              </>
+            )}
+        </div>
+      </nav>
     </>
   )
 }
