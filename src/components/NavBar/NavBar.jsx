@@ -1,19 +1,35 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
 import logo from '../../images/logo.png'
 const NavBar = ({ user, handleLogout, handleGetAllLobby }) => {
+  const mobileNav = useRef()
+  function toggleNavBar() {
+    console.log('here')
+    if (mobileNav.current.style.display === '') {
+      return mobileNav.current.style.display = 'flex'
+    }
+    mobileNav.current.style.display = ''
+  }
   return (
     <>
       <nav>
         <div className={styles.brand_name}>
           <Link onClick={handleGetAllLobby} to="/"><img src={logo} alt="logo" className={styles.logo} /></Link>
-          <button className={styles.toggleButton}>
+          <button
+            className={styles.toggleButton}
+            onClick={toggleNavBar}
+          >
             <span className={styles.bar}></span>
             <span className={styles.bar}></span>
             <span className={styles.bar}></span>
           </button>
         </div>
-        <div className={styles.navLinks}>
+        <div
+          className={styles.navLinks}
+          ref={mobileNav}
+          onClick={() => console.log('hello')}
+        >
           <Link className={styles.link} to="/create-lobby">Create A Lobby</Link>
           {user ? (
             <>

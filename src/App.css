@@ -3,4 +3,5 @@
 body {
   font-family: "Quicksand", sans-serif;
   background-color: rgb(235, 235, 235);
+  overflow-x: hidden;
 }
