@@ -4,9 +4,6 @@ import styles from './LobbyList.module.css'
 const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomBackgroundImage }) => {
 	let players = lobby.waitingPlayers?.map(player => player._id) ?? 'Guest'
 
-	console.log(lobby)
-	console.log('Not User', !user)
-	console.log('Players', players)
 	return (
 		<div className={styles.container} style={{ backgroundImage: `url('${chooseRandomBackgroundImage()}')` }}>
 			<div className={styles.lobby_info}>
@@ -57,7 +54,15 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 				<p>Lobby Capacity</p>
 				{lobby ?
 					<>
-						<p>{lobby.waitingPlayers?.length ?? 1}/{lobby.lobbyLimit}</p>
+						{lobby.waitingPlayers.length >= lobby.lobbyLimit ? (
+							<>
+								<p className={styles.red}>Lobby Full</p>
+							</>
+						) : (
+							<>
+								<p>{lobby.waitingPlayers?.length ?? 1}/{lobby.lobbyLimit}</p>
+							</>
+						)}
 					</>
 					:
 					<>
