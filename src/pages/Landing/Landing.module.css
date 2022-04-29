@@ -71,3 +71,9 @@
 .the_btn:hover {
   background-color: #7e38ff;
 }
+
+@media only screen and (max-width: 900px) {
+  .total_home {
+    margin-top: 40px;
+  }
+}
