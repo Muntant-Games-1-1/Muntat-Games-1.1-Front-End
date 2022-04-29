@@ -27,7 +27,7 @@
 }
 
 .total_home {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .details {
@@ -95,15 +95,8 @@
 
   .container {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-  }
-
-}
-
-@media only screen and (max-width: 700px) {
-
-  .container {
-    flex-direction: column;
   }
 
 }
