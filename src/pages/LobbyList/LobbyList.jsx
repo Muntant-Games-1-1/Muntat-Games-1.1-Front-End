@@ -27,7 +27,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 							<button className={styles.update}>Update</button>
 						</Link>
 					</>
-					<Link to={`/lobby-detail/${lobby._id}`} state={lobby}>
+					<Link to={`/lobby-detail/${lobby._id}`} state={backgroundImage}>
 						<button
 							className={styles.join}
 						>View</button>
@@ -38,7 +38,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 				<>
 					{!user || players?.includes(user?.profile?.toString()) || isTheLobbyFull ? (
 						<div className={styles.buttonContainer}>
-							<Link to={`/lobby-detail/${lobby._id ?? 'guest-session'}`} state={lobby}>
+							<Link to={`/lobby-detail/${lobby._id ?? 'guest-session'}`} state={backgroundImage}>
 								<button>View</button>
 							</Link>
 						</div>

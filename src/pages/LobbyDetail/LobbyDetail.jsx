@@ -16,7 +16,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 				setLobbyInfo(res)
 			})
 	}, [])
-	console.log(lobbyInfo)
+	console.log('Lobby Info', location.state)
 	return (
 		<div className={styles.container}>
 			<div className={styles.main}>
@@ -24,7 +24,7 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 					<div className={styles.center}>
 						<div className="lobbyname">
 							<h4 className={styles.center}>Lobby Name: </h4>
-							<h1 className={styles.center}>{lobbyInfo?.name ?? location.state.name}</h1>
+							<h1 className={styles.center}>{lobbyInfo?.name}</h1>
 						</div>
 						<h4 className={styles.center}>Brought To You By {lobbyInfo?.owner?.name ?? 'Guest'}</h4>
 						<hr />

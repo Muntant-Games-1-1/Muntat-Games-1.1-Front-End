@@ -11,6 +11,8 @@ export default function Message({ details, user }) {
 	const location = useLocation();
 	const [messages, setMessages] = useState(null);
 
+	console.log('Location: ', location)
+
 	function handleCreateMessage(formData, details) {
 		messageService.createMessage(formData, details).then(result => {
 			setMessages([...messages, result]);
@@ -27,7 +29,7 @@ export default function Message({ details, user }) {
 
 	useEffect(() => {
 		messageService
-			.getAllMessages(location)
+			.getAllMessages(details._id)
 			.then(allMessages => setMessages(allMessages));
 	}, []);
 
