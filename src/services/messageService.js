@@ -15,8 +15,9 @@ async function createMessage(messageDetails, details) {
 	return result;
 }
 
-async function getAllMessages(location) {
-	const messages = await fetch(`${BASE_URL}/${location.state._id}`, {
+async function getAllMessages(lobbyId) {
+	console.log(lobbyId)
+	const messages = await fetch(`${BASE_URL}/${lobbyId}`, {
 		method: "GET",
 		headers: {
 			"content-type": "application/json",
