@@ -58,7 +58,7 @@ function MakeALobby({ handleCreateLobby, user }) {
       if (!formData.game) return false
       // if a user has the exact name of a valid game in the input, the dropdown wont show anything
       if (game.name.toLowerCase() === formData.game) return false
-      if (game.name.toLowerCase().includes(formData.game)) return true
+      if (game.name.toLowerCase().includes(formData.game.toLowerCase())) return true
       return false
     })
     setSearchResults(searchedGames)
