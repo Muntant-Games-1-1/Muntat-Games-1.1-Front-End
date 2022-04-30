@@ -27,7 +27,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 							<button className={styles.update}>Update</button>
 						</Link>
 					</>
-					<Link to={`/lobby-detail/${lobby._id}`} state={backgroundImage}>
+					<Link to={`/lobby-detail/${lobby._id}`} state={[lobby._id, backgroundImage]}>
 						<button
 							className={styles.join}
 						>View</button>

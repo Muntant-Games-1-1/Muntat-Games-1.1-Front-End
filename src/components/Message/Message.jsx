@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MessageForm from "../../components/MessageForm/MessageForm.jsx";
 import styles from "./Message.module.css";
 import * as messageService from "../../services/messageService.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function Message({ details, user }) {
+export default function Message({ lobbyDetails, user, lobbyId }) {
 
-	const location = useLocation();
 	const [messages, setMessages] = useState(null);
-
-	console.log('Location: ', location)
 
 	function handleCreateMessage(formData, details) {
 		messageService.createMessage(formData, details).then(result => {
@@ -28,12 +25,14 @@ export default function Message({ details, user }) {
 	};
 
 	useEffect(() => {
-		messageService
-			.getAllMessages(details._id)
-			.then(allMessages => setMessages(allMessages));
+		async function fetchData() {
+			console.log('From useEffect: ', lobbyId)
+			const messages = await messageService.getAllMessages(lobbyId)
+			return setMessages(messages)
+		}
+		fetchData()
 	}, []);
 
-	console.log('Messages', messages)
 
 
 	return (
@@ -55,7 +54,7 @@ export default function Message({ details, user }) {
 													<button
 														className={styles.trash}
 														onClick={() =>
-															handleDeleteMessage(message?._id, location.state._id)
+															handleDeleteMessage(message?._id, lobbyDetails?._id)
 														}
 													>
 														<FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
@@ -90,7 +89,7 @@ export default function Message({ details, user }) {
 				</div>
 
 			</div>
-			<MessageForm createMessage={handleCreateMessage} details={details} />
+			<MessageForm createMessage={handleCreateMessage} details={lobbyDetails} />
 		</div >
 	);
 }
