@@ -38,7 +38,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 				<>
 					{!user || players?.includes(user?.profile?.toString()) || isTheLobbyFull ? (
 						<div className={styles.buttonContainer}>
-							<Link to={`/lobby-detail/${lobby._id ?? 'guest-session'}`} state={backgroundImage}>
+							<Link to={`/lobby-detail/${lobby._id ?? 'guest-session'}`} state={[lobby._id, backgroundImage]}>
 								<button>View</button>
 							</Link>
 						</div>
@@ -46,7 +46,7 @@ const LobbyList = ({ lobby, handleDeleteLobbies, user, handleJoin, chooseRandomB
 					) : (
 						// If The Player Is NOT Member OF The Lobby They Will Have A Join Button
 						<div className={styles.buttonContainer}>
-							<Link to={`/lobby-detail/${lobby?._id}`} state={lobby}>
+							<Link to={`/lobby-detail/${lobby?._id}`} state={[lobby._id, backgroundImage]}>
 								<button onClick={() => handleJoin(lobby?._id)}>Join</button>
 							</Link>
 						</div>
