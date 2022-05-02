@@ -35,8 +35,17 @@ h2>span {
 
 
 .imgDiv {
-  width: 95%;
+  width: 70%;
   height: 200px;
   border: black 2px solid;
   border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
+
+
+.top_container {}
