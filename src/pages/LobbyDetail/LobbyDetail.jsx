@@ -20,12 +20,6 @@ function LobbyDetail({ handleJoin, lobby, handleDeleteLobby, user, handleJoinAnd
 	console.log("state", location.state)
 	return (
 		<div className={styles.container}>
-			<div className={styles.top_container}>
-				<div className={styles.imgDiv} style={{ backgroundImage: `url(${location.state[1]})` }}>
-					<h2>{lobbyInfo?.game?.name}</h2>
-				</div>
-			</div>
-
 			<div className={styles.main}>
 				<div className="rightside">
 					<div className={styles.center}>
