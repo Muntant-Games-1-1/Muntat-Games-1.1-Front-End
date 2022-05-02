@@ -1,6 +1,6 @@
 .container {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
   margin: 20px 20px 20px 20px;
 }
 
@@ -9,11 +9,11 @@
   width: 60vw;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
-.leaveButton{
+.leaveButton {
   color: black;
   background-color: rgb(255, 68, 68);
   border-radius: 10px;
@@ -21,14 +21,22 @@
   transition: all .2s ease-in-out;
 }
 
-.leaveButton:hover{
+.leaveButton:hover {
   padding: 12px;
   font-size: 20px;
   background-color: red;
   color: white;
 }
 
-h2 > span{
+h2>span {
   font-size: 20px;
   margin: 10px
+}
+
+
+.imgDiv {
+  width: 95%;
+  height: 200px;
+  border: black 2px solid;
+  border-radius: 10px;
 }
