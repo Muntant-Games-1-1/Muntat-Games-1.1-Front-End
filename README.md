@@ -1,35 +1,46 @@
-# Mutant Games
+<h1 align="center">Welcome to Mutant Games</h1>
+<p align="center"> A Full Stack & Open Source Video Game Lobby Service </p>
 
-Mutant Games is an open source video game lobby service! Users can create and join lobbies to connect with their friends and chat about their favorite video games.
-
-## Screenshots:
+<p align="center">
+<img alt="Lobby Detail View" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+<img alt="Lobby Detail View" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white">
+<img alt="Lobby Detail View" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white">
+<img alt="Lobby Detail View" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1">
+<img alt="Lobby Detail View" src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=whit">
+  <img alt="Lobby Detail View" src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=whit">
+</p>
+<p align="center">
+  <img alt="Lobby Detail View" src="./src/images/Mutant_Games_Smaller_Desktop.png"  width="600px">
+</p>
+<p align="center">Mutant Games is an open source video game lobby service! Users can create and join lobbies to connect with their friends and chat about their favorite video games.
+## Screenshots:<p>
 
 Desktop Home Landing Page
 
-<img alt="Lobby Detail View" src="./src/images/Mutant_Games_Desktop.png" width="600px">
 
 
 Fully Responsive w/ Hamburger Menu
 
 <img alt="Homepage" src="./src/images/Mutant_Games_Mobile.png" width="400px" >
 
+
+## Authentication:
+
+This application was built using with JWT authentication. Passwords are then hashed and salted using the NPM package Bcrypt. This insures for maximum password protection. User are able to create an account, login and change passwords.
+
+Users who are not signed in may create lobbies for demonstration purposes, but the lobbies will not be saved to the database. 
 ## Technologies Used:
 
 This full-stack MERN application was built using:
 
-![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-![](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=whit)
-![](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1)
 ![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=whit)
 ![](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=whit)
 ![](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=whit)
 ![](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=whit)
-![](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=whit)
-![](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=whit)
 
 ## Next Steps:
 
