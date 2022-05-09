@@ -12,6 +12,28 @@
 <p align="center">
   <img alt="Lobby Detail View" src="./src/images/Mutant_Games_Smaller_Desktop.png"  width="600px">
 </p>
+
+
+<h1 align="center">Key Features 🔑</h1>
+
+<h3>JWT Authentication</h3>
+<h3>Full CRUD Functionality</h3>
+<h3>Bcrypt Password Hashing & Salting</h3>
+<h3>Message Board</h3>
+<h3>Search Feature For Games in The Database</h3>
+<h3>Mobile Responsive</h3>
+
+<h2 align="center">--- Future Plans ---</h2>
+<h3>Friend Requests</h3>
+<h3>Socket.io Real-Time Chat</h3>
+<h3>UI Beautification</h3>
+
+<h2 align="center">---  Contribute ---</h2>
+
+<h2 align="center">--- Team Members ---</h2>
+
+
+
 <p align="center">Mutant Games is an open source video game lobby service! Users can create and join lobbies to connect with their friends and chat about their favorite video games.
 ## Screenshots:<p>
 
@@ -26,9 +48,9 @@ Fully Responsive w/ Hamburger Menu
 
 ## Authentication:
 
-This application was built using with JWT authentication. Passwords are then hashed and salted using the NPM package Bcrypt. This insures for maximum password protection. User are able to create an account, login and change passwords.
+This application was built using with JWT authentication.  This insures for maximum password protection. User are able to create an account, login and change passwords.
 
-Users who are not signed in may create lobbies for demonstration purposes, but the lobbies will not be saved to the database. 
+
 ## Technologies Used:
 
 This full-stack MERN application was built using:
