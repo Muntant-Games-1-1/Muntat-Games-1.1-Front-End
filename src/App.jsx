@@ -22,6 +22,7 @@ const App = () => {
 	const [lobby, setLobby] = useState([]);
 	const [categories, setCategories] = useState([]);
 	const [games, setGames] = useState([]);
+
 	// Other Constants
 	const potentialBackgroundImages = [
 		'https://wallpaperboat.com/wp-content/uploads/2020/08/08/52220/dark-theme-04.jpg',
@@ -35,6 +36,7 @@ const App = () => {
 		'https://media.istockphoto.com/photos/wave-of-particles-abstract-wave-dots-in-dark-background-big-data-picture-id1355464281?b=1&k=20&m=1355464281&s=170667a&w=0&h=y6kP6uqj4rHFbDphl8BK1cgLxjDeidQSBLw13wcjRD0=']
 
 	const navigate = useNavigate();
+
 	// Side Effects
 	useEffect(() => {
 		gameService.getAllGames().then(allGames => setGames(allGames));
@@ -84,7 +86,8 @@ const App = () => {
 			.deleteOneLobby(id)
 			.then(deleteOneLobby =>
 				setLobby(lobby.filter(lobby => lobby._id !== deleteOneLobby._id))
-			);
+			)
+			.catch(navigate("/"));
 	};
 
 	const handleEditLobby = lobbyInfo => {
@@ -106,13 +109,15 @@ const App = () => {
 		lobbyService
 			.joinLobby(lobby_id)
 			.then(() => handleGetAllLobby)
+			.catch(navigate("/"));
 	};
 
 	const handleJoinAndLeave = lobby_id => {
 		lobbyService
 			.joinLobby(lobby_id)
 			.then(() => handleGetAllLobby())
-			.then(() => navigate('/'));
+			.then(() => navigate('/'))
+			.catch(navigate("/"));
 	};
 
 	const chooseRandomBackgroundImage = () => {
